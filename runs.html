@@ -22,17 +22,18 @@
 <body>
 <a class="back" href="./index.html">&larr; viewer</a>
 <h1>Run scoreboard</h1>
-<p class="sub">Average score per game across the 25 public ARC-AGI-3 games (Tufa's public reference: 1.6002). Click a run to open it in the viewer.</p>
+<p class="sub">Average score per game across the 25 public ARC-AGI-3 games (Tufa's public reference: 1.6002). Click a run for its harness card and per-game scores.</p>
 <table id="t"><thead><tr>
 <th>Run</th><th>Games</th><th>Levels won</th><th>Actions</th><th>Tokens</th><th>Avg score</th>
 </tr></thead><tbody></tbody></table>
 <script>
-fetch("./data/runs-index.json").then(r => r.json()).then(rows => {
+fetch("./data/runs-index.json").then(r => r.json()).then(payload => {
+  const rows = payload.runs || payload;
   const tb = document.querySelector("#t tbody");
   const best = Math.max(...rows.map(r => r.avg_score));
   tb.innerHTML = rows.map(r => `
     <tr class="${r.avg_score === best ? "best" : ""}">
-      <td class="run"><a href="./index.html#run=${encodeURIComponent(r.run)}">${r.run}</a></td>
+      <td class="run"><a href="./run.html#run=${encodeURIComponent(r.run)}">${r.run}</a></td>
       <td>${r.games}</td><td>${r.levels}</td><td>${r.actions.toLocaleString()}</td>
       <td>${r.tokens.toLocaleString()}</td><td>${r.avg_score.toFixed(3)}</td>
     </tr>`).join("");

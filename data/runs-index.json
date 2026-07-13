@@ -1,50 +1,1038 @@
-[
- {
-  "run": "20260712_170321_tufa-exact-rung0",
-  "games": 25,
-  "avg_score": 0.679,
-  "levels": 12,
-  "actions": 5914,
-  "tokens": 1459058
- },
- {
-  "run": "20260712_130533_g4-v1-fullstack-32k",
-  "games": 25,
-  "avg_score": 0.297,
-  "levels": 3,
-  "actions": 1490,
-  "tokens": 949834
- },
- {
-  "run": "20260712_130556_g4-v2-ledger-64k",
-  "games": 25,
-  "avg_score": 0.244,
-  "levels": 4,
-  "actions": 1072,
-  "tokens": 562005
- },
- {
-  "run": "20260711_200118_a424-control-25game",
-  "games": 25,
-  "avg_score": 0.232,
-  "levels": 2,
-  "actions": 717,
-  "tokens": 219020
- },
- {
-  "run": "20260711_185043_a424-study-ft09",
-  "games": 1,
-  "avg_score": 0.0,
-  "levels": 0,
-  "actions": 99,
-  "tokens": 28379
- },
- {
-  "run": "20260711_231159_a424-think3x-uncapped",
-  "games": 25,
-  "avg_score": 0.0,
-  "levels": 0,
-  "actions": 53,
-  "tokens": 65485
- }
-]
+{
+ "baseline": "20260712_170321_tufa-exact-rung0",
+ "runs": [
+  {
+   "run": "20260712_170321_tufa-exact-rung0",
+   "games": 25,
+   "avg_score": 0.679,
+   "levels": 12,
+   "actions": 5914,
+   "tokens": 1459058,
+   "per_game": [
+    {
+     "id": "ar25-0c556536",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 8,
+     "actions": 546
+    },
+    {
+     "id": "bp35-0a0ad940",
+     "score": 0.716,
+     "levels": 1,
+     "levels_total": 9,
+     "actions": 472
+    },
+    {
+     "id": "cd82-fb555c5d",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 248
+    },
+    {
+     "id": "cn04-2fe56bfb",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 121
+    },
+    {
+     "id": "dc22-fdcac232",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 173
+    },
+    {
+     "id": "ft09-0d8bbf25",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 115
+    },
+    {
+     "id": "g50t-5849a774",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 7,
+     "actions": 118
+    },
+    {
+     "id": "ka59-38d34dbb",
+     "score": 0.893,
+     "levels": 1,
+     "levels_total": 7,
+     "actions": 377
+    },
+    {
+     "id": "lf52-271a04aa",
+     "score": 0.535,
+     "levels": 1,
+     "levels_total": 10,
+     "actions": 79
+    },
+    {
+     "id": "lp85-305b61c3",
+     "score": 2.778,
+     "levels": 1,
+     "levels_total": 8,
+     "actions": 273
+    },
+    {
+     "id": "ls20-9607627b",
+     "score": 2.371,
+     "levels": 1,
+     "levels_total": 7,
+     "actions": 205
+    },
+    {
+     "id": "m0r0-492f87ba",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 104
+    },
+    {
+     "id": "r11l-495a7899",
+     "score": 2.94,
+     "levels": 1,
+     "levels_total": 6,
+     "actions": 163
+    },
+    {
+     "id": "re86-8af5384d",
+     "score": 0.273,
+     "levels": 1,
+     "levels_total": 8,
+     "actions": 320
+    },
+    {
+     "id": "s5i5-18d95033",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 8,
+     "actions": 52
+    },
+    {
+     "id": "sb26-7fbdac44",
+     "score": 2.778,
+     "levels": 1,
+     "levels_total": 8,
+     "actions": 417
+    },
+    {
+     "id": "sc25-635fd71a",
+     "score": 0.875,
+     "levels": 1,
+     "levels_total": 6,
+     "actions": 138
+    },
+    {
+     "id": "sk48-d8078629",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 8,
+     "actions": 407
+    },
+    {
+     "id": "sp80-589a99af",
+     "score": 0.354,
+     "levels": 1,
+     "levels_total": 6,
+     "actions": 203
+    },
+    {
+     "id": "su15-1944f8ab",
+     "score": 1.867,
+     "levels": 1,
+     "levels_total": 9,
+     "actions": 95
+    },
+    {
+     "id": "tn36-ef4dde99",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 7,
+     "actions": 109
+    },
+    {
+     "id": "tr87-cd924810",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 414
+    },
+    {
+     "id": "tu93-0768757b",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 9,
+     "actions": 306
+    },
+    {
+     "id": "vc33-5430563c",
+     "score": 0.606,
+     "levels": 1,
+     "levels_total": 7,
+     "actions": 162
+    },
+    {
+     "id": "wa30-ee6fef47",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 9,
+     "actions": 297
+    }
+   ],
+   "harness": {
+    "hardware": "RTX PRO 6000 (GCP spot)",
+    "agent_code": "Tufa upstream, pristine",
+    "memory": "scientist note (optional prose)",
+    "render": "plain 4x (256px)",
+    "yield_s": 60,
+    "thinking": "on (uncapped)",
+    "agent_ctx": 32768,
+    "server": "vLLM 0.19.0 (Tufa wheelhouse)",
+    "server_max_len": 65536,
+    "spec_decode": "off",
+    "weights": "vrfai FP8 (35.9 GB)",
+    "concurrency": 28,
+    "budget_min": 132
+   }
+  },
+  {
+   "run": "20260712_130533_g4-v1-fullstack-32k",
+   "games": 25,
+   "avg_score": 0.297,
+   "levels": 3,
+   "actions": 1490,
+   "tokens": 949834,
+   "per_game": [
+    {
+     "id": "ar25-0c556536",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 8,
+     "actions": 109
+    },
+    {
+     "id": "bp35-0a0ad940",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 9,
+     "actions": 100
+    },
+    {
+     "id": "cd82-fb555c5d",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 21
+    },
+    {
+     "id": "cn04-2fe56bfb",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 265
+    },
+    {
+     "id": "dc22-fdcac232",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 16
+    },
+    {
+     "id": "ft09-0d8bbf25",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 45
+    },
+    {
+     "id": "g50t-5849a774",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 7,
+     "actions": 3
+    },
+    {
+     "id": "ka59-38d34dbb",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 7,
+     "actions": 24
+    },
+    {
+     "id": "lf52-271a04aa",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 10,
+     "actions": 7
+    },
+    {
+     "id": "lp85-305b61c3",
+     "score": 2.778,
+     "levels": 1,
+     "levels_total": 8,
+     "actions": 38
+    },
+    {
+     "id": "ls20-9607627b",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 7,
+     "actions": 41
+    },
+    {
+     "id": "m0r0-492f87ba",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 66
+    },
+    {
+     "id": "r11l-495a7899",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 1
+    },
+    {
+     "id": "re86-8af5384d",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 8,
+     "actions": 204
+    },
+    {
+     "id": "s5i5-18d95033",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 8,
+     "actions": 22
+    },
+    {
+     "id": "sb26-7fbdac44",
+     "score": 2.778,
+     "levels": 1,
+     "levels_total": 8,
+     "actions": 25
+    },
+    {
+     "id": "sc25-635fd71a",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 45
+    },
+    {
+     "id": "sk48-d8078629",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 8,
+     "actions": 136
+    },
+    {
+     "id": "sp80-589a99af",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 62
+    },
+    {
+     "id": "su15-1944f8ab",
+     "score": 1.867,
+     "levels": 1,
+     "levels_total": 9,
+     "actions": 44
+    },
+    {
+     "id": "tn36-ef4dde99",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 7,
+     "actions": 7
+    },
+    {
+     "id": "tr87-cd924810",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 7
+    },
+    {
+     "id": "tu93-0768757b",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 9,
+     "actions": 102
+    },
+    {
+     "id": "vc33-5430563c",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 7,
+     "actions": 26
+    },
+    {
+     "id": "wa30-ee6fef47",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 9,
+     "actions": 74
+    }
+   ],
+   "harness": {
+    "hardware": "RTX PRO 6000 (GCP spot)",
+    "agent_code": "modified (ledger + fixes)",
+    "memory": "two-tier ledger (required arg)",
+    "render": "outline 8x + bevel (512px)",
+    "yield_s": 900,
+    "thinking": "on (uncapped)",
+    "agent_ctx": 32768,
+    "server": "vLLM 0.25.0",
+    "server_max_len": "32768 (clips generation)",
+    "spec_decode": "ngram",
+    "weights": "official Qwen FP8 (30.9 GB)",
+    "concurrency": 25,
+    "budget_min": 132
+   }
+  },
+  {
+   "run": "20260712_130556_g4-v2-ledger-64k",
+   "games": 25,
+   "avg_score": 0.244,
+   "levels": 4,
+   "actions": 1072,
+   "tokens": 562005,
+   "per_game": [
+    {
+     "id": "ar25-0c556536",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 8,
+     "actions": 3
+    },
+    {
+     "id": "bp35-0a0ad940",
+     "score": 0.349,
+     "levels": 1,
+     "levels_total": 9,
+     "actions": 99
+    },
+    {
+     "id": "cd82-fb555c5d",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 26
+    },
+    {
+     "id": "cn04-2fe56bfb",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 77
+    },
+    {
+     "id": "dc22-fdcac232",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 14
+    },
+    {
+     "id": "ft09-0d8bbf25",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 29
+    },
+    {
+     "id": "g50t-5849a774",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 7,
+     "actions": 28
+    },
+    {
+     "id": "ka59-38d34dbb",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 7,
+     "actions": 42
+    },
+    {
+     "id": "lf52-271a04aa",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 10,
+     "actions": 23
+    },
+    {
+     "id": "lp85-305b61c3",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 8,
+     "actions": 3
+    },
+    {
+     "id": "ls20-9607627b",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 7,
+     "actions": 25
+    },
+    {
+     "id": "m0r0-492f87ba",
+     "score": 0.742,
+     "levels": 1,
+     "levels_total": 6,
+     "actions": 110
+    },
+    {
+     "id": "r11l-495a7899",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 18
+    },
+    {
+     "id": "re86-8af5384d",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 8,
+     "actions": 20
+    },
+    {
+     "id": "s5i5-18d95033",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 8,
+     "actions": 5
+    },
+    {
+     "id": "sb26-7fbdac44",
+     "score": 2.778,
+     "levels": 1,
+     "levels_total": 8,
+     "actions": 36
+    },
+    {
+     "id": "sc25-635fd71a",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 16
+    },
+    {
+     "id": "sk48-d8078629",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 8,
+     "actions": 198
+    },
+    {
+     "id": "sp80-589a99af",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 81
+    },
+    {
+     "id": "su15-1944f8ab",
+     "score": 2.222,
+     "levels": 1,
+     "levels_total": 9,
+     "actions": 70
+    },
+    {
+     "id": "tn36-ef4dde99",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 7,
+     "actions": 20
+    },
+    {
+     "id": "tr87-cd924810",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 8
+    },
+    {
+     "id": "tu93-0768757b",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 9,
+     "actions": 51
+    },
+    {
+     "id": "vc33-5430563c",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 7,
+     "actions": 18
+    },
+    {
+     "id": "wa30-ee6fef47",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 9,
+     "actions": 52
+    }
+   ],
+   "harness": {
+    "hardware": "RTX PRO 6000 (GCP spot)",
+    "agent_code": "modified (ledger + fixes)",
+    "memory": "two-tier ledger (required arg)",
+    "render": "outline 8x + bevel (512px)",
+    "yield_s": 900,
+    "thinking": "on (uncapped)",
+    "agent_ctx": 65536,
+    "server": "vLLM 0.25.0",
+    "server_max_len": 65536,
+    "spec_decode": "ngram",
+    "weights": "official Qwen FP8 (30.9 GB)",
+    "concurrency": 25,
+    "budget_min": 132
+   }
+  },
+  {
+   "run": "20260711_200118_a424-control-25game",
+   "games": 25,
+   "avg_score": 0.232,
+   "levels": 2,
+   "actions": 717,
+   "tokens": 219020,
+   "per_game": [
+    {
+     "id": "ar25-0c556536",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 8,
+     "actions": 20
+    },
+    {
+     "id": "bp35-0a0ad940",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 9,
+     "actions": 233
+    },
+    {
+     "id": "cd82-fb555c5d",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 5
+    },
+    {
+     "id": "cn04-2fe56bfb",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 147
+    },
+    {
+     "id": "dc22-fdcac232",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 4
+    },
+    {
+     "id": "ft09-0d8bbf25",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 1
+    },
+    {
+     "id": "g50t-5849a774",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 7,
+     "actions": 13
+    },
+    {
+     "id": "ka59-38d34dbb",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 7,
+     "actions": 3
+    },
+    {
+     "id": "lf52-271a04aa",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 10,
+     "actions": 17
+    },
+    {
+     "id": "lp85-305b61c3",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 8,
+     "actions": 8
+    },
+    {
+     "id": "ls20-9607627b",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 7,
+     "actions": 12
+    },
+    {
+     "id": "m0r0-492f87ba",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 11
+    },
+    {
+     "id": "r11l-495a7899",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 2
+    },
+    {
+     "id": "re86-8af5384d",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 8,
+     "actions": 18
+    },
+    {
+     "id": "s5i5-18d95033",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 8,
+     "actions": 8
+    },
+    {
+     "id": "sb26-7fbdac44",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 8,
+     "actions": 9
+    },
+    {
+     "id": "sc25-635fd71a",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 7
+    },
+    {
+     "id": "sk48-d8078629",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 8,
+     "actions": 4
+    },
+    {
+     "id": "sp80-589a99af",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 16
+    },
+    {
+     "id": "su15-1944f8ab",
+     "score": 2.222,
+     "levels": 1,
+     "levels_total": 9,
+     "actions": 30
+    },
+    {
+     "id": "tn36-ef4dde99",
+     "score": 3.571,
+     "levels": 1,
+     "levels_total": 7,
+     "actions": 57
+    },
+    {
+     "id": "tr87-cd924810",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 4
+    },
+    {
+     "id": "tu93-0768757b",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 9,
+     "actions": 52
+    },
+    {
+     "id": "vc33-5430563c",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 7,
+     "actions": 11
+    },
+    {
+     "id": "wa30-ee6fef47",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 9,
+     "actions": 25
+    }
+   ],
+   "harness": {
+    "hardware": "GB10 DGX Spark",
+    "agent_code": "modified (tier-A fixes)",
+    "memory": "scientist note + required world_model",
+    "render": "plain 4x (256px)",
+    "yield_s": 900,
+    "thinking": "off",
+    "agent_ctx": 32768,
+    "server": "vLLM 0.24.0",
+    "server_max_len": 32768,
+    "spec_decode": "ngram",
+    "weights": "official Qwen FP8 (30.9 GB)",
+    "concurrency": 25,
+    "budget_min": 132
+   }
+  },
+  {
+   "run": "20260711_185043_a424-study-ft09",
+   "games": 1,
+   "avg_score": 0.0,
+   "levels": 0,
+   "actions": 99,
+   "tokens": 28379,
+   "per_game": [
+    {
+     "id": "ft09-0d8bbf25",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 99
+    }
+   ],
+   "harness": {
+    "hardware": "GB10 DGX Spark",
+    "agent_code": "modified (tier-A fixes)",
+    "memory": "scientist note + required world_model",
+    "render": "plain 4x (256px)",
+    "yield_s": 900,
+    "thinking": "off",
+    "agent_ctx": 32768,
+    "server": "vLLM 0.24.0",
+    "server_max_len": 32768,
+    "spec_decode": "ngram",
+    "weights": "official Qwen FP8 (30.9 GB)",
+    "concurrency": 1,
+    "budget_min": 90,
+    "note": "single-game deep study, interrupted"
+   }
+  },
+  {
+   "run": "20260711_231159_a424-think3x-uncapped",
+   "games": 25,
+   "avg_score": 0.0,
+   "levels": 0,
+   "actions": 53,
+   "tokens": 65485,
+   "per_game": [
+    {
+     "id": "ar25-0c556536",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 8,
+     "actions": 3
+    },
+    {
+     "id": "bp35-0a0ad940",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 9,
+     "actions": 7
+    },
+    {
+     "id": "cd82-fb555c5d",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 1
+    },
+    {
+     "id": "cn04-2fe56bfb",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 7
+    },
+    {
+     "id": "dc22-fdcac232",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 1
+    },
+    {
+     "id": "ft09-0d8bbf25",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 2
+    },
+    {
+     "id": "g50t-5849a774",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 7,
+     "actions": 2
+    },
+    {
+     "id": "ka59-38d34dbb",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 7,
+     "actions": 2
+    },
+    {
+     "id": "lf52-271a04aa",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 10,
+     "actions": 1
+    },
+    {
+     "id": "lp85-305b61c3",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 8,
+     "actions": 2
+    },
+    {
+     "id": "ls20-9607627b",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 7,
+     "actions": 2
+    },
+    {
+     "id": "m0r0-492f87ba",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 4
+    },
+    {
+     "id": "r11l-495a7899",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 0
+    },
+    {
+     "id": "re86-8af5384d",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 8,
+     "actions": 1
+    },
+    {
+     "id": "s5i5-18d95033",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 8,
+     "actions": 2
+    },
+    {
+     "id": "sb26-7fbdac44",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 8,
+     "actions": 1
+    },
+    {
+     "id": "sc25-635fd71a",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 2
+    },
+    {
+     "id": "sk48-d8078629",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 8,
+     "actions": 1
+    },
+    {
+     "id": "sp80-589a99af",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 1
+    },
+    {
+     "id": "su15-1944f8ab",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 9,
+     "actions": 4
+    },
+    {
+     "id": "tn36-ef4dde99",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 7,
+     "actions": 1
+    },
+    {
+     "id": "tr87-cd924810",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 1
+    },
+    {
+     "id": "tu93-0768757b",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 9,
+     "actions": 0
+    },
+    {
+     "id": "vc33-5430563c",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 7,
+     "actions": 1
+    },
+    {
+     "id": "wa30-ee6fef47",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 9,
+     "actions": 4
+    }
+   ],
+   "harness": {
+    "hardware": "GB10 DGX Spark",
+    "agent_code": "modified (tier-A fixes)",
+    "memory": "scientist note + required world_model",
+    "render": "outline 8x + bevel (512px)",
+    "yield_s": 3600,
+    "thinking": "on (uncapped -- pathological on GB10)",
+    "agent_ctx": 32768,
+    "server": "vLLM 0.24.0",
+    "server_max_len": 32768,
+    "spec_decode": "ngram",
+    "weights": "official Qwen FP8 (30.9 GB)",
+    "concurrency": 25,
+    "budget_min": 396
+   }
+  }
+ ]
+}

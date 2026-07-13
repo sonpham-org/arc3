@@ -2,8 +2,9 @@ import { fetchGame, fetchGameFrames, fetchGameStep, fetchRunOverview, fetchRunsI
 
 // run name -> {avg_score, actions, ...}; empty when the index is unavailable (live mode).
 const runsIndex = new Map();
-fetchRunsIndex().then((rows) => {
-  (rows || []).forEach((r) => runsIndex.set(r.run, r));
+fetchRunsIndex().then((payload) => {
+  const rows = (payload && payload.runs) || payload || [];
+  rows.forEach((r) => runsIndex.set(r.run, r));
 }).catch(() => {});
 import { initBoard, setPalette, showBoard, setClicks, clearPins, colorAt, redraw, view } from "./board.js";
 import { initCoordRefs, showTooltip } from "./coords.js";
