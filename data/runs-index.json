@@ -202,6 +202,408 @@
    }
   },
   {
+   "run": "20260713_042338_rung1c-spec-official-v025",
+   "games": 25,
+   "avg_score": 0.644,
+   "levels": 5,
+   "actions": 2218,
+   "tokens": 676162,
+   "per_game": [
+    {
+     "id": "ar25-0c556536",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 8,
+     "actions": 198
+    },
+    {
+     "id": "bp35-0a0ad940",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 9,
+     "actions": 43
+    },
+    {
+     "id": "cd82-fb555c5d",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 32
+    },
+    {
+     "id": "cn04-2fe56bfb",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 133
+    },
+    {
+     "id": "dc22-fdcac232",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 49
+    },
+    {
+     "id": "ft09-0d8bbf25",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 43
+    },
+    {
+     "id": "g50t-5849a774",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 7,
+     "actions": 105
+    },
+    {
+     "id": "ka59-38d34dbb",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 7,
+     "actions": 38
+    },
+    {
+     "id": "lf52-271a04aa",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 10,
+     "actions": 23
+    },
+    {
+     "id": "lp85-305b61c3",
+     "score": 2.778,
+     "levels": 1,
+     "levels_total": 8,
+     "actions": 50
+    },
+    {
+     "id": "ls20-9607627b",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 7,
+     "actions": 212
+    },
+    {
+     "id": "m0r0-492f87ba",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 19
+    },
+    {
+     "id": "r11l-495a7899",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 76
+    },
+    {
+     "id": "re86-8af5384d",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 8,
+     "actions": 63
+    },
+    {
+     "id": "s5i5-18d95033",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 8,
+     "actions": 11
+    },
+    {
+     "id": "sb26-7fbdac44",
+     "score": 2.778,
+     "levels": 1,
+     "levels_total": 8,
+     "actions": 16
+    },
+    {
+     "id": "sc25-635fd71a",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 127
+    },
+    {
+     "id": "sk48-d8078629",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 8,
+     "actions": 160
+    },
+    {
+     "id": "sp80-589a99af",
+     "score": 4.762,
+     "levels": 1,
+     "levels_total": 6,
+     "actions": 31
+    },
+    {
+     "id": "su15-1944f8ab",
+     "score": 2.222,
+     "levels": 1,
+     "levels_total": 9,
+     "actions": 57
+    },
+    {
+     "id": "tn36-ef4dde99",
+     "score": 3.571,
+     "levels": 1,
+     "levels_total": 7,
+     "actions": 513
+    },
+    {
+     "id": "tr87-cd924810",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 6
+    },
+    {
+     "id": "tu93-0768757b",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 9,
+     "actions": 46
+    },
+    {
+     "id": "vc33-5430563c",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 7,
+     "actions": 51
+    },
+    {
+     "id": "wa30-ee6fef47",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 9,
+     "actions": 116
+    }
+   ],
+   "harness": {
+    "hardware": "RTX PRO 6000 (GCP spot)",
+    "agent_code": "Tufa upstream, pristine",
+    "memory": "scientist note (optional prose)",
+    "render": "plain 4x (256px)",
+    "yield_s": 60,
+    "thinking": "on (uncapped)",
+    "agent_ctx": 32768,
+    "server": "vLLM 0.25.0",
+    "server_max_len": 65536,
+    "spec_decode": "ngram",
+    "weights": "official Qwen FP8 (30.9 GB)",
+    "concurrency": 28,
+    "budget_min": 132,
+    "note": "rung 1c: modern serving validated -- statistically tied with tufa-exact"
+   }
+  },
+  {
+   "run": "20260713_033303_rung1b-nospec-vrfai-v025",
+   "games": 25,
+   "avg_score": 0.306,
+   "levels": 6,
+   "actions": 1360,
+   "tokens": 424608,
+   "per_game": [
+    {
+     "id": "ar25-0c556536",
+     "score": 1.138,
+     "levels": 1,
+     "levels_total": 8,
+     "actions": 50
+    },
+    {
+     "id": "bp35-0a0ad940",
+     "score": 0.53,
+     "levels": 1,
+     "levels_total": 9,
+     "actions": 123
+    },
+    {
+     "id": "cd82-fb555c5d",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 60
+    },
+    {
+     "id": "cn04-2fe56bfb",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 40
+    },
+    {
+     "id": "dc22-fdcac232",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 41
+    },
+    {
+     "id": "ft09-0d8bbf25",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 14
+    },
+    {
+     "id": "g50t-5849a774",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 7,
+     "actions": 22
+    },
+    {
+     "id": "ka59-38d34dbb",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 7,
+     "actions": 36
+    },
+    {
+     "id": "lf52-271a04aa",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 10,
+     "actions": 24
+    },
+    {
+     "id": "lp85-305b61c3",
+     "score": 2.778,
+     "levels": 1,
+     "levels_total": 8,
+     "actions": 13
+    },
+    {
+     "id": "ls20-9607627b",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 7,
+     "actions": 55
+    },
+    {
+     "id": "m0r0-492f87ba",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 57
+    },
+    {
+     "id": "r11l-495a7899",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 39
+    },
+    {
+     "id": "re86-8af5384d",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 8,
+     "actions": 38
+    },
+    {
+     "id": "s5i5-18d95033",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 8,
+     "actions": 22
+    },
+    {
+     "id": "sb26-7fbdac44",
+     "score": 2.778,
+     "levels": 1,
+     "levels_total": 8,
+     "actions": 84
+    },
+    {
+     "id": "sc25-635fd71a",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 36
+    },
+    {
+     "id": "sk48-d8078629",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 8,
+     "actions": 117
+    },
+    {
+     "id": "sp80-589a99af",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 63
+    },
+    {
+     "id": "su15-1944f8ab",
+     "score": 0.369,
+     "levels": 1,
+     "levels_total": 9,
+     "actions": 72
+    },
+    {
+     "id": "tn36-ef4dde99",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 7,
+     "actions": 32
+    },
+    {
+     "id": "tr87-cd924810",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 100
+    },
+    {
+     "id": "tu93-0768757b",
+     "score": 0.045,
+     "levels": 1,
+     "levels_total": 9,
+     "actions": 143
+    },
+    {
+     "id": "vc33-5430563c",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 7,
+     "actions": 14
+    },
+    {
+     "id": "wa30-ee6fef47",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 9,
+     "actions": 65
+    }
+   ],
+   "harness": {
+    "hardware": "RTX PRO 6000 (GCP spot)",
+    "agent_code": "Tufa upstream, pristine",
+    "memory": "scientist note (optional prose)",
+    "render": "plain 4x (256px)",
+    "yield_s": 60,
+    "thinking": "on (uncapped)",
+    "agent_ctx": 32768,
+    "server": "vLLM 0.25.0",
+    "server_max_len": 65536,
+    "spec_decode": "off",
+    "weights": "vrfai FP8 (35.9 GB)",
+    "concurrency": 28,
+    "budget_min": 132,
+    "note": "rung 1b: isolates spec decode -- still 3.4x slower than vLLM 0.19 on this quant"
+   }
+  },
+  {
    "run": "20260712_130533_g4-v1-fullstack-32k",
    "games": 25,
    "avg_score": 0.297,
@@ -1032,6 +1434,207 @@
     "weights": "official Qwen FP8 (30.9 GB)",
     "concurrency": 25,
     "budget_min": 396
+   }
+  },
+  {
+   "run": "20260713_010244_rung1-spec-vrfai-v025",
+   "games": 25,
+   "avg_score": 0.0,
+   "levels": 0,
+   "actions": 207,
+   "tokens": 98179,
+   "per_game": [
+    {
+     "id": "ar25-0c556536",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 8,
+     "actions": 22
+    },
+    {
+     "id": "bp35-0a0ad940",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 9,
+     "actions": 3
+    },
+    {
+     "id": "cd82-fb555c5d",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 4
+    },
+    {
+     "id": "cn04-2fe56bfb",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 16
+    },
+    {
+     "id": "dc22-fdcac232",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 9
+    },
+    {
+     "id": "ft09-0d8bbf25",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 3
+    },
+    {
+     "id": "g50t-5849a774",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 7,
+     "actions": 2
+    },
+    {
+     "id": "ka59-38d34dbb",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 7,
+     "actions": 1
+    },
+    {
+     "id": "lf52-271a04aa",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 10,
+     "actions": 9
+    },
+    {
+     "id": "lp85-305b61c3",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 8,
+     "actions": 1
+    },
+    {
+     "id": "ls20-9607627b",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 7,
+     "actions": 1
+    },
+    {
+     "id": "m0r0-492f87ba",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 8
+    },
+    {
+     "id": "r11l-495a7899",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 4
+    },
+    {
+     "id": "re86-8af5384d",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 8,
+     "actions": 6
+    },
+    {
+     "id": "s5i5-18d95033",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 8,
+     "actions": 3
+    },
+    {
+     "id": "sb26-7fbdac44",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 8,
+     "actions": 9
+    },
+    {
+     "id": "sc25-635fd71a",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 4
+    },
+    {
+     "id": "sk48-d8078629",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 8,
+     "actions": 17
+    },
+    {
+     "id": "sp80-589a99af",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 9
+    },
+    {
+     "id": "su15-1944f8ab",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 9,
+     "actions": 1
+    },
+    {
+     "id": "tn36-ef4dde99",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 7,
+     "actions": 3
+    },
+    {
+     "id": "tr87-cd924810",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 6,
+     "actions": 3
+    },
+    {
+     "id": "tu93-0768757b",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 9,
+     "actions": 51
+    },
+    {
+     "id": "vc33-5430563c",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 7,
+     "actions": 5
+    },
+    {
+     "id": "wa30-ee6fef47",
+     "score": 0,
+     "levels": 0,
+     "levels_total": 9,
+     "actions": 13
+    }
+   ],
+   "harness": {
+    "hardware": "RTX PRO 6000 (GCP spot)",
+    "agent_code": "Tufa upstream, pristine",
+    "memory": "scientist note (optional prose)",
+    "render": "plain 4x (256px)",
+    "yield_s": 60,
+    "thinking": "on (uncapped)",
+    "agent_ctx": 32768,
+    "server": "vLLM 0.25.0",
+    "server_max_len": 65536,
+    "spec_decode": "ngram",
+    "weights": "vrfai FP8 (35.9 GB)",
+    "concurrency": 28,
+    "budget_min": 132,
+    "note": "rung 1: vrfai quant hits a pathological kernel path on vLLM 0.25; spec decode amplifies it"
    }
   }
  ]
