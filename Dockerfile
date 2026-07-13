@@ -3,3 +3,4 @@ COPY Caddyfile /etc/caddy/Caddyfile
 COPY index.html /srv/index.html
 COPY static /srv/static
 COPY data /srv/data
+CMD ["sh", "-c", "PORT=${PORT:-8080} exec caddy run --config /etc/caddy/Caddyfile --adapter caddyfile"]
