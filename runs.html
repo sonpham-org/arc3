@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ARC-3 runs — score table</title>
+<link rel="stylesheet" href="./static/css/theme.css">
+<style>
+  body { font: 14px/1.5 system-ui, sans-serif; max-width: 900px; margin: 0 auto; padding: 32px 20px; }
+  h1 { font-size: 20px; margin: 0 0 4px; }
+  .sub { opacity: .7; margin: 0 0 20px; font-size: 13px; }
+  table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+  th, td { text-align: right; padding: 8px 10px; border-bottom: 1px solid rgba(128,128,128,.25); }
+  th:first-child, td:first-child { text-align: left; }
+  th { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; opacity: .7; }
+  td.run a { text-decoration: none; color: inherit; border-bottom: 1px dotted rgba(128,128,128,.6); }
+  td.run a:hover { border-bottom-style: solid; }
+  tr.best td { font-weight: 600; }
+  .back { display: inline-block; margin-bottom: 16px; font-size: 13px; opacity: .75; color: inherit; }
+</style>
+</head>
+<body>
+<a class="back" href="./index.html">&larr; viewer</a>
+<h1>Run scoreboard</h1>
+<p class="sub">Average score per game across the 25 public ARC-AGI-3 games (Tufa's public reference: 1.6002). Click a run to open it in the viewer.</p>
+<table id="t"><thead><tr>
+<th>Run</th><th>Games</th><th>Levels won</th><th>Actions</th><th>Tokens</th><th>Avg score</th>
+</tr></thead><tbody></tbody></table>
+<script>
+fetch("./data/runs-index.json").then(r => r.json()).then(rows => {
+  const tb = document.querySelector("#t tbody");
+  const best = Math.max(...rows.map(r => r.avg_score));
+  tb.innerHTML = rows.map(r => `
+    <tr class="${r.avg_score === best ? "best" : ""}">
+      <td class="run"><a href="./index.html#run=${encodeURIComponent(r.run)}">${r.run}</a></td>
+      <td>${r.games}</td><td>${r.levels}</td><td>${r.actions.toLocaleString()}</td>
+      <td>${r.tokens.toLocaleString()}</td><td>${r.avg_score.toFixed(3)}</td>
+    </tr>`).join("");
+});
+</script>
+</body>
+</html>

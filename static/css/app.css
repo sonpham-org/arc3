@@ -279,3 +279,6 @@ td.col-what .llm-meta.has-error { color: var(--err); }
 .tooltip .swatch { width: 10px; height: 10px; border: 1px solid var(--border-strong); border-radius: 2px; }
 
 .empty { padding: 24px; color: var(--muted-2); text-align: center; }
+
+.runs-link { margin-left: 10px; font-size: 12px; opacity: 0.75; text-decoration: none; color: inherit; }
+.runs-link:hover { opacity: 1; text-decoration: underline; }

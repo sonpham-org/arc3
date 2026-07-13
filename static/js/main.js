@@ -1,4 +1,10 @@
-import { fetchGame, fetchGameFrames, fetchGameStep, fetchRunOverview, fetchViewerVersion } from "./api.js";
+import { fetchGame, fetchGameFrames, fetchGameStep, fetchRunOverview, fetchRunsIndex, fetchViewerVersion } from "./api.js";
+
+// run name -> {avg_score, actions, ...}; empty when the index is unavailable (live mode).
+const runsIndex = new Map();
+fetchRunsIndex().then((rows) => {
+  (rows || []).forEach((r) => runsIndex.set(r.run, r));
+}).catch(() => {});
 import { initBoard, setPalette, showBoard, setClicks, clearPins, colorAt, redraw, view } from "./board.js";
 import { initCoordRefs, showTooltip } from "./coords.js";
 import { renderDecision } from "./decision.js";
@@ -78,11 +84,15 @@ async function refreshOverview() {
   });
 }
 
+function runLabel(run) {
+  const info = runsIndex.get(run);
+  if (!info) return run;
+  return `${run} \u00b7 ${info.actions} acts \u00b7 ${info.avg_score.toFixed(3)}`;
+}
+
 function renderRunSelect(payload) {
   const runs = payload.available_runs || [];
-  if (el.runSelect.options.length !== runs.length) {
-    el.runSelect.innerHTML = runs.map((run) => `<option value="${run}">${run}</option>`).join("");
-  }
+  el.runSelect.innerHTML = runs.map((run) => `<option value="${run}">${runLabel(run)}</option>`).join("");
   el.runSelect.value = payload.selected_run;
 }
 
