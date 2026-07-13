@@ -1,0 +1,6 @@
+:{$PORT}
+root * /srv
+encode zstd gzip
+file_server
+header /data/* Cache-Control "public, max-age=3600"
+header /static/* Cache-Control "public, max-age=300"

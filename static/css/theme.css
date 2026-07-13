@@ -1,0 +1,78 @@
+:root {
+  /* Surfaces. The lightness ladder is carried over from the old Observatory, hue rotated to ~222deg. */
+  --bg: #080c16;
+  --panel: #0c1220;
+  --chrome: #101828;
+  --raised: #1a2333;
+  --raised-hi: #232e42;
+  --tooltip: #1a2233;
+
+  --border: #212d42;
+  --border-strong: #2c3a54;
+  --hairline: #161f2e;
+
+  --text: #e2e6ee;
+  --text-dim: #aab3c4;
+  --muted: #6b7789;
+  --muted-2: #4a5568;
+
+  --accent: #3b82f6;
+  --accent-wash: rgba(59, 130, 246, 0.12);
+  --accent-line: rgba(59, 130, 246, 0.30);
+
+  --ok: #22c55e;
+  --err: #ef4444;
+  --warn: #f59e0b;
+  --scrub: #d29922;
+
+  --font: ui-monospace, "SF Mono", "Fira Code", "JetBrains Mono", Consolas, monospace;
+  --radius: 4px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: var(--muted-2) var(--raised);
+}
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--raised); }
+::-webkit-scrollbar-thumb { background: var(--muted-2); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--muted); }
+
+/* Must outrank the id-level `display` rules that lay the screens out, or a hidden screen keeps
+   its box and steals half the viewport height from the visible one. */
+[hidden] { display: none !important; }
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  height: 100vh;
+  overflow: hidden;
+  font-size: 12px;
+  /* Without this, every digit column jitters as the run ticks over. */
+  font-variant-numeric: tabular-nums;
+}
+
+button, select, input {
+  font-family: inherit;
+  font-size: inherit;
+  color: var(--text);
+  background: var(--raised);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  padding: 4px 8px;
+  cursor: pointer;
+}
+
+button:hover, select:hover { background: var(--raised-hi); }
+button.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+button:disabled { opacity: 0.4; cursor: default; }
+
+.status-playing, .status-running { color: var(--accent); }
+.status-win { color: var(--ok); }
+.status-gave_up, .status-game_over, .status-lose { color: var(--err); }
+.status-pending, .status-starting { color: var(--warn); }

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ARC3 Run Inspector</title>
+  <link rel="stylesheet" href="./static/css/theme.css" />
+  <link rel="stylesheet" href="./static/css/app.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <span class="brand">ARC3 RUN INSPECTOR</span>
+      <button id="back" hidden>← All games</button>
+      <select id="run-select" aria-label="Run"></select>
+      <span class="crumb" id="crumb">Loading…</span>
+      <span class="spacer"></span>
+      <span class="crumb">←/→ step · ⇧←/→ turn · space play · L live</span>
+    </header>
+
+    <section class="screen" id="overview">
+      <div class="totals" id="totals"></div>
+      <div class="cards" id="cards"></div>
+    </section>
+
+    <section class="screen" id="replay" hidden>
+      <div class="pane" id="log-pane">
+        <div class="pane-head">Event log<span class="spacer"></span></div>
+        <div class="pane-body">
+          <table class="log">
+            <thead>
+              <tr><th>#</th><th>turn</th><th>ty</th><th>Δ</th><th>action &amp; decision</th></tr>
+            </thead>
+            <tbody id="log-body"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="pane" id="board-pane">
+        <div class="pane-head">Board<span class="spacer"></span><span id="board-meta"></span></div>
+        <div class="pane-body">
+          <div class="board-wrap">
+            <canvas id="board-canvas"></canvas>
+          </div>
+          <div class="board-foot" id="scrub">
+            <div class="scrub-banner" id="scrub-banner" hidden>
+              <span id="scrub-banner-text"></span>
+              <span class="spacer"></span>
+              <button id="scrub-return" type="button">▶ Return to live</button>
+            </div>
+            <div class="scrub">
+              <div class="scrub-track">
+                <input type="range" id="scrub-slider" min="0" max="0" value="0" />
+                <div class="scrub-ticks" id="scrub-ticks"></div>
+              </div>
+              <div class="scrub-row">
+                <span class="transport">
+                  <button id="scrub-first" type="button" title="First frame (Home)">⏮</button>
+                  <button id="scrub-prev" type="button" title="Previous frame (←)">◀</button>
+                  <button id="scrub-play" type="button" title="Play / pause (space)">▶</button>
+                  <button id="scrub-next" type="button" title="Next frame (→)">▶|</button>
+                  <button id="scrub-last" type="button" title="Latest frame (End)">⏭</button>
+                </span>
+                <span id="scrub-label">No frames</span>
+                <span class="spacer"></span>
+                <span class="live-dot" id="scrub-dot">● LIVE</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pane" id="decision-pane">
+        <div class="pane-head">Decision</div>
+        <div class="pane-body" id="decision-body"></div>
+      </div>
+    </section>
+  </div>
+
+  <div class="tooltip" id="tooltip" hidden>
+    <span class="swatch"></span><span class="label"></span>
+  </div>
+
+  <script type="module" src="./static/js/main.js"></script>
+</body>
+</html>
