@@ -1,87 +1,42 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ARC3 Run Inspector</title>
-  <link rel="stylesheet" href="./static/css/theme.css" />
-  <link rel="stylesheet" href="./static/css/app.css" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ARC-3 runs — score table</title>
+<link rel="stylesheet" href="./static/css/theme.css">
+<style>
+  body { font: 14px/1.5 system-ui, sans-serif; max-width: 900px; margin: 0 auto; padding: 32px 20px; }
+  h1 { font-size: 20px; margin: 0 0 4px; }
+  .sub { opacity: .7; margin: 0 0 20px; font-size: 13px; }
+  table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+  th, td { text-align: right; padding: 8px 10px; border-bottom: 1px solid rgba(128,128,128,.25); }
+  th:first-child, td:first-child { text-align: left; }
+  th { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; opacity: .7; }
+  td.run a { text-decoration: none; color: inherit; border-bottom: 1px dotted rgba(128,128,128,.6); }
+  td.run a:hover { border-bottom-style: solid; }
+  tr.best td { font-weight: 600; }
+  .back { display: inline-block; margin-bottom: 16px; font-size: 13px; opacity: .75; color: inherit; }
+</style>
 </head>
 <body>
-  <div id="app">
-    <header class="topbar">
-      <span class="brand">ARC3 RUN INSPECTOR</span>
-      <button id="back" hidden>← All games</button>
-      <select id="run-select" aria-label="Run"></select>
-      <a class="runs-link" href="./runs.html">all runs →</a>
-      <span class="crumb" id="crumb">Loading…</span>
-      <span class="spacer"></span>
-      <span class="crumb">←/→ step · ⇧←/→ turn · space play · L live</span>
-    </header>
-
-    <section class="screen" id="overview">
-      <div class="totals" id="totals"></div>
-      <div class="cards" id="cards"></div>
-    </section>
-
-    <section class="screen" id="replay" hidden>
-      <div class="pane" id="log-pane">
-        <div class="pane-head">Event log<span class="spacer"></span></div>
-        <div class="pane-body">
-          <table class="log">
-            <thead>
-              <tr><th>#</th><th>turn</th><th>ty</th><th>Δ</th><th>action &amp; decision</th></tr>
-            </thead>
-            <tbody id="log-body"></tbody>
-          </table>
-        </div>
-      </div>
-
-      <div class="pane" id="board-pane">
-        <div class="pane-head">Board<span class="spacer"></span><span id="board-meta"></span></div>
-        <div class="pane-body">
-          <div class="board-wrap">
-            <canvas id="board-canvas"></canvas>
-          </div>
-          <div class="board-foot" id="scrub">
-            <div class="scrub-banner" id="scrub-banner" hidden>
-              <span id="scrub-banner-text"></span>
-              <span class="spacer"></span>
-              <button id="scrub-return" type="button">▶ Return to live</button>
-            </div>
-            <div class="scrub">
-              <div class="scrub-track">
-                <input type="range" id="scrub-slider" min="0" max="0" value="0" />
-                <div class="scrub-ticks" id="scrub-ticks"></div>
-              </div>
-              <div class="scrub-row">
-                <span class="transport">
-                  <button id="scrub-first" type="button" title="First frame (Home)">⏮</button>
-                  <button id="scrub-prev" type="button" title="Previous frame (←)">◀</button>
-                  <button id="scrub-play" type="button" title="Play / pause (space)">▶</button>
-                  <button id="scrub-next" type="button" title="Next frame (→)">▶|</button>
-                  <button id="scrub-last" type="button" title="Latest frame (End)">⏭</button>
-                </span>
-                <span id="scrub-label">No frames</span>
-                <span class="spacer"></span>
-                <span class="live-dot" id="scrub-dot">● LIVE</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="pane" id="decision-pane">
-        <div class="pane-head">Decision</div>
-        <div class="pane-body" id="decision-body"></div>
-      </div>
-    </section>
-  </div>
-
-  <div class="tooltip" id="tooltip" hidden>
-    <span class="swatch"></span><span class="label"></span>
-  </div>
-
-  <script type="module" src="./static/js/main.js"></script>
+<h1>Run scoreboard</h1>
+<p class="sub">Average score per game across the 25 public ARC-AGI-3 games (Tufa's public reference: 1.6002). Click a run to open its viewer; the Harness &amp; prompts tab inside has config, diffs vs baseline, and verbatim prompts.</p>
+<table id="t"><thead><tr>
+<th>Run</th><th>Games</th><th>Levels won</th><th>Actions</th><th>Tokens</th><th>Avg score</th>
+</tr></thead><tbody></tbody></table>
+<script>
+fetch("./data/runs-index.json").then(r => r.json()).then(payload => {
+  const rows = payload.runs || payload;
+  const tb = document.querySelector("#t tbody");
+  const best = Math.max(...rows.map(r => r.avg_score));
+  tb.innerHTML = rows.map(r => `
+    <tr class="${r.avg_score === best ? "best" : ""}">
+      <td class="run"><a href="./viewer.html#run=${encodeURIComponent(r.run)}">${r.run}</a> <a style="opacity:.55;font-size:11px" href="./harness.html#run=${encodeURIComponent(r.run)}">harness</a></td>
+      <td>${r.games}</td><td>${r.levels}</td><td>${r.actions.toLocaleString()}</td>
+      <td>${r.tokens.toLocaleString()}</td><td>${r.avg_score.toFixed(3)}</td>
+    </tr>`).join("");
+});
+</script>
 </body>
 </html>

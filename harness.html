@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ARC-3 run — harness & scores</title>
+<link rel="stylesheet" href="./static/css/theme.css">
+<style>
+  body { font: 14px/1.5 system-ui, sans-serif; max-width: 1020px; margin: 0 auto; padding: 28px 20px 60px; }
+  a { color: inherit; }
+  .nav { font-size: 13px; opacity: .75; margin-bottom: 14px; display: flex; gap: 16px; }
+  h1 { font-size: 19px; margin: 0 0 2px; word-break: break-all; }
+  .note { opacity: .7; font-size: 13px; margin: 2px 0 18px; }
+
+  .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 26px; }
+  .tile { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); border-radius: 8px; padding: 12px 14px; }
+  .tile b { display: block; font-size: 22px; font-variant-numeric: tabular-nums; }
+  .tile span { font-size: 11px; text-transform: uppercase; letter-spacing: .07em; color: var(--text-dim); }
+
+  h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: var(--text-dim); margin: 28px 0 10px; }
+  .pipe { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0; align-items: stretch; }
+  .stage { position: relative; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1); border-radius: 8px; padding: 10px 12px 12px; margin-right: 26px; }
+  .stage:last-child { margin-right: 0; }
+  .stage:not(:last-child)::after { content: "\2192"; position: absolute; right: -20px; top: 50%; transform: translateY(-50%); color: var(--text-dim); font-size: 15px; }
+  .stage h3 { margin: 0 0 8px; font-size: 12px; letter-spacing: .05em; text-transform: uppercase; color: var(--text-dim); }
+  .knob { padding: 4px 6px; margin: 3px -6px 0; border-left: 3px solid transparent; font-size: 12.5px; }
+  .knob span { display: block; font-size: 10.5px; text-transform: uppercase; letter-spacing: .06em; color: var(--text-dim); }
+  .knob.diff { border-left-color: #e8b04b; background: rgba(232,176,75,.07); }
+  .knob.diff::after { content: "\2260 tufa-exact"; font-size: 10px; color: #e8b04b; margin-left: 6px; }
+  .legend { font-size: 11.5px; color: var(--text-dim); margin-top: 8px; }
+  .legend i { display: inline-block; width: 10px; height: 10px; border-left: 3px solid #e8b04b; background: rgba(232,176,75,.07); margin-right: 5px; vertical-align: -1px; }
+
+  .chart { display: flex; align-items: flex-end; gap: 2px; height: 190px; padding: 6px 0 0; border-bottom: 1px solid rgba(255,255,255,.15); }
+  .barwrap { flex: 1; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; height: 100%; min-width: 0; }
+  .bar { width: 100%; max-width: 26px; background: #1E93FF; border-radius: 4px 4px 0 0; min-height: 2px; }
+  .bar.zero { background: rgba(255,255,255,.13); }
+  .blabel { font-size: 10.5px; color: var(--text); font-variant-numeric: tabular-nums; margin-bottom: 3px; }
+  .xlabels { display: flex; gap: 2px; margin-top: 6px; }
+  .xlabels div { flex: 1; font-size: 9.5px; color: var(--text-dim); text-align: center; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+  details { margin-top: 14px; font-size: 13px; }
+  details.prompt { margin: 8px 0; }
+  details.prompt pre { white-space: pre-wrap; font: 11.5px/1.5 ui-monospace, monospace; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); border-radius: 8px; padding: 12px 14px; max-height: 480px; overflow: auto; }
+  details table { border-collapse: collapse; margin-top: 8px; font-variant-numeric: tabular-nums; }
+  details th, details td { padding: 4px 12px 4px 0; text-align: right; border-bottom: 1px solid rgba(255,255,255,.08); }
+  details th:first-child, details td:first-child { text-align: left; }
+</style>
+</head>
+<body>
+<nav class="runtabs"><a class="rt-home" href="./">&larr; runs</a><a class="rt-tab" id="rt-viewer">Viewer</a><a class="rt-tab active">Harness &amp; prompts</a></nav>
+<style>
+.runtabs { display:flex; gap:6px; align-items:center; margin:-6px 0 18px; font:13px system-ui,sans-serif; }
+.runtabs .rt-home { margin-right:10px; opacity:.7; text-decoration:none; color:inherit; }
+.runtabs .rt-tab { padding:6px 14px; border-radius:8px 8px 0 0; text-decoration:none; color:inherit; opacity:.65; border:1px solid rgba(255,255,255,.1); border-bottom:none; background:rgba(255,255,255,.03); }
+.runtabs .rt-tab.active { opacity:1; background:rgba(255,255,255,.08); font-weight:600; }
+</style>
+<script>
+(function(){
+  const sync = () => { document.getElementById("rt-viewer").href = "./viewer.html" + location.hash; };
+  sync(); window.addEventListener("hashchange", sync);
+})();
+</script>
+
+<h1 id="title">run</h1>
+<p class="note" id="note"></p>
+<div class="tiles" id="tiles"></div>
+
+<h2>Harness</h2>
+<div class="pipe" id="pipe"></div>
+<p class="legend"><i></i>knob differs from the tufa-exact baseline</p>
+
+<h2>Prompts</h2>
+<details class="prompt"><summary>System prompt (as sent, verbatim)</summary><pre id="p-system"></pre></details>
+<details class="prompt"><summary>Example user turn (first turn of a game)</summary><pre id="p-user"></pre></details>
+
+<h2>Score per game</h2>
+<div class="chart" id="chart"></div>
+<div class="xlabels" id="xlabels"></div>
+<details><summary>table view</summary><table id="gtable">
+<thead><tr><th>Game</th><th>Levels</th><th>Actions</th><th>Score</th></tr></thead><tbody></tbody>
+</table></details>
+
+<script>
+const STAGES = [
+  ["Game engine", ["concurrency", "budget_min"]],
+  ["Agent loop", ["agent_code", "yield_s", "thinking"]],
+  ["Prompt & memory", ["memory", "render", "agent_ctx"]],
+  ["Inference server", ["server", "server_max_len", "spec_decode"]],
+  ["Weights", ["weights", "hardware"]],
+];
+const LABELS = {
+  concurrency: "concurrent games", budget_min: "minutes / game", agent_code: "agent code",
+  yield_s: "turn yield (s)", thinking: "thinking", memory: "carried memory",
+  render: "board render", agent_ctx: "agent context", server: "engine",
+  server_max_len: "server max len", spec_decode: "spec decode", weights: "weights", hardware: "hardware",
+};
+const runName = decodeURIComponent((location.hash.match(/run=([^&]+)/) || [])[1] || "");
+fetch("./data/runs-index.json").then((r) => r.json()).then((idx) => {
+  const run = idx.runs.find((r) => r.run === runName) || idx.runs[0];
+  const base = idx.runs.find((r) => r.run === idx.baseline) || {};
+  document.title = `${run.run} — harness & scores`;
+  document.querySelector("#title").textContent = run.run;
+  if (run.harness.note) document.querySelector("#note").textContent = run.harness.note;
+  document.title = `${run.run} — harness`;
+
+  document.querySelector("#tiles").innerHTML = [
+    [run.avg_score.toFixed(3), "avg score"],
+    [`${run.levels}`, "levels won"],
+    [run.actions.toLocaleString(), "actions"],
+    [run.tokens.toLocaleString(), "tokens"],
+    [`${run.games}`, "games"],
+  ].map(([v, l]) => `<div class="tile"><b>${v}</b><span>${l}</span></div>`).join("");
+
+  const bh = (base.harness || {});
+  document.querySelector("#pipe").innerHTML = STAGES.map(([name, keys]) => `
+    <div class="stage"><h3>${name}</h3>${keys.map((k) => {
+      const v = run.harness[k]; if (v === undefined) return "";
+      const diff = run.run !== idx.baseline && String(v) !== String(bh[k]);
+      return `<div class="knob${diff ? " diff" : ""}"><span>${LABELS[k]}</span>${v}</div>`;
+    }).join("")}</div>`).join("");
+
+  const pr = run.prompts || {};
+  document.querySelector("#p-system").textContent = pr.system || "(not captured for this run)";
+  document.querySelector("#p-user").textContent = pr.user_example || "(not captured for this run)";
+  const games = run.per_game;
+  const max = Math.max(0.001, ...games.map((g) => g.score));
+  document.querySelector("#chart").innerHTML = games.map((g) => {
+    const h = Math.round((g.score / max) * 160);
+    const zero = g.score === 0;
+    return `<div class="barwrap" title="${g.id}\nscore ${g.score}\nlevels ${g.levels}/${g.levels_total}\nactions ${g.actions}">
+      ${!zero ? `<div class="blabel">${g.score.toFixed(2)}</div>` : ""}
+      <div class="bar${zero ? " zero" : ""}" style="height:${zero ? 2 : Math.max(h, 3)}px"></div></div>`;
+  }).join("");
+  document.querySelector("#xlabels").innerHTML = games.map((g) => `<div>${g.id.split("-")[0]}</div>`).join("");
+  document.querySelector("#gtable tbody").innerHTML = games.map((g) =>
+    `<tr><td>${g.id}</td><td>${g.levels}/${g.levels_total}</td><td>${g.actions}</td><td>${g.score.toFixed(3)}</td></tr>`).join("");
+});
+</script>
+</body>
+</html>
