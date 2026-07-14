@@ -38,6 +38,8 @@
   .xlabels { display: flex; gap: 2px; margin-top: 6px; }
   .xlabels div { flex: 1; font-size: 9.5px; color: var(--text-dim); text-align: center; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
   details { margin-top: 14px; font-size: 13px; }
+  details.prompt { margin: 8px 0; }
+  details.prompt pre { white-space: pre-wrap; font: 11.5px/1.5 ui-monospace, monospace; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); border-radius: 8px; padding: 12px 14px; max-height: 480px; overflow: auto; }
   details table { border-collapse: collapse; margin-top: 8px; font-variant-numeric: tabular-nums; }
   details th, details td { padding: 4px 12px 4px 0; text-align: right; border-bottom: 1px solid rgba(255,255,255,.08); }
   details th:first-child, details td:first-child { text-align: left; }
@@ -52,6 +54,10 @@
 <h2>Harness</h2>
 <div class="pipe" id="pipe"></div>
 <p class="legend"><i></i>knob differs from the tufa-exact baseline</p>
+
+<h2>Prompts</h2>
+<details class="prompt"><summary>System prompt (as sent, verbatim)</summary><pre id="p-system"></pre></details>
+<details class="prompt"><summary>Example user turn (first turn of a game)</summary><pre id="p-user"></pre></details>
 
 <h2>Score per game</h2>
 <div class="chart" id="chart"></div>
@@ -99,6 +105,9 @@ fetch("./data/runs-index.json").then((r) => r.json()).then((idx) => {
       return `<div class="knob${diff ? " diff" : ""}"><span>${LABELS[k]}</span>${v}</div>`;
     }).join("")}</div>`).join("");
 
+  const pr = run.prompts || {};
+  document.querySelector("#p-system").textContent = pr.system || "(not captured for this run)";
+  document.querySelector("#p-user").textContent = pr.user_example || "(not captured for this run)";
   const games = run.per_game;
   const max = Math.max(0.001, ...games.map((g) => g.score));
   document.querySelector("#chart").innerHTML = games.map((g) => {
