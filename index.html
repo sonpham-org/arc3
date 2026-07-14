@@ -6,35 +6,60 @@
 <title>ARC-3 runs — score table</title>
 <link rel="stylesheet" href="./static/css/theme.css">
 <style>
-  body { font: 14px/1.5 system-ui, sans-serif; max-width: 900px; margin: 0 auto; padding: 32px 20px; }
+  body { font: 14px/1.5 system-ui, sans-serif; max-width: 1240px; margin: 0 auto; padding: 32px 20px; }
   h1 { font-size: 20px; margin: 0 0 4px; }
   .sub { opacity: .7; margin: 0 0 20px; font-size: 13px; }
   table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
-  th, td { text-align: right; padding: 8px 10px; border-bottom: 1px solid rgba(128,128,128,.25); }
+  th, td { text-align: right; padding: 8px 10px; border-bottom: 1px solid rgba(128,128,128,.25); vertical-align: top; }
   th:first-child, td:first-child { text-align: left; }
+  th.games, td.games { text-align: left; }
   th { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; opacity: .7; }
   td.run a { text-decoration: none; color: inherit; border-bottom: 1px dotted rgba(128,128,128,.6); }
   td.run a:hover { border-bottom-style: solid; }
   tr.best td { font-weight: 600; }
-  .back { display: inline-block; margin-bottom: 16px; font-size: 13px; opacity: .75; color: inherit; }
+  td.games { min-width: 430px; }
+  .strip { display: flex; flex-wrap: wrap; gap: 3px; font-weight: 400; }
+  .tile { width: 30px; text-decoration: none; color: inherit; text-align: center;
+          border-radius: 4px; padding: 2px 1px 1px; }
+  .tile img { width: 26px; height: 26px; image-rendering: pixelated; border-radius: 2px;
+              display: block; margin: 0 auto; outline: 1px solid rgba(128,128,128,.35); }
+  .tile .nm { font-size: 8.5px; letter-spacing: .02em; opacity: .65; line-height: 1.5; }
+  .tile .sc { font-size: 9.5px; line-height: 1.1; }
+  .tile.zero .sc { opacity: .4; }
+  .tile:hover { outline: 2px solid #1E93FF; }
 </style>
 </head>
 <body>
 <h1>Run scoreboard</h1>
-<p class="sub">Average score per game across the 25 public ARC-AGI-3 games (Tufa's public reference: 1.6002). Click a run to open its viewer; the Harness &amp; prompts tab inside has config, diffs vs baseline, and verbatim prompts.</p>
+<p class="sub">Average score per game across the 25 public ARC-AGI-3 games (Tufa's public reference: 1.6002).
+Click a run to open its viewer, or a game tile to jump straight to it. Tile shading scales with that game's score.</p>
 <table id="t"><thead><tr>
 <th>Run</th><th>Games</th><th>Levels won</th><th>Actions</th><th>Tokens</th><th>Avg score</th>
+<th class="games">Per-game scores</th>
 </tr></thead><tbody></tbody></table>
 <script>
 fetch("./data/runs-index.json").then(r => r.json()).then(payload => {
   const rows = payload.runs || payload;
   const tb = document.querySelector("#t tbody");
   const best = Math.max(...rows.map(r => r.avg_score));
+  const cap = Math.max(1, ...rows.flatMap(r => (r.per_game || []).map(g => g.score)));
+  const tile = (run, g) => {
+    const alpha = g.score > 0 ? (0.12 + 0.5 * Math.sqrt(g.score / cap)).toFixed(2) : 0;
+    return `<a class="tile ${g.score > 0 ? "" : "zero"}" style="background:rgba(30,147,255,${alpha})"
+      href="./viewer.html#run=${encodeURIComponent(run)}&game=${encodeURIComponent(g.id)}"
+      title="${g.id} — score ${g.score.toFixed(2)}, levels ${g.levels}/${g.levels_total}, ${g.actions} actions">
+      <img src="./static/img/games/${g.id}.png" alt="" loading="lazy"
+           onerror="this.style.visibility='hidden'">
+      <span class="nm">${g.id.slice(0, 4)}</span><br>
+      <span class="sc">${g.score > 0 ? g.score.toFixed(g.score >= 10 ? 0 : 1) : "0"}</span>
+    </a>`;
+  };
   tb.innerHTML = rows.map(r => `
     <tr class="${r.avg_score === best ? "best" : ""}">
       <td class="run"><a href="./viewer.html#run=${encodeURIComponent(r.run)}">${r.run}</a> <a style="opacity:.55;font-size:11px" href="./harness.html#run=${encodeURIComponent(r.run)}">harness</a></td>
       <td>${r.games}</td><td>${r.levels}</td><td>${r.actions.toLocaleString()}</td>
       <td>${r.tokens.toLocaleString()}</td><td>${r.avg_score.toFixed(3)}</td>
+      <td class="games"><div class="strip">${(r.per_game || []).map(g => tile(r.run, g)).join("")}</div></td>
     </tr>`).join("");
 });
 </script>

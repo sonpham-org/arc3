@@ -55,14 +55,23 @@ window.addEventListener("hashchange", route);
 function parseHash() {
   const params = new URLSearchParams(location.hash.replace(/^#/, ""));
   const game = params.get("game");
-  return { run: params.get("run"), game: game === null ? null : Number(game) };
+  // numeric = game index; anything else is a game_id resolved against the overview
+  return { run: params.get("run"), game: game === null ? null : (/^\d+$/.test(game) ? Number(game) : game) };
 }
 
 async function route() {
   const { run, game } = parseHash();
   state.run = run;
-  if (game === null) await showOverview();
-  else await showGame(game);
+  if (game === null) return showOverview();
+  if (typeof game === "string") {
+    const payload = state.overview && state.overview.selected_run === run
+      ? state.overview : await fetchRunOverview(run);
+    state.overview = payload;
+    state.run = payload.selected_run;
+    const index = payload.games.findIndex((g) => g.game_id === game);
+    return showGame(index >= 0 ? index : 0);
+  }
+  await showGame(game);
 }
 
 async function showOverview() {
