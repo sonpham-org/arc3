@@ -251,6 +251,20 @@ td.col-what .llm-meta.has-error { color: var(--err); }
 .section.kind-reasoning pre { border-left: 2px solid var(--muted-2); }
 .section.kind-error pre { border-left: 2px solid var(--err); color: var(--err); }
 
+/* Per-type colour cue, keyed off the section label (see decision.js typeClass):
+   the header label tints and the content carries a matching left spine. Placed
+   after the kind-* rules so these equal-specificity type rules win. */
+.section.t-user > summary { color: var(--ok); }
+.section.t-user pre { border-left: 2px solid var(--ok); }
+.section.t-thinking > summary { color: var(--accent); }
+.section.t-thinking pre { border-left: 2px solid var(--accent); }
+.section.t-assistant > summary { color: var(--purple); }
+.section.t-assistant pre { border-left: 2px solid var(--purple); }
+.section.t-toolcall > summary { color: var(--warn); }
+.section.t-toolcall pre { border-left: 2px solid var(--warn); }
+.section.t-toolresult > summary { color: var(--scrub); }
+.section.t-toolresult pre { border-left: 2px solid var(--scrub); }
+
 /* coordinate references */
 .coord-ref {
   cursor: pointer;

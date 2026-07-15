@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ARC-3 runs — score table</title>
 <link rel="stylesheet" href="./static/css/theme.css">
+<script>
+(function(){try{var t=localStorage.getItem('arc3-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+<script defer src="./static/js/theme-toggle.js"></script>
 <style>
   body { font: 14px/1.5 system-ui, sans-serif; margin: 0; padding: 28px 20px 40px;
          height: auto; overflow: auto; }
@@ -40,6 +44,7 @@
 </style>
 </head>
 <body>
+<button data-theme-toggle class="theme-toggle" style="position:fixed;top:16px;right:20px;z-index:50"></button>
 <div class="head">
   <h1>Run scoreboard</h1>
   <p class="sub">Each column is one of the 25 public ARC-AGI-3 games; each cell is that run's average

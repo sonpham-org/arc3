@@ -12,6 +12,21 @@ const IS_CODE = /^TOOL CALL/i;
 const IS_SYSTEM = /^SYSTEM PROMPT$/i;
 const IS_USER = /^USER PROMPT$/i;
 
+// A per-type colour cue, keyed off the section label so it is finer than the
+// backend `kind` (which lumps THINKING+ASSISTANT and TOOL CALL+TOOL RESULT).
+// The `t-*` class picks the accent colour in app.css.
+function typeClass(label) {
+  const l = String(label || "").toUpperCase();
+  if (l.startsWith("USER PROMPT")) return "t-user";        // green
+  if (l.startsWith("SYSTEM PROMPT")) return "t-system";    // neutral
+  if (l.startsWith("THINKING")) return "t-thinking";       // blue
+  if (l.startsWith("ASSISTANT")) return "t-assistant";     // purple
+  if (l.startsWith("TOOL CALL")) return "t-toolcall";      // orange
+  if (l.startsWith("TOOL RESULT")) return "t-toolresult";  // amber
+  if (l.startsWith("ERROR")) return "t-error";             // red
+  return "";
+}
+
 export function renderDecision(root, step, { currentClick, previousStep } = {}) {
   root.innerHTML = "";
   if (!step) {
@@ -102,7 +117,7 @@ function renderSection(section, { open, call = 0, note = "" }) {
   const label = section.label || "SECTION";
   const content = section.content || "";
   const details = document.createElement("details");
-  details.className = `section kind-${section.kind || "text"}`;
+  details.className = `section kind-${section.kind || "text"} ${typeClass(label)}`.trim();
   details.open = open;
   details.appendChild(summaryFor(label, content.length, { call, note }));
 
@@ -126,7 +141,7 @@ function renderPrompt(section, previousContent) {
   const changed = previousContent ? lines.filter((line) => !before.has(line)).length : lines.length;
 
   const details = document.createElement("details");
-  details.className = "section kind-meta";
+  details.className = `section kind-meta ${typeClass(section.label)}`.trim();
   details.appendChild(
     summaryFor(section.label, section.content.length, {
       note: previousContent ? (changed ? `${changed} changed lines` : "unchanged") : "",

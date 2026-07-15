@@ -6,19 +6,23 @@
   <title>ARC3 Run Inspector</title>
   <link rel="stylesheet" href="./static/css/theme.css" />
   <link rel="stylesheet" href="./static/css/app.css" />
+  <script>
+  (function(){try{var t=localStorage.getItem('arc3-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+  </script>
+  <script defer src="./static/js/theme-toggle.js"></script>
 </head>
 <body>
-<nav class="runtabs"><a class="rt-home" href="./">&larr; runs</a><a class="rt-tab active" id="rt-viewer">Viewer</a><a class="rt-tab" id="rt-harness">Harness &amp; prompts</a></nav>
+<nav class="runtabs"><a class="rt-home" href="./">&larr; runs</a><a class="rt-tab active" id="rt-viewer">Viewer</a><a class="rt-tab" id="rt-harness">Harness &amp; prompts</a><button data-theme-toggle class="theme-toggle" style="margin-left:auto;align-self:center"></button></nav>
 <style>
 .runtabs { position: sticky; top: 0; z-index: 100; display: flex; gap: 6px; align-items: flex-end;
   padding: 10px 16px 0; min-height: 42px; box-sizing: border-box; background: var(--bg);
-  border-bottom: 1px solid rgba(255,255,255,.12); font: 13px system-ui, sans-serif; }
+  border-bottom: 1px solid var(--wash-line); font: 13px system-ui, sans-serif; }
 .runtabs .rt-home { margin-right: 12px; padding-bottom: 9px; opacity: .7; text-decoration: none; color: inherit; }
 .runtabs .rt-home:hover { opacity: 1; }
 .runtabs .rt-tab { padding: 7px 16px; border-radius: 8px 8px 0 0; text-decoration: none; color: inherit;
-  opacity: .65; border: 1px solid rgba(255,255,255,.12); border-bottom: none;
-  background: rgba(255,255,255,.03); position: relative; top: 1px; }
-.runtabs .rt-tab.active { opacity: 1; background: rgba(255,255,255,.09); font-weight: 600; }
+  opacity: .65; border: 1px solid var(--wash-line); border-bottom: none;
+  background: var(--wash); position: relative; top: 1px; }
+.runtabs .rt-tab.active { opacity: 1; background: var(--wash-2); font-weight: 600; }
 </style>
 <script>
 (function(){

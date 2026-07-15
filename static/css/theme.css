@@ -24,10 +24,59 @@
   --err: #ef4444;
   --warn: #f59e0b;
   --scrub: #d29922;
+  --purple: #a356d6;
+
+  /* Semantic translucent washes for surfaces/borders drawn over --bg. These flip
+     with the theme so the many inline `rgba(255,255,255,…)` washes have a light
+     counterpart instead of vanishing on a pale background. */
+  --wash: rgba(255, 255, 255, 0.04);
+  --wash-2: rgba(255, 255, 255, 0.09);
+  --wash-line: rgba(255, 255, 255, 0.12);
 
   --font: ui-monospace, "SF Mono", "Fira Code", "JetBrains Mono", Consolas, monospace;
   --radius: 4px;
+
+  color-scheme: dark;
 }
+
+/* Light theme — same ~222deg hue family, lightness ladder inverted. Applied when
+   the root carries data-theme="light" (set by the toggle / system preference). */
+:root[data-theme="light"] {
+  --bg: #f4f6fb;
+  --panel: #ffffff;
+  --chrome: #eef1f7;
+  --raised: #e4e9f2;
+  --raised-hi: #d6dded;
+  --tooltip: #ffffff;
+
+  --border: #d0d8e6;
+  --border-strong: #b4c0d4;
+  --hairline: #e7ebf3;
+
+  --text: #141a26;
+  --text-dim: #46536b;
+  --muted: #6b7789;
+  --muted-2: #98a4b8;
+
+  --accent: #2563eb;
+  --accent-wash: rgba(37, 99, 235, 0.10);
+  --accent-line: rgba(37, 99, 235, 0.34);
+
+  --ok: #16a34a;
+  --err: #dc2626;
+  --warn: #d97706;
+  --scrub: #b45309;
+  --purple: #7c3aed;
+
+  --wash: rgba(15, 23, 42, 0.04);
+  --wash-2: rgba(15, 23, 42, 0.07);
+  --wash-line: rgba(15, 23, 42, 0.14);
+
+  color-scheme: light;
+}
+
+/* The theme toggle button: compact, icon-only, inherits the themed button chrome. */
+.theme-toggle { padding: 4px 8px; line-height: 1; min-width: 30px; text-align: center; }
 
 * {
   margin: 0;

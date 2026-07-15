@@ -120,8 +120,11 @@ async function showGame(index) {
     const payload = await fetchRunOverview(state.run);
     state.overview = payload;
     state.run = payload.selected_run;
-    setPalette(payload.arc_palette, payload.color_chars);
   }
+  // Always (re)apply the palette from the overview we hold. Deep-linking with a game_id string
+  // resolves the overview inside route() without ever setting the palette, so keying this off a
+  // fresh fetch here would leave the board painting every cell "#000" (all black).
+  setPalette(state.overview.arc_palette, state.overview.color_chars);
   await refreshGame({ resetToLive: true });
 }
 
