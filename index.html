@@ -6,61 +6,92 @@
 <title>ARC-3 runs — score table</title>
 <link rel="stylesheet" href="./static/css/theme.css">
 <style>
-  body { font: 14px/1.5 system-ui, sans-serif; max-width: 1240px; margin: 0 auto; padding: 32px 20px; }
+  body { font: 14px/1.5 system-ui, sans-serif; margin: 0; padding: 28px 20px 40px;
+         height: auto; overflow: auto; }
+  .head { max-width: 1240px; margin: 0 auto 18px; }
   h1 { font-size: 20px; margin: 0 0 4px; }
-  .sub { opacity: .7; margin: 0 0 20px; font-size: 13px; }
-  table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
-  th, td { text-align: right; padding: 8px 10px; border-bottom: 1px solid rgba(128,128,128,.25); vertical-align: top; }
-  th:first-child, td:first-child { text-align: left; }
-  th.games, td.games { text-align: left; }
-  th { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; opacity: .7; }
+  .sub { opacity: .7; margin: 0; font-size: 13px; }
+
+  .tablewrap { overflow-x: auto; overflow-y: visible; padding-bottom: 6px; }
+  table { border-collapse: separate; border-spacing: 0; font-variant-numeric: tabular-nums; }
+  th, td { padding: 7px 9px; border-bottom: 1px solid var(--border, rgba(128,128,128,.25));
+           text-align: right; white-space: nowrap; }
+  thead th { font-size: 12px; text-transform: uppercase; letter-spacing: .05em; opacity: .85;
+             vertical-align: bottom; }
+  th.run, td.run { text-align: left; }
   td.run a { text-decoration: none; color: inherit; border-bottom: 1px dotted rgba(128,128,128,.6); }
   td.run a:hover { border-bottom-style: solid; }
+  td.run .harness { opacity: .5; font-size: 11px; margin-left: 6px; }
   tr.best td { font-weight: 600; }
-  td.games { min-width: 430px; }
-  .strip { display: flex; flex-wrap: wrap; gap: 3px; font-weight: 400; }
-  .tile { width: 30px; text-decoration: none; color: inherit; text-align: center;
-          border-radius: 4px; padding: 2px 1px 1px; }
-  .tile img { width: 26px; height: 26px; image-rendering: pixelated; border-radius: 2px;
-              display: block; margin: 0 auto; outline: 1px solid rgba(128,128,128,.35); }
-  .tile .nm { font-size: 8.5px; letter-spacing: .02em; opacity: .65; line-height: 1.5; }
-  .tile .sc { font-size: 9.5px; line-height: 1.1; }
-  .tile.zero .sc { opacity: .4; }
-  .tile:hover { outline: 2px solid #1E93FF; }
+  td.avg { font-weight: 600; }
+
+  /* One column per game: thumbnail + short id up top, so the id never repeats down the rows. */
+  th.game { width: 36px; min-width: 36px; text-align: center; padding: 6px 3px;
+            text-transform: none; letter-spacing: 0; opacity: 1; }
+  th.game img { width: 26px; height: 26px; image-rendering: pixelated; border-radius: 2px;
+                display: block; margin: 0 auto 3px; outline: 1px solid rgba(128,128,128,.35); }
+  th.game .gid { font-size: 9px; letter-spacing: .02em; opacity: .6; font-weight: 400; }
+
+  td.g { width: 36px; min-width: 36px; text-align: center; padding: 0; }
+  td.g a { display: block; padding: 8px 2px; text-decoration: none; color: inherit; }
+  td.g.zero a { opacity: .35; }
+  td.g.none { color: var(--muted, #6b7789); opacity: .4; }
+  td.g a:hover { outline: 2px solid #1E93FF; outline-offset: -2px; }
 </style>
 </head>
 <body>
-<h1>Run scoreboard</h1>
-<p class="sub">Average score per game across the 25 public ARC-AGI-3 games (Tufa's public reference: 1.6002).
-Click a run to open its viewer, or a game tile to jump straight to it. Tile shading scales with that game's score.</p>
-<table id="t"><thead><tr>
-<th>Run</th><th>Games</th><th>Levels won</th><th>Actions</th><th>Tokens</th><th>Avg score</th>
-<th class="games">Per-game scores</th>
-</tr></thead><tbody></tbody></table>
+<div class="head">
+  <h1>Run scoreboard</h1>
+  <p class="sub">Each column is one of the 25 public ARC-AGI-3 games; each cell is that run's average
+  score on it (shading scales with the score). Tufa's public reference average: 1.6002. Click a run to
+  open its viewer, or a score to jump straight to that game.</p>
+</div>
+<div class="tablewrap"><table id="t"><thead></thead><tbody></tbody></table></div>
 <script>
 fetch("./data/runs-index.json").then(r => r.json()).then(payload => {
   const rows = payload.runs || payload;
-  const tb = document.querySelector("#t tbody");
+
+  // Canonical column order = union of game ids across runs, longest run first so we pick up the
+  // full 25 even though one run only played a single game. Cells are keyed by id, not position.
+  const order = [], seen = new Set();
+  [...rows].sort((a, b) => (b.per_game || []).length - (a.per_game || []).length)
+    .forEach(r => (r.per_game || []).forEach(g => {
+      if (!seen.has(g.id)) { seen.add(g.id); order.push(g.id); }
+    }));
+
   const best = Math.max(...rows.map(r => r.avg_score));
   const cap = Math.max(1, ...rows.flatMap(r => (r.per_game || []).map(g => g.score)));
-  const tile = (run, g) => {
-    const alpha = g.score > 0 ? (0.12 + 0.5 * Math.sqrt(g.score / cap)).toFixed(2) : 0;
-    return `<a class="tile ${g.score > 0 ? "" : "zero"}" style="background:rgba(30,147,255,${alpha})"
-      href="./viewer.html#run=${encodeURIComponent(run)}&game=${encodeURIComponent(g.id)}"
-      title="${g.id} — score ${g.score.toFixed(2)}, levels ${g.levels}/${g.levels_total}, ${g.actions} actions">
-      <img src="./static/img/games/${g.id}.png" alt="" loading="lazy"
+
+  const gameHead = order.map(id => `
+    <th class="game" title="${id}">
+      <img src="./static/img/games/${id}.png" alt="" loading="lazy"
            onerror="this.style.visibility='hidden'">
-      <span class="nm">${g.id.slice(0, 4)}</span><br>
-      <span class="sc">${g.score > 0 ? g.score.toFixed(g.score >= 10 ? 0 : 1) : "0"}</span>
-    </a>`;
+      <div class="gid">${id.slice(0, 4)}</div>
+    </th>`).join("");
+
+  document.querySelector("#t thead").innerHTML = `<tr>
+    <th class="run">Run</th><th>Levels</th><th>Actions</th><th>Tokens</th><th>Avg</th>${gameHead}
+  </tr>`;
+
+  const cell = (run, id, g) => {
+    if (!g) return `<td class="g none" title="${id}: not played">·</td>`;
+    const alpha = g.score > 0 ? (0.12 + 0.5 * Math.sqrt(g.score / cap)).toFixed(2) : 0;
+    const disp = g.score > 0 ? g.score.toFixed(g.score >= 10 ? 0 : 1) : "0";
+    return `<td class="g ${g.score > 0 ? "" : "zero"}" style="background:rgba(30,147,255,${alpha})">
+      <a href="./viewer.html#run=${encodeURIComponent(run)}&game=${encodeURIComponent(id)}"
+         title="${id} — score ${g.score.toFixed(2)}, levels ${g.levels}/${g.levels_total}, ${g.actions} actions">${disp}</a>
+    </td>`;
   };
-  tb.innerHTML = rows.map(r => `
-    <tr class="${r.avg_score === best ? "best" : ""}">
-      <td class="run"><a href="./viewer.html#run=${encodeURIComponent(r.run)}">${r.run}</a> <a style="opacity:.55;font-size:11px" href="./harness.html#run=${encodeURIComponent(r.run)}">harness</a></td>
-      <td>${r.games}</td><td>${r.levels}</td><td>${r.actions.toLocaleString()}</td>
-      <td>${r.tokens.toLocaleString()}</td><td>${r.avg_score.toFixed(3)}</td>
-      <td class="games"><div class="strip">${(r.per_game || []).map(g => tile(r.run, g)).join("")}</div></td>
-    </tr>`).join("");
+
+  document.querySelector("#t tbody").innerHTML = rows.map(r => {
+    const byId = new Map((r.per_game || []).map(g => [g.id, g]));
+    const cells = order.map(id => cell(r.run, id, byId.get(id))).join("");
+    return `<tr class="${r.avg_score === best ? "best" : ""}">
+      <td class="run"><a href="./viewer.html#run=${encodeURIComponent(r.run)}">${r.run}</a><a class="harness" href="./harness.html#run=${encodeURIComponent(r.run)}">harness</a></td>
+      <td>${r.levels}</td><td>${r.actions.toLocaleString()}</td><td>${r.tokens.toLocaleString()}</td>
+      <td class="avg">${r.avg_score.toFixed(3)}</td>${cells}
+    </tr>`;
+  }).join("");
 });
 </script>
 </body>
