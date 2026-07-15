@@ -252,18 +252,23 @@ td.col-what .llm-meta.has-error { color: var(--err); }
 .section.kind-error pre { border-left: 2px solid var(--err); color: var(--err); }
 
 /* Per-type colour cue, keyed off the section label (see decision.js typeClass):
-   the header label tints and the content carries a matching left spine. Placed
-   after the kind-* rules so these equal-specificity type rules win. */
-.section.t-user > summary { color: var(--ok); }
+   the header label tints, its bar carries a faint wash of the same hue, and the
+   content gets a matching left spine. color-mix keeps the wash subtle and
+   theme-aware (blended into --chrome, so it stays dark-on-dark / light-on-light).
+   Placed after the kind-* rules so these equal-specificity type rules win. */
+.section.t-user > summary { color: var(--ok); background: color-mix(in srgb, var(--ok) 14%, var(--chrome)); }
 .section.t-user pre { border-left: 2px solid var(--ok); }
-.section.t-thinking > summary { color: var(--accent); }
+.section.t-thinking > summary { color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, var(--chrome)); }
 .section.t-thinking pre { border-left: 2px solid var(--accent); }
-.section.t-assistant > summary { color: var(--purple); }
+.section.t-assistant > summary { color: var(--purple); background: color-mix(in srgb, var(--purple) 14%, var(--chrome)); }
 .section.t-assistant pre { border-left: 2px solid var(--purple); }
-.section.t-toolcall > summary { color: var(--warn); }
+.section.t-toolcall > summary { color: var(--warn); background: color-mix(in srgb, var(--warn) 14%, var(--chrome)); }
 .section.t-toolcall pre { border-left: 2px solid var(--warn); }
-.section.t-toolresult > summary { color: var(--scrub); }
+.section.t-toolresult > summary { color: var(--scrub); background: color-mix(in srgb, var(--scrub) 14%, var(--chrome)); }
 .section.t-toolresult pre { border-left: 2px solid var(--scrub); }
+.section.t-error > summary { color: var(--err); background: color-mix(in srgb, var(--err) 14%, var(--chrome)); }
+.section.t-error pre { border-left: 2px solid var(--err); }
+.section.t-system > summary { background: color-mix(in srgb, var(--muted) 10%, var(--chrome)); }
 
 /* coordinate references */
 .coord-ref {

@@ -42,21 +42,23 @@
 /* Light theme — same ~222deg hue family, lightness ladder inverted. Applied when
    the root carries data-theme="light" (set by the toggle / system preference). */
 :root[data-theme="light"] {
-  --bg: #f4f6fb;
-  --panel: #ffffff;
-  --chrome: #eef1f7;
-  --raised: #e4e9f2;
-  --raised-hi: #d6dded;
-  --tooltip: #ffffff;
+  /* A muted, slightly grey paper — the previous near-white ladder read as glary.
+     Panels stay just off-white so cards still lift off the greyer page. */
+  --bg: #e6e8ee;
+  --panel: #f7f8fa;
+  --chrome: #dfe3ea;
+  --raised: #d5dae4;
+  --raised-hi: #c7cfdc;
+  --tooltip: #fbfcfe;
 
-  --border: #d0d8e6;
-  --border-strong: #b4c0d4;
-  --hairline: #e7ebf3;
+  --border: #c6cedb;
+  --border-strong: #a9b5c9;
+  --hairline: #dbe0e8;
 
-  --text: #141a26;
-  --text-dim: #46536b;
-  --muted: #6b7789;
-  --muted-2: #98a4b8;
+  --text: #0e131c;
+  --text-dim: #384558;
+  --muted: #566175;
+  --muted-2: #7d8a9f;
 
   --accent: #2563eb;
   --accent-wash: rgba(37, 99, 235, 0.10);
