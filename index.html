@@ -41,6 +41,19 @@
   td.g.zero a { opacity: .35; }
   td.g.none { color: var(--muted, #6b7789); opacity: .4; }
   td.g a:hover { outline: 2px solid #1E93FF; outline-offset: -2px; }
+
+  /* Game on/off toggling: click a thumbnail header to drop that game from the averages. */
+  th.game { cursor: pointer; user-select: none; }
+  th.game:hover { background: var(--raised, rgba(128,128,128,.18)); }
+  th.game.off { opacity: .3; }
+  th.game.off .gid { text-decoration: line-through; }
+  td.g.off { opacity: .14; }
+  td.g.off a { pointer-events: none; }
+  .gamesel { max-width: 1240px; margin: 0 auto 12px; font-size: 12.5px;
+             color: var(--text-dim, inherit); display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  .gamesel .hint { opacity: .6; }
+  .gamesel b { color: var(--text, inherit); }
+  .gamesel button { font: inherit; padding: 2px 9px; }
 </style>
 </head>
 <body>
@@ -51,6 +64,7 @@
   score on it (shading scales with the score). Tufa's public reference average: 1.6002. Click a run to
   open its viewer, or a score to jump straight to that game.</p>
 </div>
+<div class="gamesel" id="gamesel-status"></div>
 <div class="tablewrap"><table id="t"><thead></thead><tbody></tbody></table></div>
 <script>
 fetch("./data/runs-index.json").then(r => r.json()).then(payload => {
@@ -64,39 +78,91 @@ fetch("./data/runs-index.json").then(r => r.json()).then(payload => {
       if (!seen.has(g.id)) { seen.add(g.id); order.push(g.id); }
     }));
 
-  const best = Math.max(...rows.map(r => r.avg_score));
   const cap = Math.max(1, ...rows.flatMap(r => (r.per_game || []).map(g => g.score)));
 
-  const gameHead = order.map(id => `
-    <th class="game" title="${id}">
-      <img src="./static/img/games/${id}.png" alt="" loading="lazy"
-           onerror="this.style.visibility='hidden'">
-      <div class="gid">${id.slice(0, 4)}</div>
-    </th>`).join("");
+  // Which games count toward the averages. Click a thumbnail to drop it; the choice persists.
+  const LS_KEY = "arc3-scoreboard-games";
+  let active;
+  try {
+    const saved = JSON.parse(localStorage.getItem(LS_KEY) || "null");
+    active = new Set(Array.isArray(saved) ? saved.filter(id => order.includes(id)) : order);
+  } catch (e) { active = new Set(order); }
+  if (!active.size) active = new Set(order);
+  const saveActive = () => { try { localStorage.setItem(LS_KEY, JSON.stringify([...active])); } catch (e) {} };
 
-  document.querySelector("#t thead").innerHTML = `<tr>
-    <th class="run">Run</th><th>Levels</th><th>Actions</th><th>Tokens</th><th>Avg</th>${gameHead}
+  // A run's average over the games it played that are currently active (null if none apply).
+  const activeAvg = (r) => {
+    const played = (r.per_game || []).filter(g => active.has(g.id));
+    if (!played.length) return null;
+    return played.reduce((s, g) => s + g.score, 0) / played.length;
+  };
+
+  const thead = document.querySelector("#t thead");
+  const tbody = document.querySelector("#t tbody");
+  const status = document.querySelector("#gamesel-status");
+
+  // Header is built once; toggling only flips classes, so the thumbnails never reload.
+  thead.innerHTML = `<tr>
+    <th class="run">Run</th><th>Levels</th><th>Actions</th><th>Tokens</th><th>Avg</th>${
+      order.map(id => `
+    <th class="game" data-game="${id}">
+      <img src="./static/img/games/${id}.png" alt="" loading="lazy" onerror="this.style.visibility='hidden'">
+      <div class="gid">${id.slice(0, 4)}</div>
+    </th>`).join("")}
   </tr>`;
+  thead.querySelectorAll("th.game").forEach(th =>
+    th.addEventListener("click", () => toggle(th.dataset.game)));
 
   const cell = (run, id, g) => {
-    if (!g) return `<td class="g none" title="${id}: not played">·</td>`;
+    const off = active.has(id) ? "" : " off";
+    if (!g) return `<td class="g none${off}" data-game="${id}" title="${id}: not played">·</td>`;
     const alpha = g.score > 0 ? (0.12 + 0.5 * Math.sqrt(g.score / cap)).toFixed(2) : 0;
     const disp = g.score > 0 ? g.score.toFixed(g.score >= 10 ? 0 : 1) : "0";
-    return `<td class="g ${g.score > 0 ? "" : "zero"}" style="background:rgba(30,147,255,${alpha})">
+    return `<td class="g ${g.score > 0 ? "" : "zero"}${off}" data-game="${id}" style="background:rgba(30,147,255,${alpha})">
       <a href="./viewer.html#run=${encodeURIComponent(run)}&game=${encodeURIComponent(id)}"
          title="${id} — score ${g.score.toFixed(2)}, levels ${g.levels}/${g.levels_total}, ${g.actions} actions">${disp}</a>
     </td>`;
   };
 
-  document.querySelector("#t tbody").innerHTML = rows.map(r => {
-    const byId = new Map((r.per_game || []).map(g => [g.id, g]));
-    const cells = order.map(id => cell(r.run, id, byId.get(id))).join("");
-    return `<tr class="${r.avg_score === best ? "best" : ""}">
-      <td class="run"><a href="./viewer.html#run=${encodeURIComponent(r.run)}">${r.run}</a><a class="harness" href="./harness.html#run=${encodeURIComponent(r.run)}">harness</a></td>
-      <td>${r.levels}</td><td>${r.actions.toLocaleString()}</td><td>${r.tokens.toLocaleString()}</td>
-      <td class="avg">${r.avg_score.toFixed(3)}</td>${cells}
-    </tr>`;
-  }).join("");
+  function toggle(id) {
+    if (active.has(id)) { if (active.size > 1) active.delete(id); }  // keep at least one game on
+    else active.add(id);
+    saveActive();
+    render();
+  }
+
+  function render() {
+    // Recompute each run's average over the active games, then rank by it.
+    const ranked = rows.map(r => ({ r, avg: activeAvg(r) }))
+      .sort((a, b) => (b.avg ?? -1) - (a.avg ?? -1));
+    const best = Math.max(...ranked.map(x => x.avg ?? -Infinity));
+
+    thead.querySelectorAll("th.game").forEach(th => {
+      const on = active.has(th.dataset.game);
+      th.classList.toggle("off", !on);
+      th.title = `${th.dataset.game} — click to ${on ? "exclude from" : "include in"} the averages`;
+    });
+
+    tbody.innerHTML = ranked.map(({ r, avg }) => {
+      const byId = new Map((r.per_game || []).map(g => [g.id, g]));
+      const cells = order.map(id => cell(r.run, id, byId.get(id))).join("");
+      const isBest = avg != null && avg === best;
+      return `<tr class="${isBest ? "best" : ""}">
+        <td class="run"><a href="./viewer.html#run=${encodeURIComponent(r.run)}">${r.run}</a><a class="harness" href="./harness.html#run=${encodeURIComponent(r.run)}">harness</a></td>
+        <td>${r.levels}</td><td>${r.actions.toLocaleString()}</td><td>${r.tokens.toLocaleString()}</td>
+        <td class="avg">${avg == null ? "—" : avg.toFixed(3)}</td>${cells}
+      </tr>`;
+    }).join("");
+
+    const n = active.size, total = order.length;
+    status.innerHTML = n === total
+      ? `Average over all <b>${total}</b> games. <span class="hint">Click a game thumbnail to drop it from the averages.</span>`
+      : `Average over <b>${n}</b> of ${total} games <span class="hint">(${total - n} excluded)</span>. <button type="button" id="games-reset">reset all</button>`;
+    const reset = document.getElementById("games-reset");
+    if (reset) reset.addEventListener("click", () => { active = new Set(order); saveActive(); render(); });
+  }
+
+  render();
 });
 </script>
 </body>
