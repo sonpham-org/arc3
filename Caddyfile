@@ -1,4 +1,6 @@
-:{$PORT}
+# Static file server, internal only. oauth2-proxy sits in front on $PORT and
+# forwards only authenticated requests here.
+:8081
 root * /srv
 encode zstd gzip
 file_server

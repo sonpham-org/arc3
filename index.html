@@ -28,6 +28,8 @@
   thead th { font-size: 12px; text-transform: uppercase; letter-spacing: .05em; opacity: .85;
              vertical-align: bottom; }
   th.run, td.run { text-align: left; }
+  th.date, td.date { text-align: left; white-space: nowrap; }
+  td.date { color: var(--text-dim, #aab3c4); font-size: 12px; font-variant-numeric: tabular-nums; }
   td.run a { text-decoration: none; color: inherit; border-bottom: 1px dotted rgba(128,128,128,.6); }
   td.run a:hover { border-bottom-style: solid; }
   td.run .harness { opacity: .5; font-size: 11px; margin-left: 6px; }
@@ -109,7 +111,7 @@ fetch("./data/runs-index.json").then(r => r.json()).then(payload => {
 
   // Header is built once; toggling only flips classes, so the thumbnails never reload.
   thead.innerHTML = `<tr>
-    <th class="run">Run</th><th>Levels</th><th>Actions</th><th>Tokens</th><th>Avg</th>${
+    <th class="run">Run</th><th class="date">Date</th><th>Levels</th><th>Actions</th><th>Tokens</th><th>Avg</th>${
       order.map(id => `
     <th class="game" data-game="${id}">
       <img src="./static/img/games/${id}.png" alt="" loading="lazy" onerror="this.style.visibility='hidden'">
@@ -137,6 +139,15 @@ fetch("./data/runs-index.json").then(r => r.json()).then(payload => {
     render();
   }
 
+  // Run date, parsed from the run-id prefix (YYYYMMDD_HHMMSS_label).
+  const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  function runDate(name) {
+    const m = String(name).match(/^(\d{4})(\d{2})(\d{2})_(\d{2})(\d{2})/);
+    if (!m) return { short: "", full: "" };
+    const [, y, mo, d, hh, mm] = m;
+    return { short: `${MONTHS[+mo - 1]} ${+d}`, full: `${y}-${mo}-${d} ${hh}:${mm}` };
+  }
+
   function render() {
     // Recompute each run's average over the active games, then rank by it.
     const ranked = rows.map(r => ({ r, avg: activeAvg(r) }))
@@ -153,8 +164,10 @@ fetch("./data/runs-index.json").then(r => r.json()).then(payload => {
       const byId = new Map((r.per_game || []).map(g => [g.id, g]));
       const cells = order.map(id => cell(r.run, id, byId.get(id))).join("");
       const isBest = avg != null && avg === best;
+      const d = runDate(r.run);
       return `<tr class="${isBest ? "best" : ""}">
         <td class="run"><a href="./viewer.html#run=${encodeURIComponent(r.run)}">${r.run}</a><a class="harness" href="./harness.html#run=${encodeURIComponent(r.run)}">harness</a></td>
+        <td class="date" title="${d.full}">${d.short}</td>
         <td>${r.levels}</td><td>${r.actions.toLocaleString()}</td><td>${r.tokens.toLocaleString()}</td>
         <td class="avg">${avg == null ? "—" : avg.toFixed(3)}</td>${cells}
       </tr>`;
