@@ -13,6 +13,7 @@ COPY run.html /srv/run.html
 COPY harness.html /srv/harness.html
 COPY viewer.html /srv/viewer.html
 COPY signals.html /srv/signals.html
+COPY usage.html /srv/usage.html
 COPY static /srv/static
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh

@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ARC-3 — resource usage</title>
+<link rel="stylesheet" href="./static/css/theme.css">
+<script>
+(function(){try{var t=localStorage.getItem('arc3-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+<script defer src="./static/js/theme-toggle.js"></script>
+<style>
+  body { font: 14px/1.5 system-ui, sans-serif; margin: 0; padding: 28px 20px 60px; height: auto; overflow: auto; }
+  .wrap { max-width: 1040px; margin: 0 auto; }
+  .topnav { display: flex; gap: 4px; margin-bottom: 16px; font-size: 13px; }
+  .topnav a { padding: 5px 12px; border-radius: 6px; text-decoration: none; color: inherit; opacity: .7; border: 1px solid transparent; }
+  .topnav a:hover { opacity: 1; background: var(--wash); }
+  .topnav a.active { opacity: 1; font-weight: 600; background: var(--wash-2); border-color: var(--wash-line); }
+  h1 { font-size: 20px; margin: 0 0 4px; }
+  .sub { opacity: .75; margin: 0 0 6px; font-size: 13px; }
+  .meta { font-size: 12px; color: var(--text-dim); margin: 0 0 22px; font-variant-numeric: tabular-nums; }
+  .meta b { color: var(--text); }
+  .panel { margin: 0 0 22px; }
+  .panel h2 { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--text-dim);
+              margin: 0 0 4px; display: flex; gap: 12px; align-items: baseline; }
+  .panel .stat { font-size: 11px; color: var(--muted); text-transform: none; letter-spacing: 0; font-variant-numeric: tabular-nums; }
+  .panel .stat b { color: var(--text); }
+  svg { width: 100%; height: auto; display: block; }
+  .grid { stroke: var(--wash-line); stroke-width: 1; }
+  .axis { fill: var(--muted); font: 10px system-ui, sans-serif; }
+  .hm { display: grid; gap: 1px; }
+  .hm-row { display: flex; gap: 1px; align-items: center; }
+  .hm-lab { width: 34px; font-size: 9px; color: var(--muted); text-align: right; padding-right: 4px; flex: none; font-variant-numeric: tabular-nums; }
+  .hm-cells { display: flex; gap: 1px; flex: 1; }
+  .hm-cells i { flex: 1; height: 9px; }
+  .hmleg { font-size: 10px; color: var(--muted); margin-top: 6px; display: flex; gap: 6px; align-items: center; }
+  .hmleg .bar { width: 120px; height: 8px; background: linear-gradient(90deg, var(--wash), var(--accent)); border-radius: 2px; }
+  .empty { color: var(--muted); padding: 30px 0; }
+</style>
+</head>
+<body>
+<button data-theme-toggle class="theme-toggle" style="position:fixed;top:16px;right:20px;z-index:50"></button>
+<div class="wrap">
+  <nav class="topnav"><a href="./">Scoreboard</a><a href="./signals.html">Signal runs</a><a class="active">Usage</a></nav>
+  <h1 id="title">Resource usage</h1>
+  <p class="sub" id="sub"></p>
+  <p class="meta" id="meta"></p>
+  <div id="panels"></div>
+</div>
+<script>
+const run = decodeURIComponent((location.hash.match(/run=([^&]+)/) || location.search.match(/run=([^&]+)/) || [])[1] || "");
+const panels = document.querySelector("#panels");
+document.querySelector("#title").textContent = run ? `Resource usage — ${run}` : "Resource usage";
+
+function css(v){ return getComputedStyle(document.documentElement).getPropertyValue(v).trim(); }
+
+// One time-series line panel (inline SVG). vals over t (minutes), 0..max on y.
+function linePanel(title, t, vals, {max, unit, color, decimals=0}={}) {
+  const pts = vals.map((v,i)=>[t[i], v]).filter(p=>p[1]!=null && !isNaN(p[1]));
+  if (!pts.length) return "";
+  const clean = pts.map(p=>p[1]);
+  const peak = Math.max(...clean), avg = clean.reduce((a,b)=>a+b,0)/clean.length, last = clean[clean.length-1];
+  const yMax = max || Math.max(1, peak*1.1);
+  const W=1000, H=120, padL=6, padR=6, padB=16, padT=6;
+  const tMax = t[t.length-1] || 1;
+  const X = tt => padL + (tt/tMax)*(W-padL-padR);
+  const Y = v => padT + (1 - Math.min(v,yMax)/yMax)*(H-padT-padB);
+  let poly = pts.map(p=>`${X(p[0]).toFixed(1)},${Y(p[1]).toFixed(1)}`).join(" ");
+  let area = `${X(pts[0][0]).toFixed(1)},${(H-padB).toFixed(1)} ` + poly + ` ${X(pts[pts.length-1][0]).toFixed(1)},${(H-padB).toFixed(1)}`;
+  // gridlines at 0, 50%, 100% of yMax
+  let grid="";
+  for (const f of [0,0.5,1]) { const y=Y(yMax*f); grid += `<line class="grid" x1="${padL}" y1="${y}" x2="${W-padR}" y2="${y}"/><text class="axis" x="${padL}" y="${y-2}">${(yMax*f).toFixed(yMax<10?1:0)}</text>`; }
+  // x ticks every ~n minutes
+  let xt=""; const step = tMax<=5?1:tMax<=20?5:tMax<=60?10:30;
+  for (let m=0;m<=tMax;m+=step){ const x=X(m); xt += `<line class="grid" x1="${x}" y1="${padT}" x2="${x}" y2="${H-padB}"/><text class="axis" x="${x+2}" y="${H-4}">${m}m</text>`; }
+  const c = color || css("--accent");
+  return `<div class="panel"><h2>${title}
+      <span class="stat">peak <b>${peak.toFixed(decimals)}${unit||''}</b> · avg <b>${avg.toFixed(decimals)}${unit||''}</b> · last <b>${last.toFixed(decimals)}${unit||''}</b></span></h2>
+    <svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none">${xt}${grid}
+      <polygon points="${area}" fill="${c}" opacity="0.12"/>
+      <polyline points="${poly}" fill="none" stroke="${c}" stroke-width="1.5"/></svg></div>`;
+}
+
+// Per-core heatmap: rows = cores, columns = samples, cell opacity ~ %.
+function heatmap(title, perCore) {
+  if (!perCore || !perCore.length) return "";
+  const n = perCore.length, samples = perCore[0].length;
+  const acc = css("--accent");
+  let rows="";
+  for (let c=0;c<n;c++){
+    let cells="";
+    for (let s=0;s<samples;s++){ const v=perCore[c][s]; const o=(v==null||isNaN(v))?0:Math.max(0,Math.min(1,v/100)); cells += `<i style="background:${acc};opacity:${o.toFixed(2)}" title="core ${c} · ${(v||0).toFixed(0)}%"></i>`; }
+    rows += `<div class="hm-row"><span class="hm-lab">c${c}</span><div class="hm-cells">${cells}</div></div>`;
+  }
+  return `<div class="panel"><h2>${title}<span class="stat">${n} cores × ${samples} samples · darker = busier</span></h2>
+    <div class="hm">${rows}</div>
+    <div class="hmleg"><span>0%</span><span class="bar"></span><span>100%</span></div></div>`;
+}
+
+fetch(`./data/${encodeURIComponent(run)}/usage.json`).then(r=>{ if(!r.ok) throw new Error("no usage data"); return r.json(); })
+.then(d=>{
+  const src = d.source==="gcp-resource-log" ? "GCP sampler (aggregate CPU, 1 GPU)" : "Kaggle profiler (per-core, per-GPU, disk)";
+  document.querySelector("#sub").textContent = `Sampled every ${d.interval_s}s over ${d.duration_min} min — ${d.source}`;
+  const g0 = (d.gpu&&d.gpu[0])||{};
+  document.querySelector("#meta").innerHTML =
+    `<b>${d.n}</b> samples · GPU mem total <b>${g0.mem_total_gb||'?'} GB</b> · RAM total <b>${d.ram_total_gb||'?'} GB</b>`
+    + (d.per_core_pct?` · <b>${d.per_core_pct.length}</b> cores`:'') + ` · source: ${src}`;
+  const t = d.t_min;
+  let html = "";
+  (d.gpu||[]).forEach((g,i)=>{
+    const tag = d.gpu.length>1?` (GPU ${i})`:'';
+    html += linePanel(`GPU utilization${tag}`, t, g.util_pct, {max:100, unit:"%", color:css("--accent")});
+    html += linePanel(`GPU memory used${tag}`, t, g.mem_used_gb, {max:g.mem_total_gb, unit:" GB", color:css("--ok"), decimals:1});
+    html += linePanel(`GPU power${tag}`, t, g.power_w, {unit:" W", color:css("--warn")});
+  });
+  html += linePanel("CPU utilization (total)", t, d.cpu_total_pct, {max:100, unit:"%", color:css("--accent")});
+  if (d.per_core_pct) html += heatmap("CPU per-core", d.per_core_pct);
+  html += linePanel("RAM used", t, d.ram_pct, {max:100, unit:"%", color:css("--ok")});
+  if (d.disk_write_mbps) html += linePanel("Disk write", t, d.disk_write_mbps, {unit:" MB/s", color:css("--scrub"), decimals:1});
+  panels.innerHTML = html || '<div class="empty">Capture had no usable series.</div>';
+})
+.catch(()=>{ panels.innerHTML = `<div class="empty">No usage capture for <b>${run||'(no run specified)'}</b>. Runs profiled with the resource sampler will show CPU / GPU / RAM / storage here.</div>`; });
+</script>
+</body>
+</html>

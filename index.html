@@ -33,6 +33,10 @@
   td.run a { text-decoration: none; color: inherit; border-bottom: 1px dotted rgba(128,128,128,.6); }
   td.run a:hover { border-bottom-style: solid; }
   td.run .harness { opacity: .5; font-size: 11px; margin-left: 6px; }
+  td.run .usage { font-size: 10px; margin-left: 6px; padding: 1px 6px; border-radius: 999px;
+                  border: 1px solid var(--accent-line, rgba(59,130,246,.3)); color: var(--accent, #3b82f6);
+                  text-decoration: none; white-space: nowrap; }
+  td.run .usage:hover { background: var(--accent-wash, rgba(59,130,246,.12)); }
   tr.best td { font-weight: 600; }
   td.avg { font-weight: 600; }
 
@@ -166,7 +170,7 @@ fetch("./data/runs-index.json").then(r => r.json()).then(payload => {
       const isBest = avg != null && avg === best;
       const d = runDate(r.run);
       return `<tr class="${isBest ? "best" : ""}">
-        <td class="run"><a href="./viewer.html#run=${encodeURIComponent(r.run)}">${r.run}</a><a class="harness" href="./harness.html#run=${encodeURIComponent(r.run)}">harness</a></td>
+        <td class="run"><a href="./viewer.html#run=${encodeURIComponent(r.run)}">${r.run}</a><a class="harness" href="./harness.html#run=${encodeURIComponent(r.run)}">harness</a>${r.has_usage ? `<a class="usage" href="./usage.html#run=${encodeURIComponent(r.run)}" title="CPU / GPU / RAM / storage over this run">usage</a>` : ""}</td>
         <td class="date" title="${d.full}">${d.short}</td>
         <td>${r.levels}</td><td>${r.actions.toLocaleString()}</td><td>${r.tokens.toLocaleString()}</td>
         <td class="avg">${avg == null ? "—" : avg.toFixed(3)}</td>${cells}
