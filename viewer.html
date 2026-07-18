@@ -23,6 +23,14 @@
   opacity: .65; border: 1px solid var(--wash-line); border-bottom: none;
   background: var(--wash); position: relative; top: 1px; }
 .runtabs .rt-tab.active { opacity: 1; background: var(--wash-2); font-weight: 600; }
+.mode-seg { display: inline-flex; margin-left: 10px; border: 1px solid var(--wash-line);
+  border-radius: 7px; overflow: hidden; vertical-align: middle; }
+.mode-seg button { font: 11px/1 system-ui, sans-serif; padding: 5px 9px; border: none;
+  background: var(--wash); color: inherit; opacity: .6; cursor: pointer;
+  border-left: 1px solid var(--wash-line); }
+.mode-seg button:first-child { border-left: none; }
+.mode-seg button:hover { opacity: .9; }
+.mode-seg button.on { background: var(--wash-2); opacity: 1; font-weight: 600; }
 </style>
 <script>
 (function(){
@@ -64,7 +72,7 @@
       </div>
 
       <div class="pane" id="board-pane">
-        <div class="pane-head">Board<span class="spacer"></span><span id="board-meta"></span></div>
+        <div class="pane-head">Board<span class="mode-seg" id="board-mode" role="group" aria-label="Board view mode"><button type="button" data-mode="state" title="The board the model reasoned against — the state at the START of this turn, before its action ran">State</button><button type="button" data-mode="consequence" title="The board AFTER this turn's action (the result). Default.">Consequence</button><button type="button" data-mode="diff" title="The result, with the cells this turn changed (vs the state) highlighted">Consequence + Diff</button></span><span class="spacer"></span><span id="board-meta"></span></div>
         <div class="pane-body">
           <div class="board-wrap">
             <canvas id="board-canvas"></canvas>

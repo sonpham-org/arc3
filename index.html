@@ -12,6 +12,11 @@
 <style>
   body { font: 14px/1.5 system-ui, sans-serif; margin: 0; padding: 28px 20px 40px;
          height: auto; overflow: auto; }
+  .topnav { max-width: 1240px; margin: 0 auto 14px; display: flex; gap: 4px; font-size: 13px; }
+  .topnav a { padding: 5px 12px; border-radius: 6px; text-decoration: none; color: inherit; opacity: .7;
+              border: 1px solid transparent; }
+  .topnav a:hover { opacity: 1; background: var(--wash); }
+  .topnav a.active { opacity: 1; font-weight: 600; background: var(--wash-2); border-color: var(--wash-line); }
   .head { max-width: 1240px; margin: 0 auto 18px; }
   h1 { font-size: 20px; margin: 0 0 4px; }
   .sub { opacity: .7; margin: 0; font-size: 13px; }
@@ -58,6 +63,7 @@
 </head>
 <body>
 <button data-theme-toggle class="theme-toggle" style="position:fixed;top:16px;right:20px;z-index:50"></button>
+<nav class="topnav"><a href="./" class="active">Scoreboard</a><a href="./signals.html">Signal runs</a></nav>
 <div class="head">
   <h1>Run scoreboard</h1>
   <p class="sub">Each column is one of the 25 public ARC-AGI-3 games; each cell is that run's average

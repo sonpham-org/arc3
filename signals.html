@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ARC-3 — signal runs</title>
+<link rel="stylesheet" href="./static/css/theme.css">
+<script>
+(function(){try{var t=localStorage.getItem('arc3-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+<script defer src="./static/js/theme-toggle.js"></script>
+<style>
+  body { font: 14px/1.5 system-ui, sans-serif; margin: 0; padding: 28px 20px 60px;
+         height: auto; overflow: auto; }
+  .wrap { max-width: 1000px; margin: 0 auto; }
+  .topnav { display: flex; gap: 4px; margin-bottom: 18px; font-size: 13px; }
+  .topnav a { padding: 5px 12px; border-radius: 6px; text-decoration: none; color: inherit; opacity: .7;
+              border: 1px solid transparent; }
+  .topnav a:hover { opacity: 1; background: var(--wash); }
+  .topnav a.active { opacity: 1; font-weight: 600; background: var(--wash-2); border-color: var(--wash-line); }
+  h1 { font-size: 20px; margin: 0 0 4px; }
+  .sub { opacity: .7; margin: 0 0 22px; font-size: 13px; max-width: 78ch; }
+
+  .axis { position: relative; height: 16px; margin: 0 0 4px; margin-left: 190px; }
+  .axis .tick { position: absolute; transform: translateX(-50%); font-size: 10px; color: var(--muted);
+                font-variant-numeric: tabular-nums; }
+  .axis .tick::after { content: ""; position: absolute; left: 50%; top: 14px; width: 1px; height: 6px;
+                       background: var(--wash-line); }
+
+  .sig { display: grid; grid-template-columns: 190px 1fr; align-items: center; gap: 0;
+         padding: 12px 0; border-top: 1px solid var(--wash-line); }
+  .sig-meta .game { font-weight: 600; font-size: 13px; }
+  .sig-meta .line { font-size: 11px; color: var(--text-dim); margin-top: 2px; }
+  .sig-meta .badge { display: inline-block; font-size: 9.5px; text-transform: uppercase; letter-spacing: .05em;
+                     padding: 1px 6px; border-radius: 999px; border: 1px solid var(--wash-line);
+                     color: var(--text-dim); margin-top: 4px; }
+  .sig-meta .badge.inprog { color: var(--warn); border-color: var(--warn); }
+
+  .plot { position: relative; height: 46px; }
+  .track { position: absolute; left: 0; right: 0; top: 0; bottom: 0; }
+  .gridline { position: absolute; top: 0; bottom: 16px; width: 1px; background: var(--wash-line); opacity: .5; }
+  .whisker { position: absolute; top: 15px; height: 2px; background: var(--muted-2); }
+  .cap { position: absolute; top: 9px; height: 14px; width: 2px; background: var(--muted-2); }
+  .box { position: absolute; top: 6px; height: 20px; border-radius: 3px;
+         background: var(--accent-wash); border: 1px solid var(--accent-line); }
+  .median { position: absolute; top: 4px; height: 24px; width: 2px; background: var(--accent); }
+  .dot { position: absolute; width: 4px; height: 4px; border-radius: 50%; background: var(--accent);
+         opacity: .45; transform: translate(-50%, -50%); }
+  .nums { position: absolute; bottom: -2px; left: 0; right: 0; font-size: 10px; color: var(--muted);
+          font-variant-numeric: tabular-nums; }
+  .empty { color: var(--muted); padding: 20px 0; }
+</style>
+</head>
+<body>
+<button data-theme-toggle class="theme-toggle" style="position:fixed;top:16px;right:20px;z-index:50"></button>
+<div class="wrap">
+  <nav class="topnav"><a href="./">Scoreboard</a><a href="./signals.html" class="active">Signal runs</a></nav>
+  <h1>Signal runs</h1>
+  <p class="sub">Single-game robustness runs: one game played N times to read its score <b>distribution</b>
+  rather than a single noisy number. Each row is a run; the box spans the interquartile range (Q1–Q3), the
+  line inside is the median, the whiskers reach min/max, and faint dots are the individual passes. Use these to
+  judge how much a game's score is signal vs. luck.</p>
+  <div id="axis" class="axis"></div>
+  <div id="list"></div>
+</div>
+<script>
+fetch("./data/signals.json").then(r => r.json()).then(payload => {
+  const runs = payload.runs || [];
+  const list = document.querySelector("#list");
+  const axis = document.querySelector("#axis");
+  if (!runs.length) { list.innerHTML = '<div class="empty">No signal runs yet.</div>'; return; }
+
+  // Shared axis so runs are comparable: 0 .. niceCeil(max score across all runs).
+  const rawMax = Math.max(1, ...runs.map(r => r.max));
+  const step = rawMax <= 12 ? 2 : rawMax <= 30 ? 5 : 10;
+  const axisMax = Math.ceil(rawMax / step) * step;
+  const pct = v => (v / axisMax) * 100;
+
+  // ruler
+  let ticks = "";
+  for (let v = 0; v <= axisMax; v += step) ticks += `<span class="tick" style="left:${pct(v)}%">${v}</span>`;
+  axis.innerHTML = ticks;
+
+  const jitter = (i, n) => 12 + (n <= 1 ? 11 : (i / (n - 1)) * 22);  // spread dots vertically 12..34px
+
+  list.innerHTML = runs.map(r => {
+    const gridlines = [];
+    for (let v = 0; v <= axisMax; v += step) gridlines.push(`<div class="gridline" style="left:${pct(v)}%"></div>`);
+    const dots = (r.scores || []).map((s, i) =>
+      `<div class="dot" style="left:${pct(s)}%;top:${jitter(i, r.scores.length)}px" title="pass ${i + 1}: ${s.toFixed(2)}"></div>`).join("");
+    const shortGame = r.game.split("-")[0];
+    return `<div class="sig">
+      <div class="sig-meta">
+        <div class="game">${shortGame}</div>
+        <div class="line">${r.game}</div>
+        <div class="line">${r.n_passes} passes${r.levels_total ? ` · ${r.levels_total} levels` : ""}</div>
+        <span class="badge">mean ${r.mean.toFixed(2)} · σ ${r.std.toFixed(2)}</span>
+        ${r.in_progress ? '<span class="badge inprog">in progress</span>' : ""}
+      </div>
+      <div class="plot"><div class="track">
+        ${gridlines.join("")}
+        <div class="whisker" style="left:${pct(r.min)}%;width:${pct(r.max - r.min)}%"></div>
+        <div class="cap" style="left:${pct(r.min)}%"></div>
+        <div class="cap" style="left:calc(${pct(r.max)}% - 2px)"></div>
+        <div class="box" style="left:${pct(r.q1)}%;width:${Math.max(0.4, pct(r.q3 - r.q1))}%"></div>
+        <div class="median" style="left:calc(${pct(r.median)}% - 1px)" title="median ${r.median.toFixed(2)}"></div>
+        ${dots}
+        <div class="nums">min ${r.min.toFixed(2)} · Q1 ${r.q1.toFixed(2)} · med ${r.median.toFixed(2)} · Q3 ${r.q3.toFixed(2)} · max ${r.max.toFixed(2)}</div>
+      </div></div>
+    </div>`;
+  }).join("");
+});
+</script>
+</body>
+</html>

@@ -17,6 +17,7 @@ export const overlay = {
   pinned: [], // [{row, col}] cells the reviewer clicked to keep lit
   hovered: [], // [{row, col}] cells named by the text under the cursor
   cursor: null, // {row, col} the cell under the pointer
+  diff: null, // Set of (row*cols+col) cells that changed vs the reference board, or null
 };
 
 let canvas = null;
@@ -84,10 +85,59 @@ export function colorAt(row, col) {
 export function redraw() {
   if (!view.grid) return;
   paintGrid();
+  if (overlay.diff) paintDiff();
   drawCells(overlay.pinned, PIN_STYLE);
   drawCells(overlay.hovered, HOVER_STYLE);
   for (const click of overlay.clicks) drawClickMarker(click);
   if (overlay.cursor) drawCells([overlay.cursor], CURSOR_STYLE);
+}
+
+/**
+ * Diff mode: dim every cell that did NOT change from the reference board so the cells this
+ * turn actually touched pop out. A dark wash mutes unchanged cells on any palette (white,
+ * black, greys and saturated colours alike). Changed cells keep full colour; when few enough
+ * to read, they also get a yellow outline. Drawn straight after the base grid so click
+ * markers, pins and the cursor stay on top.
+ */
+function paintDiff() {
+  ctx.save();
+  ctx.fillStyle = "rgba(16,17,20,0.66)";
+  for (let row = 0; row < view.rows; row += 1) {
+    for (let col = 0; col < view.cols; col += 1) {
+      if (!overlay.diff.has(row * view.cols + col)) ctx.fillRect(...cellRect(row, col));
+    }
+  }
+  ctx.restore();
+  if (overlay.diff.size && overlay.diff.size <= 256) {
+    ctx.save();
+    ctx.strokeStyle = "rgba(255,214,0,0.95)";
+    ctx.lineWidth = Math.max(1, Math.min(2, view.cell * 0.14));
+    for (const key of overlay.diff) {
+      const [x, y, w, h] = cellRect(Math.floor(key / view.cols), key % view.cols);
+      ctx.strokeRect(x + 0.5, y + 0.5, w - 1, h - 1);
+    }
+    ctx.restore();
+  }
+}
+
+/** Highlight the cells that differ between `referenceAscii` and the board currently shown. */
+export function setDiff(referenceAscii) {
+  const ref = decodeBoard(referenceAscii);
+  if (!ref || !view.grid) return clearDiff();
+  const changed = new Set();
+  for (let row = 0; row < view.rows; row += 1) {
+    for (let col = 0; col < view.cols; col += 1) {
+      if ((ref[row]?.[col] ?? -1) !== view.grid[row][col]) changed.add(row * view.cols + col);
+    }
+  }
+  overlay.diff = changed;
+  redraw();
+}
+
+export function clearDiff() {
+  if (overlay.diff === null) return;
+  overlay.diff = null;
+  redraw();
 }
 
 function paintGrid() {

@@ -6,7 +6,7 @@ fetchRunsIndex().then((payload) => {
   const rows = (payload && payload.runs) || payload || [];
   rows.forEach((r) => runsIndex.set(r.run, r));
 }).catch(() => {});
-import { initBoard, setPalette, showBoard, setClicks, clearPins, colorAt, redraw, view } from "./board.js";
+import { initBoard, setPalette, showBoard, setClicks, clearPins, colorAt, redraw, view, setDiff, clearDiff } from "./board.js";
 import { initCoordRefs, showTooltip } from "./coords.js";
 import { renderDecision } from "./decision.js";
 import { EventLog } from "./log.js";
@@ -38,13 +38,44 @@ const el = {
   logBody: document.querySelector("#log-body"),
   tooltip: document.querySelector("#tooltip"),
   boardMeta: document.querySelector("#board-meta"),
+  boardMode: document.querySelector("#board-mode"),
 };
+
+// Which board a turn's row shows:
+//   consequence - the frame AFTER the turn's action(s) (the result). This is the default.
+//   state       - the frame the model reasoned against (board at the START of the turn).
+//   diff        - the consequence, with cells this turn changed (vs the state) highlighted.
+// The row is stamped with the action's OUTCOME, so "consequence" is what you get by default;
+// the other two modes disambiguate "what the model saw" from "what its action produced".
+const BOARD_MODES = new Set(["state", "consequence", "diff"]);
+let boardMode = (() => {
+  try { const m = localStorage.getItem("arc3-board-mode"); return BOARD_MODES.has(m) ? m : "consequence"; }
+  catch (_) { return "consequence"; }
+})();
 
 const log = new EventLog(el.logBody, { onSelect: (frame) => scrubber.seek(frame, { user: true }) });
 const scrubber = new Scrubber(document.querySelector("#scrub"), { onSeek: selectFrame });
 
 initBoard(el.board, { onCursor: showCursorReadout });
 initCoordRefs(el.tooltip);
+
+function syncModeButtons() {
+  if (!el.boardMode) return;
+  el.boardMode.querySelectorAll("button[data-mode]").forEach((b) =>
+    b.classList.toggle("on", b.dataset.mode === boardMode));
+}
+if (el.boardMode) {
+  el.boardMode.addEventListener("click", (event) => {
+    const btn = event.target.closest("button[data-mode]");
+    if (!btn || !BOARD_MODES.has(btn.dataset.mode)) return;
+    boardMode = btn.dataset.mode;
+    try { localStorage.setItem("arc3-board-mode", boardMode); } catch (_) {}
+    syncModeButtons();
+    const frame = state.frames[scrubber.pos];
+    if (frame) selectFrame(scrubber.pos);
+  });
+  syncModeButtons();
+}
 
 el.back.addEventListener("click", () => location.hash = "");
 el.runSelect.addEventListener("change", () => {
@@ -144,11 +175,41 @@ async function refreshGame({ resetToLive = false } = {}) {
   scrubber.setFrames(state.frames, { ended });
 }
 
+// The board the model reasoned against for this frame's turn: the frame just BEFORE the turn's
+// first action. Every action in a multi-click turn shares one reasoning board (the model saw
+// the board once, then emitted the whole batch), so all of a turn's rows resolve to the same
+// state image -- while the click marker still shows which click within the batch you're on.
+function stateBoardFor(frame) {
+  const turn = frame.analysis_step;
+  let j = frame.frameIndex;
+  // Walk back over the other actions of this same turn so every row of a multi-click turn
+  // resolves to the ONE board the model reasoned against. Runs without analysis_step fall
+  // through to the immediately-preceding frame, which is still the pre-action board.
+  if (turn !== undefined && turn !== null) {
+    while (j > 0 && state.frames[j - 1] && state.frames[j - 1].analysis_step === turn) j -= 1;
+  }
+  const ref = j > 0 ? state.frames[j - 1] : null;
+  return ref ? ref.board_ascii : frame.board_ascii;
+}
+
+function renderBoardForFrame(frame) {
+  if (boardMode === "state") {
+    clearDiff();
+    showBoard(stateBoardFor(frame));
+  } else if (boardMode === "diff") {
+    showBoard(frame.board_ascii);
+    setDiff(stateBoardFor(frame));
+  } else {
+    clearDiff();
+    showBoard(frame.board_ascii);
+  }
+}
+
 async function selectFrame(index) {
   const frame = state.frames[index];
   if (!frame) return;
 
-  showBoard(frame.board_ascii);
+  renderBoardForFrame(frame);
   log.select(index);
 
   // Every MOUSE action of this turn is marked; the one you are looking at is opaque, the
@@ -159,7 +220,9 @@ async function selectFrame(index) {
     .map((f) => ({ ...f.click, current: f.frameIndex === index }));
   setClicks(clicks);
 
-  el.boardMeta.textContent = `${frame.title || ""} · ${frame.action_display || ""} · score ${frame.score ?? 0} · ${frame.state || ""}`;
+  const modeTag = boardMode === "state" ? "state (pre-action) · "
+    : boardMode === "diff" ? "consequence + diff · " : "";
+  el.boardMeta.textContent = `${modeTag}${frame.title || ""} · ${frame.action_display || ""} · score ${frame.score ?? 0} · ${frame.state || ""}`;
 
   const steps = state.game.viewer_steps || [];
   const step = steps.find((s) => s.analysisStep === turn);
@@ -215,7 +278,7 @@ async function poll() {
 
 window.addEventListener("resize", () => {
   const frame = state.frames[scrubber.pos];
-  if (frame) showBoard(frame.board_ascii);
+  if (frame) renderBoardForFrame(frame);
 });
 
 route();
