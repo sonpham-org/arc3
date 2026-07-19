@@ -21,6 +21,14 @@
   .tile { background: var(--wash); border: 1px solid var(--wash-line); border-radius: 8px; padding: 12px 14px; }
   .tile b { display: block; font-size: 22px; font-variant-numeric: tabular-nums; }
   .tile span { font-size: 11px; text-transform: uppercase; letter-spacing: .07em; color: var(--text-dim); }
+  .h2sub { font-weight: 400; font-size: 13px; opacity: .55; }
+  .toolbars { display: grid; gap: 5px; max-width: 640px; margin: 2px 0 26px; }
+  .trow { display: grid; grid-template-columns: 210px 1fr 70px; align-items: center; gap: 12px; font-size: 12.5px; }
+  .trow code { color: var(--text-dim); white-space: nowrap; }
+  .trow .tbar { height: 13px; border-radius: 4px; background: var(--accent-wash); border: 1px solid var(--accent-line); }
+  .trow.unused .tbar { background: transparent; border-style: dashed; opacity: .5; }
+  .trow .tn { text-align: right; font-variant-numeric: tabular-nums; }
+  .trow.unused .tn { color: var(--muted); font-style: italic; }
 
   .biases { display: grid; grid-template-columns: repeat(auto-fit, minmax(258px, 1fr)); gap: 10px; margin-bottom: 8px; }
   .bias { background: var(--wash); border: 1px solid var(--wash-line); border-radius: 8px; padding: 11px 13px; }
@@ -109,6 +117,13 @@ the agent may inspect the board via Python several times, but the turn ends the 
 but the clock.</p>
 <div class="loop" id="loop"></div>
 
+<h2>Tool usage <span class="h2sub">&mdash; what the agent actually called</span></h2>
+<p class="loopintro">The only tool the LLM can invoke is <code>python</code>; inside it the agent uses sandbox
+helpers. These are <b>real calls</b> counted from the agent's code blocks &mdash; the system prompt (re-sent
+every turn and naming the same helpers) is excluded, so a naive grep would badly over-count.</p>
+<div class="tiles" id="tool-tiles"></div>
+<div class="toolbars" id="tool-bars"></div>
+
 <h2>Configuration</h2>
 <div class="pipe" id="pipe"></div>
 <p class="legend"><i></i>knob differs from the tufa-exact baseline</p>
@@ -185,6 +200,29 @@ fetch("./data/runs-index.json").then((r) => r.json()).then((idx) => {
       ${b.evidence ? `<div class="ev">${b.evidence}</div>` : ""}
       <div class="src">prompt: ${b.source}</div>
     </div>`).join("");
+
+  // Tool usage: real sandbox-helper calls (from the agent's code blocks), plus helpers
+  // that were EXPOSED for this run's harness but never called (shown as "unused").
+  fetch("./data/tool-calls.json").then((r) => (r.ok ? r.json() : {})).then((tc) => {
+    const t = tc[run.run];
+    const tiles = document.querySelector("#tool-tiles"), bars = document.querySelector("#tool-bars");
+    if (!t) { tiles.innerHTML = '<div class="tile"><b>&mdash;</b><span>tool calls not captured</span></div>'; return; }
+    tiles.innerHTML = [
+      [t.llm_turns, "LLM turns"], [t.python, "python tool calls"], [t.action || 0, "action() calls"],
+    ].map(([v, l]) => `<div class="tile"><b>${(v || 0).toLocaleString()}</b><span>${l}</span></div>`).join("");
+    const code = String((run.harness || {}).agent_code || "");
+    const rows = [
+      ["segmentation", "current_frame.segmentation", true],
+      ["ascii", "current_frame.ascii", true],
+      ["show_animation_by_objects", "show_animation_by_objects()", /animation/i.test(code)],
+      ["show_animation_by_bbox", "show_animation_by_bbox()", /animation/i.test(code)],
+      ["predict", "predict()", /predict/i.test(code)],
+    ].filter(([k, l, avail]) => avail || t[k]).map(([k, l]) => [l, t[k] || 0]);
+    const mx = Math.max(1, ...rows.map((r) => r[1]));
+    bars.innerHTML = rows.map(([l, n]) => `<div class="trow${n ? "" : " unused"}"><code>${l}</code>
+      <div class="tbar" style="width:${Math.max(2, Math.round((n / mx) * 100))}%"></div>
+      <div class="tn">${n ? n.toLocaleString() : "unused"}</div></div>`).join("");
+  });
 
   const pr = run.prompts || {};
   document.querySelector("#p-system").textContent = pr.system || "(not captured for this run)";
