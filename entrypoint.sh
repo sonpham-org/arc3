@@ -15,6 +15,9 @@ echo "oauth2-proxy: allowlisting $(wc -l < /tmp/emails.txt) email(s)"
 caddy start --config /etc/caddy/Caddyfile --adapter caddyfile
 
 # Auth proxy on the public port. Secrets come from OAUTH2_PROXY_* env vars.
+# Games tab (root + its static assets/game source) is public; everything
+# else -- internal.html, viewer/harness/signals/usage, and /data/* run
+# results -- stays gated by default (no skip rule = auth required).
 exec oauth2-proxy \
   --provider=google \
   --http-address="0.0.0.0:${PORT:-8080}" \
@@ -26,4 +29,6 @@ exec oauth2-proxy \
   --cookie-expire=168h \
   --reverse-proxy=true \
   --skip-provider-button=false \
+  --skip-auth-route="^/$" \
+  --skip-auth-route="^/static/" \
   --whitelist-domain="arc3.sonpham.net"

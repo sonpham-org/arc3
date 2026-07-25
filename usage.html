@@ -10,7 +10,13 @@
 </script>
 <script defer src="./static/js/theme-toggle.js"></script>
 <style>
-  body { font: 14px/1.5 system-ui, sans-serif; margin: 0; padding: 28px 20px 60px; height: auto; overflow: auto; }
+  body { font: 14px/1.5 system-ui, sans-serif; margin: 0; padding: 0 20px 60px; height: auto; overflow: auto; }
+  .sitetabs { display: flex; gap: 6px; align-items: center; margin: 0 -20px 28px; padding: 10px 20px;
+              border-bottom: 1px solid var(--wash-line); font-size: 13px; }
+  .sitetabs a { padding: 7px 16px; border-radius: 8px; text-decoration: none; color: inherit;
+                opacity: .65; border: 1px solid transparent; }
+  .sitetabs a:hover { opacity: 1; background: var(--wash); }
+  .sitetabs a.active { opacity: 1; font-weight: 600; background: var(--wash-2); border-color: var(--wash-line); }
   .wrap { max-width: 1040px; margin: 0 auto; }
   .topnav { display: flex; gap: 4px; margin-bottom: 16px; font-size: 13px; }
   .topnav a { padding: 5px 12px; border-radius: 6px; text-decoration: none; color: inherit; opacity: .7; border: 1px solid transparent; }
@@ -39,9 +45,13 @@
 </style>
 </head>
 <body>
-<button data-theme-toggle class="theme-toggle" style="position:fixed;top:16px;right:20px;z-index:50"></button>
+<nav class="sitetabs">
+  <a href="./">Games</a>
+  <a href="./internal.html" class="active">Internal runs</a>
+  <button data-theme-toggle class="theme-toggle" style="margin-left:auto"></button>
+</nav>
 <div class="wrap">
-  <nav class="topnav"><a href="./">Scoreboard</a><a href="./signals.html">Signal runs</a><a class="active">Usage</a></nav>
+  <nav class="topnav"><a href="./internal.html">Scoreboard</a><a href="./signals.html">Signal runs</a><a class="active">Usage</a></nav>
   <h1 id="title">Resource usage</h1>
   <p class="sub" id="sub"></p>
   <p class="meta" id="meta"></p>

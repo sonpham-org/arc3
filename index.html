@@ -3,190 +3,151 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ARC-3 runs — score table</title>
+<title>ARC-3 — Games</title>
 <link rel="stylesheet" href="./static/css/theme.css">
 <script>
 (function(){try{var t=localStorage.getItem('arc3-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
 </script>
 <script defer src="./static/js/theme-toggle.js"></script>
 <style>
-  body { font: 14px/1.5 system-ui, sans-serif; margin: 0; padding: 28px 20px 40px;
-         height: auto; overflow: auto; }
-  .topnav { max-width: 1240px; margin: 0 auto 14px; display: flex; gap: 4px; font-size: 13px; }
-  .topnav a { padding: 5px 12px; border-radius: 6px; text-decoration: none; color: inherit; opacity: .7;
-              border: 1px solid transparent; }
-  .topnav a:hover { opacity: 1; background: var(--wash); }
-  .topnav a.active { opacity: 1; font-weight: 600; background: var(--wash-2); border-color: var(--wash-line); }
-  .head { max-width: 1240px; margin: 0 auto 18px; }
+  body { font: 14px/1.5 system-ui, sans-serif; margin: 0; height: 100vh; overflow: hidden;
+         display: flex; flex-direction: column; }
+
+  .sitetabs { display: flex; gap: 6px; align-items: center; padding: 10px 16px;
+              border-bottom: 1px solid var(--wash-line); font-size: 13px; flex: none; }
+  .sitetabs a { padding: 7px 16px; border-radius: 8px; text-decoration: none; color: inherit;
+                opacity: .65; border: 1px solid transparent; }
+  .sitetabs a:hover { opacity: 1; background: var(--wash); }
+  .sitetabs a.active { opacity: 1; font-weight: 600; background: var(--wash-2); border-color: var(--wash-line); }
+
+  #browseView { flex: 1; overflow: auto; padding: 24px 20px 50px; }
+  .head { max-width: 1200px; margin: 0 auto 20px; }
   h1 { font-size: 20px; margin: 0 0 4px; }
   .sub { opacity: .7; margin: 0; font-size: 13px; }
+  h2.section { max-width: 1200px; margin: 26px auto 10px; font-size: 12px; text-transform: uppercase;
+               letter-spacing: .07em; color: var(--text-dim); }
+  .grid { max-width: 1200px; margin: 0 auto; display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 10px; }
 
-  .tablewrap { overflow-x: auto; overflow-y: visible; padding-bottom: 6px; }
-  table { border-collapse: separate; border-spacing: 0; font-variant-numeric: tabular-nums; }
-  th, td { padding: 7px 9px; border-bottom: 1px solid var(--border, rgba(128,128,128,.25));
-           text-align: right; white-space: nowrap; }
-  thead th { font-size: 12px; text-transform: uppercase; letter-spacing: .05em; opacity: .85;
-             vertical-align: bottom; }
-  th.run, td.run { text-align: left; }
-  th.date, td.date { text-align: left; white-space: nowrap; }
-  td.date { color: var(--text-dim, #aab3c4); font-size: 12px; font-variant-numeric: tabular-nums; }
-  td.run a { text-decoration: none; color: inherit; border-bottom: 1px dotted rgba(128,128,128,.6); }
-  td.run a:hover { border-bottom-style: solid; }
-  td.run .harness { opacity: .5; font-size: 11px; margin-left: 6px; }
-  td.run .usage { font-size: 10px; margin-left: 6px; padding: 1px 6px; border-radius: 999px;
-                  border: 1px solid var(--accent-line, rgba(59,130,246,.3)); color: var(--accent, #3b82f6);
-                  text-decoration: none; white-space: nowrap; }
-  td.run .usage:hover { background: var(--accent-wash, rgba(59,130,246,.12)); }
-  tr.best td { font-weight: 600; }
-  td.avg { font-weight: 600; }
+  .game-card { cursor: pointer; border: 1px solid var(--wash-line); border-radius: 8px; padding: 8px;
+               background: var(--wash); text-align: center; transition: background .1s, border-color .1s; }
+  .game-card:hover { background: var(--wash-2); border-color: var(--accent-line); }
+  .game-card.active { border-color: var(--accent); background: var(--accent-wash); }
+  .game-card img { width: 100%; aspect-ratio: 1; object-fit: cover; image-rendering: pixelated;
+                    border-radius: 4px; display: block; margin-bottom: 6px; background: #000; }
+  .game-card .gc-title { font-size: 12px; font-weight: 600; white-space: nowrap; overflow: hidden;
+                          text-overflow: ellipsis; }
+  .game-card .gc-id { font-size: 10px; opacity: .55; margin-top: 1px; }
+  .game-card.compact { padding: 6px; }
+  .game-card.compact .gc-title { font-size: 11px; }
 
-  /* One column per game: thumbnail + short id up top, so the id never repeats down the rows. */
-  th.game { width: 36px; min-width: 36px; text-align: center; padding: 6px 3px;
-            text-transform: none; letter-spacing: 0; opacity: 1; }
-  th.game img { width: 26px; height: 26px; image-rendering: pixelated; border-radius: 2px;
-                display: block; margin: 0 auto 3px; outline: 1px solid rgba(128,128,128,.35); }
-  th.game .gid { font-size: 9px; letter-spacing: .02em; opacity: .6; font-weight: 400; }
+  #playView { flex: 1; display: flex; min-height: 0; }
+  .sidebar { width: 210px; flex: none; overflow-y: auto; border-right: 1px solid var(--wash-line);
+             padding: 12px; }
+  .sidebar h2.section { margin: 14px 0 8px; font-size: 10.5px; }
+  .sidebar h2.section:first-child { margin-top: 0; }
+  .sidebar .grid { grid-template-columns: repeat(auto-fill, minmax(78px, 1fr)); }
+  .back-link { display: block; margin-bottom: 10px; font-size: 12.5px; opacity: .75; cursor: pointer;
+               text-decoration: none; color: inherit; }
+  .back-link:hover { opacity: 1; }
 
-  td.g { width: 36px; min-width: 36px; text-align: center; padding: 0; }
-  td.g a { display: block; padding: 8px 2px; text-decoration: none; color: inherit; }
-  td.g.zero a { opacity: .35; }
-  td.g.none { color: var(--muted, #6b7789); opacity: .4; }
-  td.g a:hover { outline: 2px solid #1E93FF; outline-offset: -2px; }
+  .stage { flex: 1; overflow-y: auto; padding: 20px 24px 40px; display: flex; flex-direction: column;
+           align-items: center; }
+  .stage-head { width: 100%; max-width: 560px; display: flex; align-items: baseline; gap: 10px;
+                margin-bottom: 4px; flex-wrap: wrap; }
+  .stage-head h1 { font-size: 17px; }
+  .stage-head .gid { font-size: 11px; opacity: .5; }
+  .stage-head .status { margin-left: auto; font-size: 11px; font-weight: 600; text-transform: uppercase;
+                         letter-spacing: .04em; }
+  .stage-head .status.status-win { color: var(--ok); }
+  .stage-head .status.status-game_over { color: var(--err); }
+  .stage-meta { width: 100%; max-width: 560px; display: flex; gap: 14px; font-size: 11.5px;
+                color: var(--text-dim); margin-bottom: 10px; }
 
-  /* Game on/off toggling: click a thumbnail header to drop that game from the averages. */
-  th.game { cursor: pointer; user-select: none; }
-  th.game:hover { background: var(--raised, rgba(128,128,128,.18)); }
-  th.game.off { opacity: .3; }
-  th.game.off .gid { text-decoration: line-through; }
-  td.g.off { opacity: .14; }
-  td.g.off a { pointer-events: none; }
-  .gamesel { max-width: 1240px; margin: 0 auto 12px; font-size: 12.5px;
-             color: var(--text-dim, inherit); display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
-  .gamesel .hint { opacity: .6; }
-  .gamesel b { color: var(--text, inherit); }
-  .gamesel button { font: inherit; padding: 2px 9px; }
+  .canvas-wrap { position: relative; width: min(560px, 100%); aspect-ratio: 1; margin-bottom: 12px; }
+  #gameCanvas { width: 100%; height: 100%; border-radius: 8px; border: 1px solid var(--wash-line);
+                image-rendering: pixelated; display: block; }
+
+  .end-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+                 font-size: 26px; font-weight: 700; border-radius: 8px; backdrop-filter: blur(2px); }
+  .end-overlay.win { background: rgba(34,197,94,.20); color: var(--ok); }
+  .end-overlay.gameover { background: rgba(239,68,68,.20); color: var(--err); }
+
+  #engineLoading { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+                   background: rgba(8,12,22,.85); border-radius: 8px; text-align: center; color: #fff; }
+  #engineLoading .box { padding: 16px; }
+  #engineLoading .loading-stage { font-size: 12.5px; margin-bottom: 10px; }
+  #engineLoading .bar { width: 220px; height: 8px; border-radius: 4px; background: rgba(255,255,255,.15);
+                        overflow: hidden; margin: 0 auto; }
+  #engineLoading .bar-fill { height: 100%; width: 0; background: var(--accent); transition: width .3s; }
+
+  .controls { width: 100%; max-width: 560px; display: flex; gap: 8px; align-items: center;
+              flex-wrap: wrap; margin-bottom: 8px; }
+  .controls .fps { display: flex; align-items: center; gap: 6px; font-size: 11.5px; color: var(--text-dim); }
+  .action-hint { width: 100%; max-width: 560px; font-size: 11.5px; color: var(--text-dim); margin-bottom: 10px; }
+
+  #levelStrip { width: 100%; max-width: 560px; display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 4px; }
+  #levelStrip .lvl { width: 26px; height: 26px; padding: 0; font-size: 11px; border-radius: 5px; }
+  #levelStrip .lvl.done { background: var(--ok); border-color: var(--ok); color: #06210f; }
+  #levelStrip .lvl.active { border-color: var(--accent); }
 </style>
 </head>
 <body>
-<button data-theme-toggle class="theme-toggle" style="position:fixed;top:16px;right:20px;z-index:50"></button>
-<nav class="topnav"><a href="./" class="active">Scoreboard</a><a href="./signals.html">Signal runs</a></nav>
-<div class="head">
-  <h1>Run scoreboard</h1>
-  <p class="sub">Each column is one of the 25 public ARC-AGI-3 games; each cell is that run's average
-  score on it (shading scales with the score). Tufa's public reference average: 1.6002. Click a run to
-  open its viewer, or a score to jump straight to that game.</p>
+<nav class="sitetabs">
+  <a href="./" class="active">Games</a>
+  <a href="./internal.html">Internal runs</a>
+  <button data-theme-toggle class="theme-toggle" style="margin-left:auto"></button>
+</nav>
+
+<div id="browseView">
+  <div class="head">
+    <h1>Play ARC-AGI-3</h1>
+    <p class="sub">The 25 official ARC Prize Foundation games, plus custom games built in-house.
+    Click one to play — it runs entirely in your browser (Python, via Pyodide/WASM), nothing is sent
+    to a server.</p>
+  </div>
+  <h2 class="section">ARC Prize Foundation — official games</h2>
+  <div class="grid" id="browseOfficial"></div>
+  <h2 class="section">Custom games</h2>
+  <div class="grid" id="browseCustom"></div>
 </div>
-<div class="gamesel" id="gamesel-status"></div>
-<div class="tablewrap"><table id="t"><thead></thead><tbody></tbody></table></div>
-<script>
-fetch("./data/runs-index.json").then(r => r.json()).then(payload => {
-  const rows = payload.runs || payload;
 
-  // Canonical column order = union of game ids across runs, longest run first so we pick up the
-  // full 25 even though one run only played a single game. Cells are keyed by id, not position.
-  const order = [], seen = new Set();
-  [...rows].sort((a, b) => (b.per_game || []).length - (a.per_game || []).length)
-    .forEach(r => (r.per_game || []).forEach(g => {
-      if (!seen.has(g.id)) { seen.add(g.id); order.push(g.id); }
-    }));
+<div id="playView" hidden>
+  <div class="sidebar">
+    <a class="back-link" id="backToBrowse">&larr; All games</a>
+    <h2 class="section">Official</h2>
+    <div class="grid" id="sidebarOfficial"></div>
+    <h2 class="section">Custom</h2>
+    <div class="grid" id="sidebarCustom"></div>
+  </div>
+  <div class="stage">
+    <div class="stage-head">
+      <h1 id="gameTitle">—</h1>
+      <span class="gid" id="gameIdLabel"></span>
+      <span class="status" id="gameStatus">—</span>
+    </div>
+    <div class="stage-meta"><span id="levelInfo"></span><span id="stepCounter"></span></div>
+    <div id="levelStrip"></div>
+    <div class="canvas-wrap">
+      <canvas id="gameCanvas"></canvas>
+      <div class="end-overlay" id="endOverlay" hidden></div>
+      <div id="engineLoading" hidden>
+        <div class="box">
+          <div class="loading-stage">Loading game engine (one-time)…</div>
+          <div class="bar"><div class="bar-fill"></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="controls">
+      <button id="resetBtn">Reset</button>
+      <button id="undoBtn" disabled>Undo</button>
+      <button id="liveToggleBtn" hidden>Live mode</button>
+      <span class="fps" id="liveFpsWrap" hidden>fps <input type="range" id="liveFpsInput" min="2" max="30" value="10"></span>
+    </div>
+    <p class="action-hint" id="actionHint"></p>
+  </div>
+</div>
 
-  const cap = Math.max(1, ...rows.flatMap(r => (r.per_game || []).map(g => g.score)));
-
-  // Which games count toward the averages. Click a thumbnail to drop it; the choice persists.
-  const LS_KEY = "arc3-scoreboard-games";
-  let active;
-  try {
-    const saved = JSON.parse(localStorage.getItem(LS_KEY) || "null");
-    active = new Set(Array.isArray(saved) ? saved.filter(id => order.includes(id)) : order);
-  } catch (e) { active = new Set(order); }
-  if (!active.size) active = new Set(order);
-  const saveActive = () => { try { localStorage.setItem(LS_KEY, JSON.stringify([...active])); } catch (e) {} };
-
-  // A run's average over the games it played that are currently active (null if none apply).
-  const activeAvg = (r) => {
-    const played = (r.per_game || []).filter(g => active.has(g.id));
-    if (!played.length) return null;
-    return played.reduce((s, g) => s + g.score, 0) / played.length;
-  };
-
-  const thead = document.querySelector("#t thead");
-  const tbody = document.querySelector("#t tbody");
-  const status = document.querySelector("#gamesel-status");
-
-  // Header is built once; toggling only flips classes, so the thumbnails never reload.
-  thead.innerHTML = `<tr>
-    <th class="run">Run</th><th class="date">Date</th><th>Levels</th><th>Actions</th><th>Tokens</th><th>Avg</th>${
-      order.map(id => `
-    <th class="game" data-game="${id}">
-      <img src="./static/img/games/${id}.png" alt="" loading="lazy" onerror="this.style.visibility='hidden'">
-      <div class="gid">${id.slice(0, 4)}</div>
-    </th>`).join("")}
-  </tr>`;
-  thead.querySelectorAll("th.game").forEach(th =>
-    th.addEventListener("click", () => toggle(th.dataset.game)));
-
-  const cell = (run, id, g) => {
-    const off = active.has(id) ? "" : " off";
-    if (!g) return `<td class="g none${off}" data-game="${id}" title="${id}: not played">·</td>`;
-    const alpha = g.score > 0 ? (0.12 + 0.5 * Math.sqrt(g.score / cap)).toFixed(2) : 0;
-    const disp = g.score > 0 ? g.score.toFixed(g.score >= 10 ? 0 : 1) : "0";
-    return `<td class="g ${g.score > 0 ? "" : "zero"}${off}" data-game="${id}" style="background:rgba(30,147,255,${alpha})">
-      <a href="./viewer.html#run=${encodeURIComponent(run)}&game=${encodeURIComponent(id)}"
-         title="${id} — score ${g.score.toFixed(2)}, levels ${g.levels}/${g.levels_total}, ${g.actions} actions">${disp}</a>
-    </td>`;
-  };
-
-  function toggle(id) {
-    if (active.has(id)) { if (active.size > 1) active.delete(id); }  // keep at least one game on
-    else active.add(id);
-    saveActive();
-    render();
-  }
-
-  // Run date, parsed from the run-id prefix (YYYYMMDD_HHMMSS_label).
-  const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-  function runDate(name) {
-    const m = String(name).match(/^(\d{4})(\d{2})(\d{2})_(\d{2})(\d{2})/);
-    if (!m) return { short: "", full: "" };
-    const [, y, mo, d, hh, mm] = m;
-    return { short: `${MONTHS[+mo - 1]} ${+d}`, full: `${y}-${mo}-${d} ${hh}:${mm}` };
-  }
-
-  function render() {
-    // Recompute each run's average over the active games, then rank by it.
-    const ranked = rows.map(r => ({ r, avg: activeAvg(r) }))
-      .sort((a, b) => (b.avg ?? -1) - (a.avg ?? -1));
-    const best = Math.max(...ranked.map(x => x.avg ?? -Infinity));
-
-    thead.querySelectorAll("th.game").forEach(th => {
-      const on = active.has(th.dataset.game);
-      th.classList.toggle("off", !on);
-      th.title = `${th.dataset.game} — click to ${on ? "exclude from" : "include in"} the averages`;
-    });
-
-    tbody.innerHTML = ranked.map(({ r, avg }) => {
-      const byId = new Map((r.per_game || []).map(g => [g.id, g]));
-      const cells = order.map(id => cell(r.run, id, byId.get(id))).join("");
-      const isBest = avg != null && avg === best;
-      const d = runDate(r.run);
-      return `<tr class="${isBest ? "best" : ""}">
-        <td class="run"><a href="./viewer.html#run=${encodeURIComponent(r.run)}">${r.run}</a><a class="harness" href="./harness.html#run=${encodeURIComponent(r.run)}">harness</a>${r.has_usage ? `<a class="usage" href="./usage.html#run=${encodeURIComponent(r.run)}" title="CPU / GPU / RAM / storage over this run">usage</a>` : ""}</td>
-        <td class="date" title="${d.full}">${d.short}</td>
-        <td>${r.levels}</td><td>${r.actions.toLocaleString()}</td><td>${r.tokens.toLocaleString()}</td>
-        <td class="avg">${avg == null ? "—" : avg.toFixed(3)}</td>${cells}
-      </tr>`;
-    }).join("");
-
-    const n = active.size, total = order.length;
-    status.innerHTML = n === total
-      ? `Average over all <b>${total}</b> games. <span class="hint">Click a game thumbnail to drop it from the averages.</span>`
-      : `Average over <b>${n}</b> of ${total} games <span class="hint">(${total - n} excluded)</span>. <button type="button" id="games-reset">reset all</button>`;
-    const reset = document.getElementById("games-reset");
-    if (reset) reset.addEventListener("click", () => { active = new Set(order); saveActive(); render(); });
-  }
-
-  render();
-});
-</script>
+<script type="module" src="./static/js/games-play.js"></script>
 </body>
 </html>

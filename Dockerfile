@@ -8,6 +8,7 @@ FROM caddy:2-alpine
 COPY --from=proxy /bin/oauth2-proxy /usr/local/bin/oauth2-proxy
 COPY Caddyfile /etc/caddy/Caddyfile
 COPY index.html /srv/index.html
+COPY internal.html /srv/internal.html
 COPY runs.html /srv/runs.html
 COPY run.html /srv/run.html
 COPY harness.html /srv/harness.html

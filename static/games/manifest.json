@@ -1,0 +1,538 @@
+[
+  {
+    "id": "ar25-0c556536",
+    "title": "AR25",
+    "class_name": "Ar25",
+    "src_file": "ar25.py",
+    "tags": [
+      "keyboard_click"
+    ],
+    "default_fps": 6,
+    "official": true
+  },
+  {
+    "id": "bp35-0a0ad940",
+    "title": "BP35",
+    "class_name": "Bp35",
+    "src_file": "bp35.py",
+    "tags": [
+      "keyboard_click"
+    ],
+    "default_fps": 20,
+    "official": true
+  },
+  {
+    "id": "cd82-fb555c5d",
+    "title": "CD82",
+    "class_name": "Cd82",
+    "src_file": "cd82.py",
+    "tags": [
+      "keyboard_click"
+    ],
+    "default_fps": 30,
+    "official": true
+  },
+  {
+    "id": "cn04-2fe56bfb",
+    "title": "CN04",
+    "class_name": "Cn04",
+    "src_file": "cn04.py",
+    "tags": [
+      "keyboard_click"
+    ],
+    "default_fps": 5,
+    "official": true
+  },
+  {
+    "id": "dc22-fdcac232",
+    "title": "DC22",
+    "class_name": "Dc22",
+    "src_file": "dc22.py",
+    "tags": [
+      "keyboard_click"
+    ],
+    "default_fps": 15,
+    "official": true
+  },
+  {
+    "id": "ft09-0d8bbf25",
+    "title": "FT09",
+    "class_name": "Ft09",
+    "src_file": "ft09.py",
+    "tags": [],
+    "default_fps": 8,
+    "official": true
+  },
+  {
+    "id": "g50t-5849a774",
+    "title": "G50T",
+    "class_name": "G50t",
+    "src_file": "g50t.py",
+    "tags": [
+      "keyboard"
+    ],
+    "default_fps": 30,
+    "official": true
+  },
+  {
+    "id": "ka59-38d34dbb",
+    "title": "KA59",
+    "class_name": "Ka59",
+    "src_file": "ka59.py",
+    "tags": [
+      "keyboard_click"
+    ],
+    "default_fps": 10,
+    "official": true
+  },
+  {
+    "id": "lf52-271a04aa",
+    "title": "LF52",
+    "class_name": "Lf52",
+    "src_file": "lf52.py",
+    "tags": [
+      "click"
+    ],
+    "default_fps": 30,
+    "official": true
+  },
+  {
+    "id": "lp85-305b61c3",
+    "title": "LP85",
+    "class_name": "Lp85",
+    "src_file": "lp85.py",
+    "tags": [
+      "click"
+    ],
+    "default_fps": 20,
+    "official": true
+  },
+  {
+    "id": "ls20-9607627b",
+    "title": "LS20",
+    "class_name": "Ls20",
+    "src_file": "ls20.py",
+    "tags": [
+      "keyboard"
+    ],
+    "default_fps": 30,
+    "official": true
+  },
+  {
+    "id": "m0r0-492f87ba",
+    "title": "M0R0",
+    "class_name": "M0r0",
+    "src_file": "m0r0.py",
+    "tags": [
+      "keyboard_click"
+    ],
+    "default_fps": 7,
+    "official": true
+  },
+  {
+    "id": "r11l-495a7899",
+    "title": "R11L",
+    "class_name": "R11l",
+    "src_file": "r11l.py",
+    "tags": [
+      "click"
+    ],
+    "default_fps": 30,
+    "official": true
+  },
+  {
+    "id": "re86-8af5384d",
+    "title": "RE86",
+    "class_name": "Re86",
+    "src_file": "re86.py",
+    "tags": [
+      "keyboard_click"
+    ],
+    "default_fps": 25,
+    "official": true
+  },
+  {
+    "id": "s5i5-18d95033",
+    "title": "S5I5",
+    "class_name": "S5i5",
+    "src_file": "s5i5.py",
+    "tags": [
+      "click"
+    ],
+    "default_fps": 15,
+    "official": true
+  },
+  {
+    "id": "sb26-7fbdac44",
+    "title": "SB26",
+    "class_name": "Sb26",
+    "src_file": "sb26.py",
+    "tags": [
+      "keyboard_click"
+    ],
+    "default_fps": 30,
+    "official": true
+  },
+  {
+    "id": "sc25-635fd71a",
+    "title": "SC25",
+    "class_name": "Sc25",
+    "src_file": "sc25.py",
+    "tags": [
+      "keyboard_click"
+    ],
+    "default_fps": 20,
+    "official": true
+  },
+  {
+    "id": "sk48-d8078629",
+    "title": "SK48",
+    "class_name": "Sk48",
+    "src_file": "sk48.py",
+    "tags": [
+      "keyboard_click"
+    ],
+    "default_fps": 30,
+    "official": true
+  },
+  {
+    "id": "sp80-589a99af",
+    "title": "SP80",
+    "class_name": "Sp80",
+    "src_file": "sp80.py",
+    "tags": [
+      "keyboard_click"
+    ],
+    "default_fps": 10,
+    "official": true
+  },
+  {
+    "id": "su15-1944f8ab",
+    "title": "SU15",
+    "class_name": "Su15",
+    "src_file": "su15.py",
+    "tags": [
+      "click"
+    ],
+    "default_fps": 20,
+    "official": true
+  },
+  {
+    "id": "tn36-ef4dde99",
+    "title": "TN36",
+    "class_name": "Tn36",
+    "src_file": "tn36.py",
+    "tags": [
+      "click"
+    ],
+    "default_fps": 3,
+    "official": true
+  },
+  {
+    "id": "tr87-cd924810",
+    "title": "TR87",
+    "class_name": "Tr87",
+    "src_file": "tr87.py",
+    "tags": [
+      "keyboard"
+    ],
+    "default_fps": 10,
+    "official": true
+  },
+  {
+    "id": "tu93-0768757b",
+    "title": "TU93",
+    "class_name": "Tu93",
+    "src_file": "tu93.py",
+    "tags": [
+      "keyboard_click"
+    ],
+    "default_fps": 30,
+    "official": true
+  },
+  {
+    "id": "vc33-5430563c",
+    "title": "VC33",
+    "class_name": "Vc33",
+    "src_file": "vc33.py",
+    "tags": [
+      "click"
+    ],
+    "default_fps": 20,
+    "official": true
+  },
+  {
+    "id": "wa30-ee6fef47",
+    "title": "WA30",
+    "class_name": "Wa30",
+    "src_file": "wa30.py",
+    "tags": [
+      "keyboard"
+    ],
+    "default_fps": 5,
+    "official": true
+  },
+  {
+    "id": "ac02",
+    "title": "ARCeption",
+    "class_name": "Ac02",
+    "src_file": "ac02.py",
+    "tags": [
+      "click",
+      "puzzle"
+    ],
+    "default_fps": 20,
+    "official": false
+  },
+  {
+    "id": "ar02",
+    "title": "Arbitrage Runner",
+    "class_name": "Ar02",
+    "src_file": "ar02.py",
+    "tags": [
+      "puzzle",
+      "economics",
+      "grid",
+      "strategy"
+    ],
+    "default_fps": 5,
+    "official": false
+  },
+  {
+    "id": "cr01",
+    "title": "Crumbling Route",
+    "class_name": "Cr01",
+    "src_file": "cr01.py",
+    "tags": [
+      "puzzle",
+      "pathfinding",
+      "grid"
+    ],
+    "default_fps": 5,
+    "official": false
+  },
+  {
+    "id": "fd01",
+    "title": "Find the Difference",
+    "class_name": "Fd01",
+    "src_file": "fd01.py",
+    "tags": [],
+    "default_fps": 5,
+    "official": false
+  },
+  {
+    "id": "fr01",
+    "title": "Feeding Frenzy",
+    "class_name": "Fr01",
+    "src_file": "fr01.py",
+    "tags": [
+      "action",
+      "arcade",
+      "live"
+    ],
+    "default_fps": 30,
+    "official": false
+  },
+  {
+    "id": "fy01",
+    "title": "Flying Ace",
+    "class_name": "Fy01",
+    "src_file": "fy01.py",
+    "tags": [],
+    "default_fps": 10,
+    "official": false
+  },
+  {
+    "id": "gh14",
+    "title": "Ghost Heist",
+    "class_name": "Gh14",
+    "src_file": "gh14.py",
+    "tags": [],
+    "default_fps": 10,
+    "official": false
+  },
+  {
+    "id": "lb03",
+    "title": "Light Bender",
+    "class_name": "Lb03",
+    "src_file": "lb03.py",
+    "tags": [
+      "puzzle",
+      "beam",
+      "reflection",
+      "prism"
+    ],
+    "default_fps": 5,
+    "official": false
+  },
+  {
+    "id": "mr01",
+    "title": "Medieval War RT",
+    "class_name": "Mr01",
+    "src_file": "mr01.py",
+    "tags": [
+      "live"
+    ],
+    "default_fps": 10,
+    "official": false
+  },
+  {
+    "id": "mt01",
+    "title": "Mortar",
+    "class_name": "Mt01",
+    "src_file": "mt01.py",
+    "tags": [],
+    "default_fps": 10,
+    "official": false
+  },
+  {
+    "id": "mw04",
+    "title": "Medieval War",
+    "class_name": "Mw04",
+    "src_file": "mw04.py",
+    "tags": [],
+    "default_fps": 30,
+    "official": false
+  },
+  {
+    "id": "pc01",
+    "title": "Parallel Clone",
+    "class_name": "Pc01",
+    "src_file": "pc01.py",
+    "tags": [],
+    "default_fps": 60,
+    "official": false
+  },
+  {
+    "id": "pi01",
+    "title": "Pirate Ship",
+    "class_name": "Pi01",
+    "src_file": "pi01.py",
+    "tags": [
+      "live"
+    ],
+    "default_fps": 10,
+    "official": false
+  },
+  {
+    "id": "ps01",
+    "title": "Pouring Water Son",
+    "class_name": "Ps01",
+    "src_file": "ps01.py",
+    "tags": [
+      "live",
+      "simulation",
+      "physics"
+    ],
+    "default_fps": 30,
+    "official": false
+  },
+  {
+    "id": "pt01",
+    "title": "Pirate Seas",
+    "class_name": "Pt01",
+    "src_file": "pt01.py",
+    "tags": [],
+    "default_fps": 8,
+    "official": false
+  },
+  {
+    "id": "pw01",
+    "title": "Pouring Water",
+    "class_name": "Pw01",
+    "src_file": "pw01.py",
+    "tags": [
+      "live",
+      "simulation",
+      "physics"
+    ],
+    "default_fps": 30,
+    "official": false
+  },
+  {
+    "id": "px02",
+    "title": "Potion Mixer",
+    "class_name": "Px02",
+    "src_file": "px02.py",
+    "tags": [
+      "click"
+    ],
+    "default_fps": 5,
+    "official": false
+  },
+  {
+    "id": "sh01",
+    "title": "Stealth Hunter",
+    "class_name": "Sh01",
+    "src_file": "sh01.py",
+    "tags": [
+      "stealth",
+      "strategy",
+      "puzzle"
+    ],
+    "default_fps": 6,
+    "official": false
+  },
+  {
+    "id": "sn02",
+    "title": "Sneeze",
+    "class_name": "Sn02",
+    "src_file": "sn02.py",
+    "tags": [
+      "simulation",
+      "strategy",
+      "infection"
+    ],
+    "default_fps": 8,
+    "official": false
+  },
+  {
+    "id": "td05",
+    "title": "Tower Defense",
+    "class_name": "Td05",
+    "src_file": "td05.py",
+    "tags": [
+      "live"
+    ],
+    "default_fps": 10,
+    "official": false
+  },
+  {
+    "id": "ts01",
+    "title": "Tower Siege",
+    "class_name": "Ts01",
+    "src_file": "ts01.py",
+    "tags": [
+      "live"
+    ],
+    "default_fps": 4,
+    "official": false
+  },
+  {
+    "id": "ws03-v1",
+    "title": "WS03",
+    "class_name": "Ws03",
+    "src_file": "ws03.py",
+    "tags": [
+      "fog-of-war",
+      "puzzle",
+      "energy-management"
+    ],
+    "default_fps": 5,
+    "official": false
+  },
+  {
+    "id": "ws04-v1",
+    "title": "WS04",
+    "class_name": "Ws04",
+    "src_file": "ws04.py",
+    "tags": [
+      "puzzle",
+      "energy-management",
+      "vertical-ui",
+      "fog-of-war"
+    ],
+    "default_fps": 5,
+    "official": false
+  }
+]
