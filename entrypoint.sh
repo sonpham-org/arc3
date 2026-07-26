@@ -24,6 +24,7 @@ exec oauth2-proxy \
   --upstream="http://127.0.0.1:8081" \
   --redirect-url="${OAUTH2_PROXY_REDIRECT_URL:-https://arc3.sonpham.net/oauth2/callback}" \
   --authenticated-emails-file=/tmp/emails.txt \
+  --custom-templates-dir=/etc/oauth2-proxy/templates \
   --email-domain="*" \
   --cookie-secure=true \
   --cookie-expire=168h \

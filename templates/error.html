@@ -1,0 +1,155 @@
+{{define "error.html"}}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{.StatusCode}} — ARC-3</title>
+
+<link rel="stylesheet" href="/static/css/theme.css">
+<script>
+(function(){try{var t=localStorage.getItem('arc3-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+
+<style>
+  body {
+    font: 14px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif;
+    background: var(--bg, #080c16);
+    color: var(--text, #e2e6ee);
+    height: 100vh;
+    overflow: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background-image:
+      radial-gradient(60rem 40rem at 50% -10%, var(--accent-wash, rgba(59,130,246,.12)), transparent 70%);
+  }
+
+  .card {
+    width: 100%;
+    max-width: 400px;
+    background: var(--panel, #0c1220);
+    border: 1px solid var(--border, #212d42);
+    border-radius: 14px;
+    padding: 32px 28px 24px;
+    text-align: center;
+    box-shadow: 0 20px 60px -12px rgba(0,0,0,.55), 0 2px 8px rgba(0,0,0,.2);
+    animation: pop .22s cubic-bezier(.2,.8,.3,1) both;
+  }
+  @keyframes pop {
+    from { opacity: 0; transform: translateY(8px) scale(.985); }
+    to   { opacity: 1; transform: none; }
+  }
+  @media (prefers-reduced-motion: reduce) { .card { animation: none; } }
+
+  .badge {
+    width: 44px; height: 44px; margin: 0 auto 14px;
+    display: grid; place-items: center;
+    border-radius: 11px;
+    background: var(--wash, rgba(255,255,255,.04));
+    border: 1px solid var(--wash-line, rgba(255,255,255,.12));
+    color: var(--warn, #f59e0b);
+  }
+  .badge svg { display: block; }
+
+  .code {
+    font-family: var(--font, ui-monospace, monospace);
+    font-size: 11px; letter-spacing: .18em;
+    color: var(--muted, #6b7789);
+    margin-bottom: 16px;
+  }
+
+  h1 { font-size: 17px; font-weight: 600; margin: 0 0 6px; letter-spacing: -.01em; }
+  .sub { font-size: 13px; color: var(--text-dim, #aab3c4); margin: 0 0 22px; }
+
+  .actions { display: flex; flex-direction: column; gap: 8px; }
+  .actions form { display: block; }
+  .btn {
+    width: 100%; height: 38px; padding: 0 14px;
+    font: 500 13px/1 system-ui, -apple-system, "Segoe UI", sans-serif;
+    border-radius: 8px; cursor: pointer;
+    border: 1px solid var(--border-strong, #2c3a54);
+    background: var(--raised, #1a2333);
+    color: var(--text, #e2e6ee);
+    transition: background .12s ease, border-color .12s ease;
+  }
+  .btn:hover { background: var(--raised-hi, #232e42); }
+  .btn:focus-visible { outline: 2px solid var(--accent, #3b82f6); outline-offset: 2px; }
+  .btn.primary {
+    background: var(--accent, #3b82f6);
+    border-color: var(--accent, #3b82f6);
+    color: #fff;
+  }
+  .btn.primary:hover { filter: brightness(1.08); }
+  a.btn { display: grid; place-items: center; text-decoration: none; }
+
+  details {
+    margin-top: 18px; text-align: left;
+    font-size: 12px; color: var(--muted, #6b7789);
+  }
+  details summary {
+    cursor: pointer; list-style: none; text-align: center;
+    color: var(--muted, #6b7789);
+  }
+  details summary:hover { color: var(--text-dim, #aab3c4); }
+  details summary::-webkit-details-marker { display: none; }
+  details .detail-body {
+    margin-top: 10px; padding: 10px;
+    background: var(--wash, rgba(255,255,255,.04));
+    border: 1px solid var(--wash-line, rgba(255,255,255,.12));
+    border-radius: 8px;
+    font-family: var(--font, ui-monospace, monospace);
+    font-size: 11.5px; line-height: 1.5;
+    word-break: break-word;
+  }
+</style>
+</head>
+<body>
+  <main class="card">
+    <div class="badge" aria-hidden="true">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="9"></circle>
+        <path d="M12 8v4.5"></path>
+        <circle cx="12" cy="16.2" r=".6" fill="currentColor" stroke="none"></circle>
+      </svg>
+    </div>
+
+    <div class="code">ARC-3 &middot; {{.StatusCode}}</div>
+
+    {{ if eq .StatusCode 403 }}
+      <h1>You don't have access</h1>
+      <p class="sub">That Google account isn't on the ARC-3 allowlist. Ask Son to add it, or try signing in with a different account.</p>
+    {{ else if eq .StatusCode 404 }}
+      <h1>Page not found</h1>
+      <p class="sub">That URL doesn't exist on ARC-3.</p>
+    {{ else }}
+      <h1>{{.Title}}</h1>
+      <p class="sub">Something went wrong while signing you in. Trying again usually clears it.</p>
+    {{ end }}
+
+    <div class="actions">
+      {{ if .Redirect }}
+      <!-- sign_out (not sign_in) so a wrong/denied account's cookie is cleared
+           first — otherwise the proxy just re-serves the same 403. -->
+      <form method="GET" action="{{.ProxyPrefix}}/sign_out">
+        <input type="hidden" name="rd" value="{{.Redirect}}">
+        <button type="submit" class="btn primary">{{ if eq .StatusCode 403 }}Try a different account{{ else }}Try signing in again{{ end }}</button>
+      </form>
+      {{ end }}
+      <a class="btn" href="/">&larr; Back to Games</a>
+    </div>
+
+    {{ if or .Message .RequestID }}
+    <details>
+      <summary>Details</summary>
+      <div class="detail-body">
+        {{ if .Message }}<div>{{.Message}}</div>{{ end }}
+        {{ if .RequestID }}<div>Request ID: {{.RequestID}}</div>{{ end }}
+      </div>
+    </details>
+    {{ end }}
+  </main>
+</body>
+</html>
+{{end}}

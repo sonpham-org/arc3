@@ -16,6 +16,9 @@ COPY viewer.html /srv/viewer.html
 COPY signals.html /srv/signals.html
 COPY usage.html /srv/usage.html
 COPY static /srv/static
+# Branded sign-in / error pages, replacing oauth2-proxy's default Bulma ones.
+# They pull /static/css/theme.css (public route) so they track the site palette.
+COPY templates /etc/oauth2-proxy/templates
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 CMD ["/entrypoint.sh"]
