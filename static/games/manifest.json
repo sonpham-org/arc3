@@ -8,7 +8,9 @@
       "keyboard_click"
     ],
     "default_fps": 6,
-    "official": true
+    "category": "official",
+    "official": true,
+    "tile_scale": 3
   },
   {
     "id": "bp35-0a0ad940",
@@ -19,7 +21,9 @@
       "keyboard_click"
     ],
     "default_fps": 20,
-    "official": true
+    "category": "official",
+    "official": true,
+    "tile_scale": 8
   },
   {
     "id": "cd82-fb555c5d",
@@ -30,7 +34,9 @@
       "keyboard_click"
     ],
     "default_fps": 30,
-    "official": true
+    "category": "official",
+    "official": true,
+    "tile_scale": 1
   },
   {
     "id": "cn04-2fe56bfb",
@@ -41,7 +47,9 @@
       "keyboard_click"
     ],
     "default_fps": 5,
-    "official": true
+    "category": "official",
+    "official": true,
+    "tile_scale": 3
   },
   {
     "id": "dc22-fdcac232",
@@ -52,7 +60,9 @@
       "keyboard_click"
     ],
     "default_fps": 15,
-    "official": true
+    "category": "official",
+    "official": true,
+    "tile_scale": 1
   },
   {
     "id": "ft09-0d8bbf25",
@@ -61,7 +71,9 @@
     "src_file": "ft09.py",
     "tags": [],
     "default_fps": 8,
-    "official": true
+    "category": "official",
+    "official": true,
+    "tile_scale": 2
   },
   {
     "id": "g50t-5849a774",
@@ -72,7 +84,9 @@
       "keyboard"
     ],
     "default_fps": 30,
-    "official": true
+    "category": "official",
+    "official": true,
+    "tile_scale": 1
   },
   {
     "id": "ka59-38d34dbb",
@@ -83,7 +97,9 @@
       "keyboard_click"
     ],
     "default_fps": 10,
-    "official": true
+    "category": "official",
+    "official": true,
+    "tile_scale": 1
   },
   {
     "id": "lf52-271a04aa",
@@ -94,7 +110,9 @@
       "click"
     ],
     "default_fps": 30,
-    "official": true
+    "category": "official",
+    "official": true,
+    "tile_scale": 8
   },
   {
     "id": "lp85-305b61c3",
@@ -105,7 +123,9 @@
       "click"
     ],
     "default_fps": 20,
-    "official": true
+    "category": "official",
+    "official": true,
+    "tile_scale": 2
   },
   {
     "id": "ls20-9607627b",
@@ -116,7 +136,9 @@
       "keyboard"
     ],
     "default_fps": 30,
-    "official": true
+    "category": "official",
+    "official": true,
+    "tile_scale": 1
   },
   {
     "id": "m0r0-492f87ba",
@@ -127,7 +149,9 @@
       "keyboard_click"
     ],
     "default_fps": 7,
-    "official": true
+    "category": "official",
+    "official": true,
+    "tile_scale": 5
   },
   {
     "id": "r11l-495a7899",
@@ -138,7 +162,9 @@
       "click"
     ],
     "default_fps": 30,
-    "official": true
+    "category": "official",
+    "official": true,
+    "tile_scale": 1
   },
   {
     "id": "re86-8af5384d",
@@ -149,7 +175,9 @@
       "keyboard_click"
     ],
     "default_fps": 25,
-    "official": true
+    "category": "official",
+    "official": true,
+    "tile_scale": 1
   },
   {
     "id": "s5i5-18d95033",
@@ -160,7 +188,9 @@
       "click"
     ],
     "default_fps": 15,
-    "official": true
+    "category": "official",
+    "official": true,
+    "tile_scale": 1
   },
   {
     "id": "sb26-7fbdac44",
@@ -171,7 +201,9 @@
       "keyboard_click"
     ],
     "default_fps": 30,
-    "official": true
+    "category": "official",
+    "official": true,
+    "tile_scale": 1
   },
   {
     "id": "sc25-635fd71a",
@@ -182,7 +214,9 @@
       "keyboard_click"
     ],
     "default_fps": 20,
-    "official": true
+    "category": "official",
+    "official": true,
+    "tile_scale": 1
   },
   {
     "id": "sk48-d8078629",
@@ -193,7 +227,9 @@
       "keyboard_click"
     ],
     "default_fps": 30,
-    "official": true
+    "category": "official",
+    "official": true,
+    "tile_scale": 1
   },
   {
     "id": "sp80-589a99af",
@@ -204,7 +240,9 @@
       "keyboard_click"
     ],
     "default_fps": 10,
-    "official": true
+    "category": "official",
+    "official": true,
+    "tile_scale": 4
   },
   {
     "id": "su15-1944f8ab",
@@ -215,7 +253,9 @@
       "click"
     ],
     "default_fps": 20,
-    "official": true
+    "category": "official",
+    "official": true,
+    "tile_scale": 1
   },
   {
     "id": "tn36-ef4dde99",
@@ -226,7 +266,9 @@
       "click"
     ],
     "default_fps": 3,
-    "official": true
+    "category": "official",
+    "official": true,
+    "tile_scale": 1
   },
   {
     "id": "tr87-cd924810",
@@ -237,7 +279,9 @@
       "keyboard"
     ],
     "default_fps": 10,
-    "official": true
+    "category": "official",
+    "official": true,
+    "tile_scale": 1
   },
   {
     "id": "tu93-0768757b",
@@ -248,7 +292,9 @@
       "keyboard_click"
     ],
     "default_fps": 30,
-    "official": true
+    "category": "official",
+    "official": true,
+    "tile_scale": 1
   },
   {
     "id": "vc33-5430563c",
@@ -259,7 +305,9 @@
       "click"
     ],
     "default_fps": 20,
-    "official": true
+    "category": "official",
+    "official": true,
+    "tile_scale": 2
   },
   {
     "id": "wa30-ee6fef47",
@@ -270,7 +318,9 @@
       "keyboard"
     ],
     "default_fps": 5,
-    "official": true
+    "category": "official",
+    "official": true,
+    "tile_scale": 1
   },
   {
     "id": "ac02",
@@ -282,7 +332,9 @@
       "puzzle"
     ],
     "default_fps": 20,
-    "official": false
+    "category": "custom",
+    "official": false,
+    "tile_scale": 1
   },
   {
     "id": "ar02",
@@ -296,7 +348,9 @@
       "strategy"
     ],
     "default_fps": 5,
-    "official": false
+    "category": "custom",
+    "official": false,
+    "tile_scale": 1
   },
   {
     "id": "cr01",
@@ -309,16 +363,44 @@
       "grid"
     ],
     "default_fps": 5,
-    "official": false
+    "category": "custom",
+    "official": false,
+    "tile_scale": 1
   },
   {
-    "id": "fd01",
-    "title": "Find the Difference",
-    "class_name": "Fd01",
-    "src_file": "fd01.py",
-    "tags": [],
+    "id": "dw01",
+    "title": "Drunken Steps",
+    "class_name": "Dw01",
+    "src_file": "dw01.py",
+    "tags": [
+      "stochastic",
+      "maze",
+      "pathfinding",
+      "planning-under-uncertainty",
+      "procedural",
+      "multi-screen"
+    ],
+    "default_fps": 8,
+    "category": "custom",
+    "official": false,
+    "tile_scale": 1
+  },
+  {
+    "id": "fg01",
+    "title": "Fog",
+    "class_name": "Fg01",
+    "src_file": "fg01.py",
+    "tags": [
+      "stochastic",
+      "noisy-observation",
+      "bayesian",
+      "inference",
+      "procedural"
+    ],
     "default_fps": 5,
-    "official": false
+    "category": "custom",
+    "official": false,
+    "tile_scale": 1
   },
   {
     "id": "fr01",
@@ -331,16 +413,9 @@
       "live"
     ],
     "default_fps": 30,
-    "official": false
-  },
-  {
-    "id": "fy01",
-    "title": "Flying Ace",
-    "class_name": "Fy01",
-    "src_file": "fy01.py",
-    "tags": [],
-    "default_fps": 10,
-    "official": false
+    "category": "custom",
+    "official": false,
+    "tile_scale": 1
   },
   {
     "id": "gh14",
@@ -349,7 +424,9 @@
     "src_file": "gh14.py",
     "tags": [],
     "default_fps": 10,
-    "official": false
+    "category": "custom",
+    "official": false,
+    "tile_scale": 1
   },
   {
     "id": "lb03",
@@ -363,36 +440,26 @@
       "prism"
     ],
     "default_fps": 5,
-    "official": false
+    "category": "custom",
+    "official": false,
+    "tile_scale": 1
   },
   {
-    "id": "mr01",
-    "title": "Medieval War RT",
-    "class_name": "Mr01",
-    "src_file": "mr01.py",
+    "id": "lc01",
+    "title": "Loaded",
+    "class_name": "Lc01",
+    "src_file": "lc01.py",
     "tags": [
-      "live"
+      "stochastic",
+      "bandit",
+      "explore-exploit",
+      "inference",
+      "procedural"
     ],
-    "default_fps": 10,
-    "official": false
-  },
-  {
-    "id": "mt01",
-    "title": "Mortar",
-    "class_name": "Mt01",
-    "src_file": "mt01.py",
-    "tags": [],
-    "default_fps": 10,
-    "official": false
-  },
-  {
-    "id": "mw04",
-    "title": "Medieval War",
-    "class_name": "Mw04",
-    "src_file": "mw04.py",
-    "tags": [],
-    "default_fps": 30,
-    "official": false
+    "default_fps": 5,
+    "category": "custom",
+    "official": false,
+    "tile_scale": 1
   },
   {
     "id": "pc01",
@@ -401,7 +468,9 @@
     "src_file": "pc01.py",
     "tags": [],
     "default_fps": 60,
-    "official": false
+    "category": "custom",
+    "official": false,
+    "tile_scale": 1
   },
   {
     "id": "pi01",
@@ -412,7 +481,26 @@
       "live"
     ],
     "default_fps": 10,
-    "official": false
+    "category": "custom",
+    "official": false,
+    "tile_scale": 1
+  },
+  {
+    "id": "pl01",
+    "title": "Press Your Luck",
+    "class_name": "Pl01",
+    "src_file": "pl01.py",
+    "tags": [
+      "stochastic",
+      "optimal-stopping",
+      "risk",
+      "expected-value",
+      "procedural"
+    ],
+    "default_fps": 5,
+    "category": "custom",
+    "official": false,
+    "tile_scale": 1
   },
   {
     "id": "ps01",
@@ -425,7 +513,9 @@
       "physics"
     ],
     "default_fps": 30,
-    "official": false
+    "category": "custom",
+    "official": false,
+    "tile_scale": 1
   },
   {
     "id": "pt01",
@@ -434,20 +524,9 @@
     "src_file": "pt01.py",
     "tags": [],
     "default_fps": 8,
-    "official": false
-  },
-  {
-    "id": "pw01",
-    "title": "Pouring Water",
-    "class_name": "Pw01",
-    "src_file": "pw01.py",
-    "tags": [
-      "live",
-      "simulation",
-      "physics"
-    ],
-    "default_fps": 30,
-    "official": false
+    "category": "custom",
+    "official": false,
+    "tile_scale": 1
   },
   {
     "id": "px02",
@@ -458,7 +537,9 @@
       "click"
     ],
     "default_fps": 5,
-    "official": false
+    "category": "custom",
+    "official": false,
+    "tile_scale": 1
   },
   {
     "id": "sh01",
@@ -471,7 +552,9 @@
       "puzzle"
     ],
     "default_fps": 6,
-    "official": false
+    "category": "custom",
+    "official": false,
+    "tile_scale": 1
   },
   {
     "id": "sn02",
@@ -484,7 +567,9 @@
       "infection"
     ],
     "default_fps": 8,
-    "official": false
+    "category": "custom",
+    "official": false,
+    "tile_scale": 1
   },
   {
     "id": "td05",
@@ -495,7 +580,9 @@
       "live"
     ],
     "default_fps": 10,
-    "official": false
+    "category": "custom",
+    "official": false,
+    "tile_scale": 1
   },
   {
     "id": "ts01",
@@ -506,7 +593,9 @@
       "live"
     ],
     "default_fps": 4,
-    "official": false
+    "category": "custom",
+    "official": false,
+    "tile_scale": 3
   },
   {
     "id": "ws03-v1",
@@ -519,7 +608,9 @@
       "energy-management"
     ],
     "default_fps": 5,
-    "official": false
+    "category": "custom",
+    "official": false,
+    "tile_scale": 1
   },
   {
     "id": "ws04-v1",
@@ -533,6 +624,3994 @@
       "fog-of-war"
     ],
     "default_fps": 5,
-    "official": false
+    "category": "custom",
+    "official": false,
+    "tile_scale": 1
+  },
+  {
+    "id": "ab01-v1",
+    "title": "Mod Sandpile",
+    "class_name": "Ab01",
+    "src_file": "ab01.py",
+    "tags": [
+      "simulation",
+      "click",
+      "sandpile-mod-win"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Sandpile toppling; win when stable and **total grains mod P == R**.",
+    "tile_scale": 6
+  },
+  {
+    "id": "as01-63be02fb",
+    "title": "Assembly Fetch",
+    "class_name": "As01",
+    "src_file": "as01.py",
+    "tags": [
+      "static",
+      "logistics",
+      "puzzle"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Pick up parts with ACTION5 and deliver to workstations in level order before reaching the goal.",
+    "tile_scale": 5
+  },
+  {
+    "id": "at01-v1",
+    "title": "Ant Trail",
+    "class_name": "At01",
+    "src_file": "at01.py",
+    "tags": [
+      "static",
+      "simulation"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "ACTION5 drops pheromone; ant steps toward strongest adjacent scent each turn; guide it to the green hole.",
+    "tile_scale": 4
+  },
+  {
+    "id": "au01-v1",
+    "title": "Bonus Steps",
+    "class_name": "Au01",
+    "src_file": "au01.py",
+    "tags": [
+      "static",
+      "planning"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Low step budget; stepping on cyan bonus pads adds steps (auctioned resource feel).",
+    "tile_scale": 6
+  },
+  {
+    "id": "av01-63be02fb",
+    "title": "Avalanche",
+    "class_name": "Av01",
+    "src_file": "av01.py",
+    "tags": [
+      "static",
+      "movement",
+      "physics"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "10\u00d710 grid. Rocks fall one cell after each move when supported; crushed by a rock loses.",
+    "tile_scale": 6
+  },
+  {
+    "id": "bd01-63be02fb",
+    "title": "No Revisits",
+    "class_name": "Bd01",
+    "src_file": "bd01.py",
+    "tags": [
+      "static",
+      "puzzle",
+      "path"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Reach the goal without entering any cell twice.",
+    "tile_scale": 12
+  },
+  {
+    "id": "bi01-63be02fb",
+    "title": "Bishop Courier",
+    "class_name": "Bi01",
+    "src_file": "bi01.py",
+    "tags": [
+      "static",
+      "movement",
+      "10-grid",
+      "chess"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "10\u00d710 grid. ACTION1\u20134 are diagonal slides (NW, NE, SW, SE); slide until blocked by a wall.",
+    "tile_scale": 6
+  },
+  {
+    "id": "bl01-63be02fb",
+    "title": "Phase Wall",
+    "class_name": "Bl01",
+    "src_file": "bl01.py",
+    "tags": [
+      "static",
+      "movement",
+      "phase"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "10\u00d710 grid. ACTION5 arms the next move to pass through exactly one wall cell.",
+    "tile_scale": 6
+  },
+  {
+    "id": "bn01-63be02fb",
+    "title": "Beacon Sweep",
+    "class_name": "Bn01",
+    "src_file": "bn01.py",
+    "tags": [
+      "static",
+      "exploration",
+      "64-grid"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "64\u00d764 fog-of-war search. Hidden targets show as dim ghosts only inside beacon light. ACTION5 drops a beacon at the player (Chebyshev radius, limited count); ACTION6 flags a cell\u2014must be a real target; wrong cell ends the run.",
+    "tile_scale": 1
+  },
+  {
+    "id": "bn02-63be02fb",
+    "title": "Manhattan Beacon",
+    "class_name": "Bn02",
+    "src_file": "bn02.py",
+    "tags": [
+      "static",
+      "exploration",
+      "hidden"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Beacon sweep with Manhattan (L1) reveal radius instead of Chebyshev.",
+    "tile_scale": 1
+  },
+  {
+    "id": "bn03-63be02fb",
+    "title": "Manhattan Beacon (variant)",
+    "class_name": "Bn03",
+    "src_file": "bn03.py",
+    "tags": [
+      "static",
+      "exploration",
+      "hidden"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Beacon sweep with Manhattan (L1) reveal radius instead of Chebyshev.",
+    "tile_scale": 1
+  },
+  {
+    "id": "bn04-v1",
+    "title": "Line Flash",
+    "class_name": "Bn04",
+    "src_file": "bn04.py",
+    "tags": [
+      "hidden",
+      "click"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "**ACTION5** toggles row vs column flash mode; **ACTION6** reveals that line and marks hidden targets hit.",
+    "tile_scale": 8
+  },
+  {
+    "id": "bp01-63be02fb",
+    "title": "Battery Mesh",
+    "class_name": "Bp01",
+    "src_file": "bp01.py",
+    "tags": [
+      "static",
+      "puzzle",
+      "activation"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "ACTION5 on each tower to power it; when all towers are active, reach the goal.",
+    "tile_scale": 4
+  },
+  {
+    "id": "bt01-63be02fb",
+    "title": "Battery Steps",
+    "class_name": "Bt01",
+    "src_file": "bt01.py",
+    "tags": [
+      "static",
+      "movement",
+      "10-grid",
+      "resource"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "10\u00d710 grid. Charge drops each successful move; green charge pads refill to cap; 0 charge loses.",
+    "tile_scale": 6
+  },
+  {
+    "id": "cf01-v1",
+    "title": "Crop Fallow",
+    "class_name": "Cf01",
+    "src_file": "cf01.py",
+    "tags": [
+      "static",
+      "path"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Re-entering a cell before F world steps pass loses.",
+    "tile_scale": 6
+  },
+  {
+    "id": "ci01-v1",
+    "title": "Crate Ice",
+    "class_name": "Ci01",
+    "src_file": "ci01.py",
+    "tags": [
+      "static",
+      "planning",
+      "push"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Sokoban where the player moves normally but pushed crates slide until blocked by wall, crate, or mud.",
+    "tile_scale": 8
+  },
+  {
+    "id": "ck02-63be02fb",
+    "title": "Circuit Junction",
+    "class_name": "Ck02",
+    "src_file": "ck02.py",
+    "tags": [
+      "static",
+      "graph",
+      "logic"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Wire routing with T-junction rule: no right turn relative to incoming direction on `junction` cells.",
+    "tile_scale": 2
+  },
+  {
+    "id": "ck03-63be02fb",
+    "title": "Circuit Junction (variant)",
+    "class_name": "Ck03",
+    "src_file": "ck03.py",
+    "tags": [
+      "static",
+      "graph",
+      "logic"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Wire routing with T-junction rule and cyan checkpoint cells: a successful test path must reach the out port through at least one checkpoint.",
+    "tile_scale": 2
+  },
+  {
+    "id": "ck04-v1",
+    "title": "Directed Wire",
+    "class_name": "Ck04",
+    "src_file": "ck04.py",
+    "tags": [
+      "circuit",
+      "click"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Each orange wire sends flow one way; **ACTION6** rotates direction; connect **in**\u2192**out**.",
+    "tile_scale": 4
+  },
+  {
+    "id": "co01-63be02fb",
+    "title": "Color Gate",
+    "class_name": "Co01",
+    "src_file": "co01.py",
+    "tags": [
+      "static",
+      "puzzle",
+      "10-grid"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Recolor pads set active hue; doors matching the active color open.",
+    "tile_scale": 6
+  },
+  {
+    "id": "cq01-63be02fb",
+    "title": "Ring Tour",
+    "class_name": "Cq01",
+    "src_file": "cq01.py",
+    "tags": [
+      "static",
+      "movement",
+      "coverage"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "10\u00d710 grid. Visit every orange ring marker, then stand on the green goal.",
+    "tile_scale": 6
+  },
+  {
+    "id": "cr01-63be02fb",
+    "title": "Creek Crossing",
+    "class_name": "Cr01",
+    "src_file": "cr01.py",
+    "tags": [
+      "static",
+      "bridge",
+      "click"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Water blocks walking; ACTION6 places a two-cell horizontal plank; leaving a plank cell removes it.",
+    "tile_scale": 4
+  },
+  {
+    "id": "cs01-v1",
+    "title": "Vertex Cover Click",
+    "class_name": "Cs01",
+    "src_file": "cs01.py",
+    "tags": [
+      "static",
+      "click",
+      "graph"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Toggle cyan vertices; every edge must touch a selected vertex within the step budget.",
+    "tile_scale": 8
+  },
+  {
+    "id": "ct01-v1",
+    "title": "Independent Cover",
+    "class_name": "Ct01",
+    "src_file": "ct01.py",
+    "tags": [
+      "static",
+      "click",
+      "graph"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Select green cells with ACTION6; none may be orth-adjacent; every gray mark must be selected or next to a selection.",
+    "tile_scale": 8
+  },
+  {
+    "id": "cu01-v1",
+    "title": "Multiset Cover",
+    "class_name": "Cu01",
+    "src_file": "cu01.py",
+    "tags": [
+      "tiling",
+      "click"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Cover **yellow** cells with **domino** (two orth clicks) or **L-tromino** (three clicks); **ACTION5** switches tool.",
+    "tile_scale": 6
+  },
+  {
+    "id": "cv01-v1",
+    "title": "List Coloring",
+    "class_name": "Cv01",
+    "src_file": "cv01.py",
+    "tags": [
+      "graph",
+      "click"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Each cell has a small **palette**; **ACTION6** cycles; orthogonal neighbors must differ.",
+    "tile_scale": 8
+  },
+  {
+    "id": "cw01-v1",
+    "title": "Clause Toggle",
+    "class_name": "Cw01",
+    "src_file": "cw01.py",
+    "tags": [
+      "logic",
+      "sat"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Each clause is an **OR** of two literals (variables **v0/v1**); **ACTION6** on a literal toggles its variable; satisfy every clause.",
+    "tile_scale": 5
+  },
+  {
+    "id": "cx01-v1",
+    "title": "Cut Gates",
+    "class_name": "Cx01",
+    "src_file": "cx01.py",
+    "tags": [
+      "graph",
+      "click"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Toggle **gate** tiles until start **S** and goal **T** are no longer connected.",
+    "tile_scale": 6
+  },
+  {
+    "id": "cy01-63be02fb",
+    "title": "Cyclic Conveyor",
+    "class_name": "Cy01",
+    "src_file": "cy01.py",
+    "tags": [
+      "static",
+      "movement",
+      "conveyor"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "10\u00d710 grid. On the conveyor row (level data), after each step you slide west while the next cell is free.",
+    "tile_scale": 6
+  },
+  {
+    "id": "cz01-v1",
+    "title": "Row XOR Pick",
+    "class_name": "Cz01",
+    "src_file": "cz01.py",
+    "tags": [
+      "static",
+      "logic"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "ACTION1\u20134 select row 0\u20133; ACTION6 flips every bit in that row. Match the binary target within the step limit.",
+    "tile_scale": 8
+  },
+  {
+    "id": "dd01-63be02fb",
+    "title": "Routed Delivery",
+    "class_name": "Dd01",
+    "src_file": "dd01.py",
+    "tags": [
+      "static",
+      "logistics",
+      "48-grid"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "48\u00d748 logistics grid. Colored parcels are orders for matching customers (same color). Per-order SLA deadlines; global step budget. ACTION1\u20134 move; ACTION5 pickup, drop on matching customer only, or ping nearest relevant stop (target customer if carrying, else nearest parcel).",
+    "tile_scale": 1
+  },
+  {
+    "id": "df01-v1",
+    "title": "Heat Field",
+    "class_name": "Df01",
+    "src_file": "df01.py",
+    "tags": [
+      "static",
+      "simulation"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Temperature diffuses each step from hot/cold tiles; stand on the goal when local temp is in range; ACTION6 vents a 3\u00d73.",
+    "tile_scale": 4
+  },
+  {
+    "id": "df04-v1",
+    "title": "Diffuse Only",
+    "class_name": "Df04",
+    "src_file": "df04.py",
+    "tags": [
+      "simulation",
+      "field"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "No player: **ACTION5** diffuses temperature; **ACTION6** cools a **3\u00d73**; hold probe cell in **[lo, hi]**.",
+    "tile_scale": 6
+  },
+  {
+    "id": "dg01-63be02fb",
+    "title": "Dig Mud",
+    "class_name": "Dg01",
+    "src_file": "dg01.py",
+    "tags": [
+      "static",
+      "movement",
+      "10-grid",
+      "dig"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "10\u00d710 grid. Gray mud blocks movement; ACTION5 digs one orth-adjacent mud tile per level budget.",
+    "tile_scale": 6
+  },
+  {
+    "id": "dl01-63be02fb",
+    "title": "Delay Line",
+    "class_name": "Dl01",
+    "src_file": "dl01.py",
+    "tags": [
+      "static",
+      "puzzle",
+      "planning"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Moves are queued (max 3). Each step executes the oldest pending move first, then appends the current ACTION1\u20134. ACTION5 clears the queue.",
+    "tile_scale": 5
+  },
+  {
+    "id": "dm01-63be02fb",
+    "title": "Domino Cover",
+    "class_name": "Dm01",
+    "src_file": "dm01.py",
+    "tags": [
+      "static",
+      "click",
+      "puzzle"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "ACTION6 two-click: select adjacent marked cells to place a domino covering both; cover all marks exactly once.",
+    "tile_scale": 8
+  },
+  {
+    "id": "dm04-v1",
+    "title": "L-Tromino Cover",
+    "class_name": "Dm04",
+    "src_file": "dm04.py",
+    "tags": [
+      "static",
+      "click",
+      "tiling"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Cover every marked cell with L-trominoes using three ACTION6 picks that form an L in a 2\u00d72.",
+    "tile_scale": 8
+  },
+  {
+    "id": "dn01-v1",
+    "title": "Donut Wind",
+    "class_name": "Dn01",
+    "src_file": "dn01.py",
+    "tags": [
+      "static",
+      "topology"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Torus wrap on a 16\u00d716 grid; crossing the east seam increments winding \u2014 need \u22652 winding to clear the goal.",
+    "tile_scale": 4
+  },
+  {
+    "id": "dp01-v1",
+    "title": "Dual Plane",
+    "class_name": "Dp01",
+    "src_file": "dp01.py",
+    "tags": [
+      "static",
+      "planning"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "ACTION5 toggles plane A/B; plane_a and plane_b walls only block on their plane.",
+    "tile_scale": 4
+  },
+  {
+    "id": "dr01-63be02fb",
+    "title": "Drill Rush",
+    "class_name": "Dr01",
+    "src_file": "dr01.py",
+    "tags": [
+      "static",
+      "puzzle",
+      "10-grid"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Limited wall drills plus a tight step budget to reach the goal.",
+    "tile_scale": 6
+  },
+  {
+    "id": "dt01-63be02fb",
+    "title": "Detour",
+    "class_name": "Dt01",
+    "src_file": "dt01.py",
+    "tags": [
+      "static",
+      "puzzle",
+      "routing"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Arm the cyan waypoint by stepping onto it from the required side (n/e/s/w), then reach the yellow goal.",
+    "tile_scale": 8
+  },
+  {
+    "id": "dv01-63be02fb",
+    "title": "Divergent Walls",
+    "class_name": "Dv01",
+    "src_file": "dv01.py",
+    "tags": [
+      "static",
+      "movement",
+      "timeline"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "10\u00d710 grid. ACTION5 toggles timeline 0/1; gray (t0) vs dark (t1) walls are collidable only on their timeline.",
+    "tile_scale": 6
+  },
+  {
+    "id": "eb01-63be02fb",
+    "title": "Escalator Row",
+    "class_name": "Eb01",
+    "src_file": "eb01.py",
+    "tags": [
+      "static",
+      "movement",
+      "10-grid",
+      "conveyor"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "10\u00d710 grid. On the escalator row (level data), after each move you auto-slide east while the next cell is free.",
+    "tile_scale": 6
+  },
+  {
+    "id": "ec01-v1",
+    "title": "Mirror Echo",
+    "class_name": "Ec01",
+    "src_file": "ec01.py",
+    "tags": [
+      "static",
+      "planning"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "A mirror ghost moves with reflected horizontal delta; if the ghost hits a wall your move is blocked.",
+    "tile_scale": 5
+  },
+  {
+    "id": "eg01-v1",
+    "title": "Hamming Target",
+    "class_name": "Eg01",
+    "src_file": "eg01.py",
+    "tags": [
+      "static",
+      "click",
+      "pattern"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "ACTION6 cycles a cell through four colors; clear when Hamming distance to the target is at most D.",
+    "tile_scale": 10
+  },
+  {
+    "id": "em01-63be02fb",
+    "title": "Echo Move",
+    "class_name": "Em01",
+    "src_file": "em01.py",
+    "tags": [
+      "static",
+      "puzzle",
+      "10-grid"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Every second step repeats the previous cardinal delta automatically.",
+    "tile_scale": 6
+  },
+  {
+    "id": "ep01-v1",
+    "title": "Pain Budget",
+    "class_name": "Ep01",
+    "src_file": "ep01.py",
+    "tags": [
+      "static",
+      "path"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Entering a cell costs its visit count; exceed pain budget to lose.",
+    "tile_scale": 5
+  },
+  {
+    "id": "es01-63be02fb",
+    "title": "Escort",
+    "class_name": "Es01",
+    "src_file": "es01.py",
+    "tags": [
+      "static",
+      "movement",
+      "multi-agent"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "10\u00d710 grid. NPC moves one greedy step toward you each turn; reach your green goal while the NPC reaches the cyan goal; collision loses.",
+    "tile_scale": 6
+  },
+  {
+    "id": "ex01-63be02fb",
+    "title": "Exit Hold",
+    "class_name": "Ex01",
+    "src_file": "ex01.py",
+    "tags": [
+      "static",
+      "puzzle",
+      "timing"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Reach the green exit pad and press ACTION5 repeatedly (hold count per level) to finish.",
+    "tile_scale": 8
+  },
+  {
+    "id": "ex02-63be02fb",
+    "title": "Exit Hold Sliding",
+    "class_name": "Ex02",
+    "src_file": "ex02.py",
+    "tags": [
+      "static",
+      "puzzle",
+      "hold"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Like exit hold, but movement only decays hold progress by 1 instead of resetting.",
+    "tile_scale": 8
+  },
+  {
+    "id": "ex03-63be02fb",
+    "title": "Moving Exit Hold",
+    "class_name": "Ex03",
+    "src_file": "ex03.py",
+    "tags": [
+      "static",
+      "puzzle",
+      "hold"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Exit hold with sliding decay; the green pad shifts every pad_period steps (pad_delta).",
+    "tile_scale": 8
+  },
+  {
+    "id": "ez01-63be02fb",
+    "title": "Go Up",
+    "class_name": "Ez01",
+    "src_file": "ez01.py",
+    "tags": [
+      "static",
+      "tutorial",
+      "directional"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Simple game - go up to reach the target.",
+    "tile_scale": 8
+  },
+  {
+    "id": "ez02-63be02fb",
+    "title": "Go Left",
+    "class_name": "Ez02",
+    "src_file": "ez02.py",
+    "tags": [
+      "static",
+      "tutorial",
+      "directional"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Simple game - go left to reach the target.",
+    "tile_scale": 8
+  },
+  {
+    "id": "ez03-63be02fb",
+    "title": "Go Right",
+    "class_name": "Ez03",
+    "src_file": "ez03.py",
+    "tags": [
+      "static",
+      "tutorial",
+      "directional"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Simple game - go right to reach the target.",
+    "tile_scale": 8
+  },
+  {
+    "id": "ez04-63be02fb",
+    "title": "Go Down",
+    "class_name": "Ez04",
+    "src_file": "ez04.py",
+    "tags": [
+      "static",
+      "tutorial",
+      "directional"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Simple game - go down to reach the target.",
+    "tile_scale": 8
+  },
+  {
+    "id": "fb01-v1",
+    "title": "Fuse Bomb",
+    "class_name": "Fb01",
+    "src_file": "fb01.py",
+    "tags": [
+      "static",
+      "hazard"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Push orange bombs; fuse counts down each step; at 0 removes weak walls in radius 1 and loses if you are in the blast.",
+    "tile_scale": 5
+  },
+  {
+    "id": "fc01-v1",
+    "title": "Follow Chain",
+    "class_name": "Fc01",
+    "src_file": "fc01.py",
+    "tags": [
+      "static",
+      "coordination"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Three tail sprites copy your previous positions each step; avoid overlapping them; all must reach the exit zone.",
+    "tile_scale": 4
+  },
+  {
+    "id": "fe02-v1",
+    "title": "Ratify",
+    "class_name": "Fe02",
+    "src_file": "fe02.py",
+    "tags": [
+      "simulation",
+      "abstract"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "**ACTION1\u20134** vote for policy slots; **ACTION5** ratifies the leader and updates three stats; clear **N** rounds without collapse.",
+    "tile_scale": 8
+  },
+  {
+    "id": "ff01-63be02fb",
+    "title": "Flood Fill",
+    "class_name": "Ff01",
+    "src_file": "ff01.py",
+    "tags": [
+      "topology",
+      "flood-fill",
+      "precision"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Click inside closed regions (rectangles, rings, L- and C-shaped bays) to flood-fill yellow. Wrong clicks cost steps; out of steps costs a life.",
+    "tile_scale": 1
+  },
+  {
+    "id": "ff02-63be02fb",
+    "title": "Flood Unpaint",
+    "class_name": "Ff02",
+    "src_file": "ff02.py",
+    "tags": [
+      "static",
+      "topology",
+      "click"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Inverse flood fill: interiors start yellow; ACTION6 erases a clicked enclosure; gray hint cells must end unpainted. ACTION1\u20134 no-op.",
+    "tile_scale": 1
+  },
+  {
+    "id": "ff03-63be02fb",
+    "title": "Flood Unpaint (variant)",
+    "class_name": "Ff03",
+    "src_file": "ff03.py",
+    "tags": [
+      "static",
+      "topology",
+      "click"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Inverse flood fill: interiors start yellow; ACTION6 erases a clicked enclosure; gray hint cells must end unpainted. ACTION1\u20134 no-op.",
+    "tile_scale": 1
+  },
+  {
+    "id": "ff04-v1",
+    "title": "Gradient Budget Flood",
+    "class_name": "Ff04",
+    "src_file": "ff04.py",
+    "tags": [
+      "static",
+      "click",
+      "topology"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Grow yellow from the seed orthogonally; sum of Manhattan distances from seed to painted cells must stay within budget; match gray hints.",
+    "tile_scale": 8
+  },
+  {
+    "id": "fg01-63be02fb",
+    "title": "Fog of War",
+    "class_name": "Fg01",
+    "src_file": "fg01.py",
+    "tags": [
+      "static",
+      "movement",
+      "10-grid",
+      "fog"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "10\u00d710 grid. Chebyshev fog radius r hides distant sprites; logic unchanged.",
+    "tile_scale": 6
+  },
+  {
+    "id": "fi01-63be02fb",
+    "title": "Firebreak",
+    "class_name": "Fi01",
+    "src_file": "fi01.py",
+    "tags": [
+      "static",
+      "simulation",
+      "14-grid"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Fire spreads each step; ACTION5 places a blue break tile that blocks further spread into that cell.",
+    "tile_scale": 4
+  },
+  {
+    "id": "fl01-63be02fb",
+    "title": "Numberlink Lite",
+    "class_name": "Fl01",
+    "src_file": "fl01.py",
+    "tags": [
+      "static",
+      "path",
+      "puzzle"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Walk the cursor; ACTION6 uses display pixels (display_to_grid) to extend or cut the path at the clicked cell between endpoints with an exact cell count.",
+    "tile_scale": 5
+  },
+  {
+    "id": "fl04-v1",
+    "title": "Capped Path",
+    "class_name": "Fl04",
+    "src_file": "fl04.py",
+    "tags": [
+      "path",
+      "click",
+      "budget"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Draw an orthogonal path from A to B with length at most **max_len** (Numberlink-style clicks).",
+    "tile_scale": 5
+  },
+  {
+    "id": "fs01-63be02fb",
+    "title": "Floor Switches",
+    "class_name": "Fs01",
+    "src_file": "fs01.py",
+    "tags": [
+      "static",
+      "puzzle",
+      "switches"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Activate all pressure plates (any order) to open the door, then reach the goal.",
+    "tile_scale": 8
+  },
+  {
+    "id": "fs02-63be02fb",
+    "title": "Floor Switches OR",
+    "class_name": "Fs02",
+    "src_file": "fs02.py",
+    "tags": [
+      "static",
+      "puzzle",
+      "switches"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Orange pressure plates: stepping on any one opens the door (redundant branches); then reach the green goal.",
+    "tile_scale": 8
+  },
+  {
+    "id": "fs03-63be02fb",
+    "title": "Floor Switches k-of-n",
+    "class_name": "Fs03",
+    "src_file": "fs03.py",
+    "tags": [
+      "static",
+      "puzzle",
+      "switches"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Step on required_plates distinct yellow pressure plates in any order; then the door opens; reach the green goal.",
+    "tile_scale": 8
+  },
+  {
+    "id": "ft09-9ab2447a",
+    "title": "FT09",
+    "class_name": "Ft09",
+    "src_file": "ft09.py",
+    "tags": [],
+    "default_fps": 8,
+    "category": "redbluepill",
+    "official": false,
+    "tile_scale": 2
+  },
+  {
+    "id": "fw01-63be02fb",
+    "title": "Wildfire",
+    "class_name": "Fw01",
+    "src_file": "fw01.py",
+    "tags": [
+      "static",
+      "survival",
+      "simulation"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Fire spreads to neighbors on a timer; ACTION6 splashes water in a 3\u00d73. Reach the green exit alive.",
+    "tile_scale": 2
+  },
+  {
+    "id": "gc01-v1",
+    "title": "Coral Creep",
+    "class_name": "Gc01",
+    "src_file": "gc01.py",
+    "tags": [
+      "static",
+      "growth"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Inert coral spreads to empty orth neighbors every M steps; coral blocks movement; reach the goal before you are boxed in.",
+    "tile_scale": 4
+  },
+  {
+    "id": "gl01-63be02fb",
+    "title": "Glass Floor",
+    "class_name": "Gl01",
+    "src_file": "gl01.py",
+    "tags": [
+      "static",
+      "hazard",
+      "10-grid"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Glass tiles break on the third visit; first two visits are safe.",
+    "tile_scale": 6
+  },
+  {
+    "id": "gp01-63be02fb",
+    "title": "Grid Paint",
+    "class_name": "Gp01",
+    "src_file": "gp01.py",
+    "tags": [
+      "static",
+      "click",
+      "pattern"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Click cells to paint yellow; match the gray hint pattern. ACTION1\u20134 do nothing.",
+    "tile_scale": 8
+  },
+  {
+    "id": "gp02-63be02fb",
+    "title": "Grid Paint Erase",
+    "class_name": "Gp02",
+    "src_file": "gp02.py",
+    "tags": [
+      "static",
+      "click",
+      "pattern"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "All floor cells start painted yellow; ACTION6 erases paint. Leave yellow only on gray hint cells.",
+    "tile_scale": 8
+  },
+  {
+    "id": "gp03-63be02fb",
+    "title": "Grid Paint Three-State",
+    "class_name": "Gp03",
+    "src_file": "gp03.py",
+    "tags": [
+      "static",
+      "pattern",
+      "paint"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Three-state paint cycle on cells; match exact per-cell goal colors from `goal` in level data. ACTION1\u20134 no-op.",
+    "tile_scale": 8
+  },
+  {
+    "id": "gp04-v1",
+    "title": "Grid Paint Blob Cap",
+    "class_name": "Gp04",
+    "src_file": "gp04.py",
+    "tags": [
+      "static",
+      "click",
+      "pattern"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Paint yellow to match gray hints; at most K connected yellow components (orthogonal). ACTION1\u20134 no-op.",
+    "tile_scale": 8
+  },
+  {
+    "id": "gr01-63be02fb",
+    "title": "Gravity",
+    "class_name": "Gr01",
+    "src_file": "gr01.py",
+    "tags": [
+      "static",
+      "puzzle",
+      "physics"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "After each of your moves, you fall one cell downward if that cell is empty.",
+    "tile_scale": 8
+  },
+  {
+    "id": "hd01-63be02fb",
+    "title": "Heat Front",
+    "class_name": "Hd01",
+    "src_file": "hd01.py",
+    "tags": [
+      "static",
+      "survival",
+      "timing"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "A heat band advances south every N steps; standing on a station and using ACTION5 charges temporary immunity. Reach the north goal before the heat catches you.",
+    "tile_scale": 4
+  },
+  {
+    "id": "hm01-63be02fb",
+    "title": "Hamiltonian Walk",
+    "class_name": "Hm01",
+    "src_file": "hm01.py",
+    "tags": [
+      "static",
+      "puzzle",
+      "coverage"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Cover every open cell exactly once; stepping on any cell twice loses.",
+    "tile_scale": 21
+  },
+  {
+    "id": "hn01-v1",
+    "title": "Tower of Hanoi",
+    "class_name": "Hn01",
+    "src_file": "hn01.py",
+    "tags": [
+      "static",
+      "logic"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "ACTION1\u20133 select peg A/B/C; ACTION5 picks or drops top disk (no big-on-small). Stack on right peg to win.",
+    "tile_scale": 5
+  },
+  {
+    "id": "hn04-v1",
+    "title": "Four-Peg Hanoi",
+    "class_name": "Hn04",
+    "src_file": "hn04.py",
+    "tags": [
+      "logic",
+      "classic"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "**ACTION1\u20134** select peg; **ACTION5** pick/drop top disk; stack all on the **right** peg.",
+    "tile_scale": 5
+  },
+  {
+    "id": "hs01-63be02fb",
+    "title": "Heatseeker",
+    "class_name": "Hs01",
+    "src_file": "hs01.py",
+    "tags": [
+      "static",
+      "movement",
+      "chase"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "10\u00d710 grid. Hunter moves one greedy orthogonal step toward you every two player moves; reach the goal without contact.",
+    "tile_scale": 6
+  },
+  {
+    "id": "hz01-63be02fb",
+    "title": "Hazard Growth",
+    "class_name": "Hz01",
+    "src_file": "hz01.py",
+    "tags": [
+      "static",
+      "movement",
+      "hazard"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "10\u00d710 grid. Red hazards spread to free orthogonal neighbors every M steps; touching hazard loses.",
+    "tile_scale": 6
+  },
+  {
+    "id": "ic01-63be02fb",
+    "title": "Ice Slide",
+    "class_name": "Ic01",
+    "src_file": "ic01.py",
+    "tags": [
+      "static",
+      "puzzle",
+      "ice"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Ice floor: one arrow/WASD action slides in that direction until the next cell would be out of bounds, a wall, or a red hazard (you stop on the cell before that). Yellow goals do not block sliding\u2014use a wall beyond the goal if the puzzle must stop exactly on the tile. Not torus wrap (see ic02).",
+    "tile_scale": 8
+  },
+  {
+    "id": "ic02-63be02fb",
+    "title": "Ice Torus",
+    "class_name": "Ic02",
+    "src_file": "ic02.py",
+    "tags": [
+      "static",
+      "puzzle",
+      "ice"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Slide until blocked; grid edges wrap (torus). Reach the goal.",
+    "tile_scale": 8
+  },
+  {
+    "id": "ic03-63be02fb",
+    "title": "Capped Ice Slide",
+    "class_name": "Ic03",
+    "src_file": "ic03.py",
+    "tags": [
+      "static",
+      "puzzle",
+      "ice"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Each move slides at most K steps in that direction (K set per level), unless blocked sooner.",
+    "tile_scale": 8
+  },
+  {
+    "id": "ih01-v1",
+    "title": "Icing Heaters",
+    "class_name": "Ih01",
+    "src_file": "ih01.py",
+    "tags": [
+      "simulation",
+      "click"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "**ACTION5** chills the grid; **ACTION6** toggles heaters on pads; warm every cell to **min_warm**.",
+    "tile_scale": 6
+  },
+  {
+    "id": "in01-63be02fb",
+    "title": "Ink Trail",
+    "class_name": "In01",
+    "src_file": "in01.py",
+    "tags": [
+      "static",
+      "movement",
+      "trail"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "10\u00d710 grid. Each move leaves collidable ink on the cell you left; ink cannot be entered.",
+    "tile_scale": 6
+  },
+  {
+    "id": "ju01-63be02fb",
+    "title": "Jump Tile",
+    "class_name": "Ju01",
+    "src_file": "ju01.py",
+    "tags": [
+      "static",
+      "movement",
+      "10-grid"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "10\u00d710 grid. Jump floors extend movement one extra cell in the same direction when the landing cell is clear.",
+    "tile_scale": 6
+  },
+  {
+    "id": "jw01-63be02fb",
+    "title": "Jigsaw Swap",
+    "class_name": "Jw01",
+    "src_file": "jw01.py",
+    "tags": [
+      "static",
+      "click",
+      "10-grid",
+      "swap"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "10\u00d710 grid. ACTION6 on magenta trigger swaps two authored rectangles; push boxes (15) to reach the goal.",
+    "tile_scale": 6
+  },
+  {
+    "id": "kb01-63be02fb",
+    "title": "Key Leash",
+    "class_name": "Kb01",
+    "src_file": "kb01.py",
+    "tags": [
+      "static",
+      "movement",
+      "10-grid",
+      "constraint"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "10\u00d710 grid. Yellow key must stay within Manhattan distance R of the player (leash in level data) or you lose; reach the green goal.",
+    "tile_scale": 6
+  },
+  {
+    "id": "kn01-63be02fb",
+    "title": "Knight Courier",
+    "class_name": "Kn01",
+    "src_file": "kn01.py",
+    "tags": [
+      "static",
+      "movement",
+      "puzzle"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Move with L-shaped knight steps; ACTION5 toggles between two knight-move banks (eight directions total). Reach the goal.",
+    "tile_scale": 4
+  },
+  {
+    "id": "kv01-v1",
+    "title": "Voltage Ladder",
+    "class_name": "Kv01",
+    "src_file": "kv01.py",
+    "tags": [
+      "static",
+      "logic",
+      "circuit"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Series resistor ladder from 12 V to ground: ACTION1\u20133 cycle each segment\u2019s resistance; ACTION5 checks probe voltages against targets.",
+    "tile_scale": 8
+  },
+  {
+    "id": "kv04-v1",
+    "title": "Parallel Ladders",
+    "class_name": "Kv04",
+    "src_file": "kv04.py",
+    "tags": [
+      "circuit",
+      "logic"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Two **series** stacks (12 V top, ground bottom); **ACTION1\u20133** cycle **A**; **ACTION4** cycles **B**\u2019s first resistor; **ACTION5** checks both probe pairs.",
+    "tile_scale": 8
+  },
+  {
+    "id": "lf01-63be02fb",
+    "title": "Laser Fence Row",
+    "class_name": "Lf01",
+    "src_file": "lf01.py",
+    "tags": [
+      "static",
+      "movement",
+      "timing"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "10\u00d710 grid. A laser row toggles lethal/safe every P steps; avoid the row when the laser is on.",
+    "tile_scale": 6
+  },
+  {
+    "id": "lk01-v1",
+    "title": "Lock Tumblers",
+    "class_name": "Lk01",
+    "src_file": "lk01.py",
+    "tags": [
+      "static",
+      "logic"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "ACTION1\u20133 cycle tumblers 0\u20135; when all match targets the door (gray wall) opens; reach goal.",
+    "tile_scale": 6
+  },
+  {
+    "id": "ll01-63be02fb",
+    "title": "Generations Lock",
+    "class_name": "Ll01",
+    "src_file": "ll01.py",
+    "tags": [
+      "static",
+      "simulation",
+      "puzzle"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Conway Life on a 32\u00d732 field. ACTION6 toggles a live cell (toggle budget). ACTION5 advances one generation. After exactly N advances, the live cells must equal the target set.",
+    "tile_scale": 2
+  },
+  {
+    "id": "ll04-v1",
+    "title": "Torus Life",
+    "class_name": "Ll04",
+    "src_file": "ll04.py",
+    "tags": [
+      "simulation",
+      "click"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Conway rules on a **torus**; **ACTION6** toggles; **ACTION5** runs one generation; hit target after **N** steps.",
+    "tile_scale": 5
+  },
+  {
+    "id": "lo01-63be02fb",
+    "title": "Lights Out",
+    "class_name": "Lo01",
+    "src_file": "lo01.py",
+    "tags": [
+      "static",
+      "click",
+      "puzzle"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Click toggles a light and its four neighbors; clear the board. ACTION1\u20134 do nothing.",
+    "tile_scale": 21
+  },
+  {
+    "id": "lo02-63be02fb",
+    "title": "Torus Lights Out",
+    "class_name": "Lo02",
+    "src_file": "lo02.py",
+    "tags": [
+      "static",
+      "click",
+      "topology"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Lights Out on a torus: orthogonal neighbors wrap at grid edges. Walls block toggles on their cells.",
+    "tile_scale": 16
+  },
+  {
+    "id": "lo03-63be02fb",
+    "title": "Torus Lights Out (variant)",
+    "class_name": "Lo03",
+    "src_file": "lo03.py",
+    "tags": [
+      "static",
+      "click",
+      "topology"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Lights Out on a torus: orthogonal neighbors wrap at grid edges. Walls block toggles on their cells.",
+    "tile_scale": 16
+  },
+  {
+    "id": "lo04-v1",
+    "title": "Diagonal Lights Out",
+    "class_name": "Lo04",
+    "src_file": "lo04.py",
+    "tags": [
+      "static",
+      "click",
+      "pattern"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "ACTION6 toggles a cell and its four diagonal neighbors only (no orthogonal toggles). Turn all lights off.",
+    "tile_scale": 12
+  },
+  {
+    "id": "lo05-v1",
+    "title": "Knight Lights Out",
+    "class_name": "Lo05",
+    "src_file": "lo05.py",
+    "tags": [
+      "static",
+      "click",
+      "pattern"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "ACTION6 toggles a cell and all cells a chess knight-move away. Clear the board.",
+    "tile_scale": 8
+  },
+  {
+    "id": "lp01-v1",
+    "title": "Letter Path",
+    "class_name": "Lp01",
+    "src_file": "lp01.py",
+    "tags": [
+      "static",
+      "order"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Visit letter pads in authored order (A\u2192B\u2192C\u2026); wrong letter loses.",
+    "tile_scale": 5
+  },
+  {
+    "id": "ls20-cb3b57cc",
+    "title": "LS20",
+    "class_name": "Ls20",
+    "src_file": "ls20.py",
+    "tags": [],
+    "default_fps": 5,
+    "category": "redbluepill",
+    "official": false,
+    "tile_scale": 1
+  },
+  {
+    "id": "lw01-63be02fb",
+    "title": "Line Weave",
+    "class_name": "Lw01",
+    "src_file": "lw01.py",
+    "tags": [
+      "static",
+      "puzzle",
+      "path",
+      "click"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Connect each colored start to its end with orthogonal paths; colors cannot share cells. ACTION1/2 switch color, ACTION5 undoes last segment, ACTION6 extends path to an adjacent cell.",
+    "tile_scale": 2
+  },
+  {
+    "id": "lw02-63be02fb",
+    "title": "Line Weave Shared",
+    "class_name": "Lw02",
+    "src_file": "lw02.py",
+    "tags": [
+      "static",
+      "path",
+      "routing"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Like line weave but paths may share cells; entering a shared cell from a perpendicular direction to another color is forbidden.",
+    "tile_scale": 2
+  },
+  {
+    "id": "lw03-63be02fb",
+    "title": "Line Weave Shared (variant)",
+    "class_name": "Lw03",
+    "src_file": "lw03.py",
+    "tags": [
+      "static",
+      "path",
+      "routing"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Like line weave but paths may share cells; entering a shared cell from a perpendicular direction to another color is forbidden.",
+    "tile_scale": 2
+  },
+  {
+    "id": "lw04-v1",
+    "title": "Corner Cap Path",
+    "class_name": "Lw04",
+    "src_file": "lw04.py",
+    "tags": [
+      "path",
+      "click",
+      "budget"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Connect A to B with a click-built path: length \u2264 **max_len** and direction changes \u2264 **corner_cap**.",
+    "tile_scale": 5
+  },
+  {
+    "id": "mb01-63be02fb",
+    "title": "Magnet Crates",
+    "class_name": "Mb01",
+    "src_file": "mb01.py",
+    "tags": [
+      "static",
+      "movement",
+      "10-grid",
+      "magnet"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "10\u00d710 grid. After each move, metal crates slide one cell toward the player when the destination is free.",
+    "tile_scale": 6
+  },
+  {
+    "id": "mc01-63be02fb",
+    "title": "Tandem",
+    "class_name": "Mc01",
+    "src_file": "mc01.py",
+    "tags": [
+      "static",
+      "coordination",
+      "puzzle"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Two players move together each step; ACTION5 swaps lead for collision resolution. Both must reach their goals.",
+    "tile_scale": 4
+  },
+  {
+    "id": "ml01-63be02fb",
+    "title": "Mirror Laser",
+    "class_name": "Ml01",
+    "src_file": "ml01.py",
+    "tags": [
+      "static",
+      "puzzle",
+      "geometry"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Mirror laser: hit the yellow receptor with the beam from the orange emitter (beam starts one grid step in the emitter facing direction, usually east). Place or cycle purple mirrors with ACTION6 using display x,y (64x64, cell centers). Mirrors go on empty floor only; clicking walls, emitter, receptor, player, or off-grid wastes a step. ACTION5 fires once per step. ACTION1\u20134 no-op (free). Lose when the step budget (cyan HUD ticks) hits zero. Blue player tile is static and the beam passes through it.",
+    "tile_scale": 2
+  },
+  {
+    "id": "ml02-63be02fb",
+    "title": "Mirror Laser Dual Goal",
+    "class_name": "Ml02",
+    "src_file": "ml02.py",
+    "tags": [
+      "static",
+      "geometry",
+      "laser"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Mirror laser; one beam must hit all yellow receptors in a single shot (beam passes through receptors).",
+    "tile_scale": 2
+  },
+  {
+    "id": "ml03-63be02fb",
+    "title": "Mirror Laser Dual Goal (variant)",
+    "class_name": "Ml03",
+    "src_file": "ml03.py",
+    "tags": [
+      "static",
+      "geometry",
+      "laser"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Mirror laser; one beam must hit all yellow receptors in a single shot (beam passes through receptors).",
+    "tile_scale": 2
+  },
+  {
+    "id": "ml04-v1",
+    "title": "Fixed Emitter Laser",
+    "class_name": "Ml04",
+    "src_file": "ml04.py",
+    "tags": [
+      "laser",
+      "click"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Stepped bolt: **ACTION5** advances one cell; **ACTION6** cycles fixed mirror slots (/ \u2192 \\ \u2192 empty). Optional **emit_dir** in level data (0\u20133) sets initial facing.",
+    "tile_scale": 6
+  },
+  {
+    "id": "mm01-63be02fb",
+    "title": "Memory Match",
+    "class_name": "Mm01",
+    "src_file": "mm01.py",
+    "tags": [
+      "memory",
+      "matching",
+      "hidden-state"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Classic concentration game. Flip pairs of tiles to find matches. Match all pairs to win!",
+    "tile_scale": 1
+  },
+  {
+    "id": "mm02-63be02fb",
+    "title": "Memory Triples",
+    "class_name": "Mm02",
+    "src_file": "mm02.py",
+    "tags": [
+      "static",
+      "memory",
+      "hidden"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Flip three tiles at a time; clear a triplet when all three match color.",
+    "tile_scale": 1
+  },
+  {
+    "id": "mm03-63be02fb",
+    "title": "Memory Triples (variant)",
+    "class_name": "Mm03",
+    "src_file": "mm03.py",
+    "tags": [
+      "static",
+      "memory",
+      "hidden"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Flip three tiles at a time; clear a triplet when all three match color.",
+    "tile_scale": 1
+  },
+  {
+    "id": "mm04-v1",
+    "title": "Memory Peek",
+    "class_name": "Mm04",
+    "src_file": "mm04.py",
+    "tags": [
+      "memory",
+      "click"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Match pairs like **mm01**; **ACTION5** once per level briefly reveals all unmatched tiles.",
+    "tile_scale": 1
+  },
+  {
+    "id": "mm05-v1",
+    "title": "Memory Sticky",
+    "class_name": "Mm05",
+    "src_file": "mm05.py",
+    "tags": [
+      "memory",
+      "click"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Like **mm01**, but tiles **orthogonally adjacent** to a matched pair cannot be flipped.",
+    "tile_scale": 1
+  },
+  {
+    "id": "mo01-63be02fb",
+    "title": "Momentum",
+    "class_name": "Mo01",
+    "src_file": "mo01.py",
+    "tags": [
+      "static",
+      "puzzle",
+      "movement"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Change direction only after at least two steps in the same direction; early turns lose.",
+    "tile_scale": 8
+  },
+  {
+    "id": "ms01-63be02fb",
+    "title": "Blind Sapper",
+    "class_name": "Ms01",
+    "src_file": "ms01.py",
+    "tags": [
+      "deduction",
+      "memory",
+      "hidden-state"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "tile_scale": 8
+  },
+  {
+    "id": "ms02-63be02fb",
+    "title": "Minesweeper Flags",
+    "class_name": "Ms02",
+    "src_file": "ms02.py",
+    "tags": [
+      "static",
+      "mines",
+      "click"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Like blind sapper but ACTION6 flags suspected mines; flagging a safe empty cell loses.",
+    "tile_scale": 8
+  },
+  {
+    "id": "ms03-63be02fb",
+    "title": "Chord Sapper",
+    "class_name": "Ms03",
+    "src_file": "ms03.py",
+    "tags": [
+      "static",
+      "hidden",
+      "logic"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Safe cells reveal mine counts in Chebyshev radius 2; flag mines with ACTION6 display clicks.",
+    "tile_scale": 8
+  },
+  {
+    "id": "ms04-v1",
+    "title": "Edge Mine Clues",
+    "class_name": "Ms04",
+    "src_file": "ms04.py",
+    "tags": [
+      "logic",
+      "click"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Digits count mines on **shared edges**; **ACTION6** flags cells \u2014 win when all mines are flagged.",
+    "tile_scale": 8
+  },
+  {
+    "id": "mx01-63be02fb",
+    "title": "Maze Melt",
+    "class_name": "Mx01",
+    "src_file": "mx01.py",
+    "tags": [
+      "static",
+      "puzzle",
+      "walls"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "ACTION5 removes one adjacent wall segment until budget runs out; reach the goal.",
+    "tile_scale": 6
+  },
+  {
+    "id": "ng01-63be02fb",
+    "title": "Nonogram Lite",
+    "class_name": "Ng01",
+    "src_file": "ng01.py",
+    "tags": [
+      "static",
+      "puzzle",
+      "logic"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "10\u00d710 board: 8\u00d78 playfield with row/column run clues on the border. ACTION1\u20134 move cursor; ACTION6 cycles cell state. Wrong fills show red; win when filled cells match the hidden pattern.",
+    "tile_scale": 6
+  },
+  {
+    "id": "ng04-v1",
+    "title": "Two-Layer Grid",
+    "class_name": "Ng04",
+    "src_file": "ng04.py",
+    "tags": [
+      "pattern",
+      "click"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "**ACTION6** cycles the active layer\u2019s color on a cell; off-grid click toggles **fg/bg** layer; match both targets.",
+    "tile_scale": 10
+  },
+  {
+    "id": "nu01-63be02fb",
+    "title": "Number Fuse",
+    "class_name": "Nu01",
+    "src_file": "nu01.py",
+    "tags": [
+      "static",
+      "puzzle",
+      "10-grid"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Collect numbered tokens in descending order; wrong pickup loses.",
+    "tile_scale": 6
+  },
+  {
+    "id": "nw01-63be02fb",
+    "title": "Arrow Floor",
+    "class_name": "Nw01",
+    "src_file": "nw01.py",
+    "tags": [
+      "static",
+      "puzzle",
+      "routing"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Landing on a magenta arrow tile forces your next move to that direction.",
+    "tile_scale": 8
+  },
+  {
+    "id": "nw02-63be02fb",
+    "title": "Vector Arrows",
+    "class_name": "Nw02",
+    "src_file": "nw02.py",
+    "tags": [
+      "static",
+      "movement",
+      "arrows"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Arrow cells add to a pending vector; combined with your input and executed as one orthogonal step per move.",
+    "tile_scale": 8
+  },
+  {
+    "id": "nw03-63be02fb",
+    "title": "Sticky Vector Arrows",
+    "class_name": "Nw03",
+    "src_file": "nw03.py",
+    "tags": [
+      "static",
+      "puzzle",
+      "vector"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Vector arrows add to pending; pending only updates after a successful move (blocked moves keep the queue).",
+    "tile_scale": 8
+  },
+  {
+    "id": "ob01-63be02fb",
+    "title": "Odd One Out Tri-Cycle",
+    "class_name": "Ob01",
+    "src_file": "ob01.py",
+    "tags": [
+      "static",
+      "multi-agent",
+      "puzzle"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Three bodies; ACTION5 cycles which avatar ACTION1\u20134 moves. Each must reach its colored pad.",
+    "tile_scale": 4
+  },
+  {
+    "id": "op01-63be02fb",
+    "title": "One-Push Crate",
+    "class_name": "Op01",
+    "src_file": "op01.py",
+    "tags": [
+      "static",
+      "movement",
+      "sokoban"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Sokoban-style push, but each crate may only be pushed once per level; second push loses.",
+    "tile_scale": 8
+  },
+  {
+    "id": "or01-63be02fb",
+    "title": "Orbit Keys",
+    "class_name": "Or01",
+    "src_file": "or01.py",
+    "tags": [
+      "static",
+      "timing",
+      "10-grid"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Keys orbit clockwise around a pillar each step; pick up when orthogonally adjacent.",
+    "tile_scale": 6
+  },
+  {
+    "id": "ox01-63be02fb",
+    "title": "XOR Hazards",
+    "class_name": "Ox01",
+    "src_file": "ox01.py",
+    "tags": [
+      "static",
+      "movement",
+      "hazard"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "10\u00d710 grid. Red and magenta hazard tiles alternate which layer is collidable after each step.",
+    "tile_scale": 6
+  },
+  {
+    "id": "pb01-63be02fb",
+    "title": "One-Box Push",
+    "class_name": "Pb01",
+    "src_file": "pb01.py",
+    "tags": [
+      "static",
+      "planning",
+      "push"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Push the single crate onto the goal pad. One block, one target per level.",
+    "tile_scale": 8
+  },
+  {
+    "id": "pb02-63be02fb",
+    "title": "Two-Box Push",
+    "class_name": "Pb02",
+    "src_file": "pb02.py",
+    "tags": [
+      "static",
+      "planning",
+      "push"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Two crates and two goals per level. Push both onto yellow pads.",
+    "tile_scale": 8
+  },
+  {
+    "id": "pb03-63be02fb",
+    "title": "Decoy Pad",
+    "class_name": "Pb03",
+    "src_file": "pb03.py",
+    "tags": [
+      "static",
+      "planning",
+      "push"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Push the crate onto the real yellow goal. Orange decoy pad ends the run.",
+    "tile_scale": 8
+  },
+  {
+    "id": "pb04-v1",
+    "title": "Winch Pull",
+    "class_name": "Pb04",
+    "src_file": "pb04.py",
+    "tags": [
+      "push",
+      "abstract"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "**ACTION5** reels the nearest crate one step along the winch **direction** vector toward the winch tile.",
+    "tile_scale": 6
+  },
+  {
+    "id": "pd01-63be02fb",
+    "title": "Pipe Drop",
+    "class_name": "Pd01",
+    "src_file": "pd01.py",
+    "tags": [
+      "static",
+      "click",
+      "plumbing",
+      "pipe-empty-h-v-cycle"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "10\u00d710 grid. ACTION6 cycles empty \u2192 horizontal \u2192 vertical pipe on floor; connect cyan source to yellow sink.",
+    "tile_scale": 6
+  },
+  {
+    "id": "pd04-v1",
+    "title": "Plus Duct",
+    "class_name": "Pd04",
+    "src_file": "pd04.py",
+    "tags": [
+      "plumbing",
+      "click",
+      "pipe-plus-four-way-toggle"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "**ACTION6** toggles a **+** junction open/closed; route flow source\u2192sink.",
+    "tile_scale": 5
+  },
+  {
+    "id": "ph01-63be02fb",
+    "title": "Phase Interference",
+    "class_name": "Ph01",
+    "src_file": "ph01.py",
+    "tags": [
+      "static",
+      "puzzle",
+      "field"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "24\u00d724 phase field (0\u20133). ACTION6 increments; ACTION5 blurs (self + orth neighbors) mod 4 on non-walls. HUD shows target vs current phase on each target cell; blur budget ticks bottom.",
+    "tile_scale": 2
+  },
+  {
+    "id": "ph02-63be02fb",
+    "title": "Phase Multiply",
+    "class_name": "Ph02",
+    "src_file": "ph02.py",
+    "tags": [
+      "static",
+      "field",
+      "math"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Phase field: ACTION5 multiplies cell value with orthogonal neighbors modulo N (`mod_n` in data) instead of sum-blur.",
+    "tile_scale": 2
+  },
+  {
+    "id": "ph03-63be02fb",
+    "title": "Phase Multiply (variant)",
+    "class_name": "Ph03",
+    "src_file": "ph03.py",
+    "tags": [
+      "static",
+      "field",
+      "math"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Phase field: ACTION5 multiplies cell value with orthogonal neighbors modulo N (`mod_n` in data) instead of sum-blur.",
+    "tile_scale": 2
+  },
+  {
+    "id": "ph04-v1",
+    "title": "Carry Row",
+    "class_name": "Ph04",
+    "src_file": "ph04.py",
+    "tags": [
+      "logic",
+      "field"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "**ACTION5** maps the row: `new[i] = (old[i] + old[i+1]) mod R` (wrap); match target.",
+    "tile_scale": 4
+  },
+  {
+    "id": "pj01-v1",
+    "title": "Bolt Bounce",
+    "class_name": "Pj01",
+    "src_file": "pj01.py",
+    "tags": [
+      "static",
+      "timing"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "A red bolt moves east each step; ACTION6 toggles a mirror on an empty cell (/ vs \\); guide the bolt into the yellow sink without hitting you.",
+    "tile_scale": 4
+  },
+  {
+    "id": "pj04-v1",
+    "title": "Fixed Shooter Bolt",
+    "class_name": "Pj04",
+    "src_file": "pj04.py",
+    "tags": [
+      "timing",
+      "click"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Spawn a bolt from a fixed shooter; **ACTION6** cycles mirrors; **ACTION5** advances with cooldown.",
+    "tile_scale": 5
+  },
+  {
+    "id": "pk01-v1",
+    "title": "Polyomino Pack",
+    "class_name": "Pk01",
+    "src_file": "pk01.py",
+    "tags": [
+      "static",
+      "topology",
+      "packing"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Cover gray marks with dominoes (ACTION5 mode + two clicks) or straight trominoes (three collinear clicks).",
+    "tile_scale": 8
+  },
+  {
+    "id": "pk02-v1",
+    "title": "Ribbon Edges",
+    "class_name": "Pk02",
+    "src_file": "pk02.py",
+    "tags": [
+      "static",
+      "click",
+      "topology"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Two-click orth-adjacent cells to claim a marked unit edge; cover every listed edge.",
+    "tile_scale": 6
+  },
+  {
+    "id": "pm01-63be02fb",
+    "title": "Prime Steps",
+    "class_name": "Pm01",
+    "src_file": "pm01.py",
+    "tags": [
+      "static",
+      "movement",
+      "math"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "10\u00d710 grid. Cardinal moves only apply on prime step indices (2,3,5,7,\u2026); composite steps are no-ops for movement.",
+    "tile_scale": 6
+  },
+  {
+    "id": "pt01-63be02fb",
+    "title": "Pattern Rotation",
+    "class_name": "Pt01",
+    "src_file": "pt01.py",
+    "tags": [
+      "static",
+      "rotation",
+      "pattern-matching",
+      "click"
+    ],
+    "default_fps": 10,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Rotate objects to match the target pattern. Click to rotate tiles 90 degrees clockwise.",
+    "tile_scale": 1
+  },
+  {
+    "id": "pt02-63be02fb",
+    "title": "Row Column Rotate",
+    "class_name": "Pt02",
+    "src_file": "pt02.py",
+    "tags": [
+      "static",
+      "pattern",
+      "click"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Like pattern rotation, but ACTION6 rotates an entire row or column of 3\u00d73 tiles (nearest axis to the click).",
+    "tile_scale": 1
+  },
+  {
+    "id": "pt03-63be02fb",
+    "title": "Row Column Rotate (variant)",
+    "class_name": "Pt03",
+    "src_file": "pt03.py",
+    "tags": [
+      "static",
+      "pattern",
+      "click"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Like pattern rotation, but ACTION6 rotates an entire row or column of 3\u00d73 tiles (nearest axis to the click).",
+    "tile_scale": 1
+  },
+  {
+    "id": "pt04-v1",
+    "title": "Tile Swap",
+    "class_name": "Pt04",
+    "src_file": "pt04.py",
+    "tags": [
+      "static",
+      "click",
+      "pattern"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "ACTION6 selects a cell then a second cell to swap 1\u00d71 colors; match the board to the HUD target key.",
+    "tile_scale": 8
+  },
+  {
+    "id": "pt05-v1",
+    "title": "Slide Row",
+    "class_name": "Pt05",
+    "src_file": "pt05.py",
+    "tags": [
+      "static",
+      "click",
+      "pattern"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Click the yellow header cell (x=0) of a row to rotate that row\u2019s colors left; match the board to the HUD target key.",
+    "tile_scale": 8
+  },
+  {
+    "id": "pu01-63be02fb",
+    "title": "Pipe Twist",
+    "class_name": "Pu01",
+    "src_file": "pu01.py",
+    "tags": [
+      "static",
+      "click",
+      "graph",
+      "plumbing",
+      "pipe-hv-two-state"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Toggle H/V pipe cells with ACTION6 so orthogonal flow connects cyan source to yellow sink.",
+    "tile_scale": 4
+  },
+  {
+    "id": "pu04-v1",
+    "title": "Tee Pipes",
+    "class_name": "Pu04",
+    "src_file": "pu04.py",
+    "tags": [
+      "plumbing",
+      "click",
+      "pipe-tee-h-v-t"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "**ACTION6** cycles each duct **H \u2192 V \u2192 T** (tee); connect cyan source to yellow sink.",
+    "tile_scale": 4
+  },
+  {
+    "id": "pw01-63be02fb",
+    "title": "Dual Plate Crates",
+    "class_name": "Pw01",
+    "src_file": "pw01.py",
+    "tags": [
+      "static",
+      "movement",
+      "sokoban"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "10\u00d710 grid. Both yellow plates must hold a crate; then stand on the green goal.",
+    "tile_scale": 6
+  },
+  {
+    "id": "qr01-63be02fb",
+    "title": "Quad Twist",
+    "class_name": "Qr01",
+    "src_file": "qr01.py",
+    "tags": [
+      "static",
+      "pattern",
+      "click"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "ACTION6 rotates the 2\u00d72 block of pattern tiles anchored at the clicked cell clockwise; match the target bitmap in level data.",
+    "tile_scale": 8
+  },
+  {
+    "id": "qr04-v1",
+    "title": "3\u00d73 Quad Twist",
+    "class_name": "Qr04",
+    "src_file": "qr04.py",
+    "tags": [
+      "static",
+      "click",
+      "pattern"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Rotate a 3\u00d73 block of colored tiles clockwise with ACTION6; match the main board to the HUD target key.",
+    "tile_scale": 8
+  },
+  {
+    "id": "qt01-v1",
+    "title": "Quantum Split",
+    "class_name": "Qt01",
+    "src_file": "qt01.py",
+    "tags": [
+      "static",
+      "logic"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Step on magenta splitter; until cyan observe, moves apply to two ghost positions; observer collapses to the real one.",
+    "tile_scale": 6
+  },
+  {
+    "id": "rb01-v1",
+    "title": "Rhythm Gate",
+    "class_name": "Rb01",
+    "src_file": "rb01.py",
+    "tags": [
+      "static",
+      "timing"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Movement only applies on beat (every B world steps); other actions are no-ops.",
+    "tile_scale": 5
+  },
+  {
+    "id": "rc01-63be02fb",
+    "title": "Recall Once",
+    "class_name": "Rc01",
+    "src_file": "rc01.py",
+    "tags": [
+      "static",
+      "movement",
+      "teleport"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "10\u00d710 grid. ACTION5 teleports you back to the level start once per level.",
+    "tile_scale": 6
+  },
+  {
+    "id": "rf01-63be02fb",
+    "title": "Mirror Half",
+    "class_name": "Rf01",
+    "src_file": "rf01.py",
+    "tags": [
+      "static",
+      "puzzle",
+      "movement"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "On the right half of the grid, left and right inputs are swapped.",
+    "tile_scale": 8
+  },
+  {
+    "id": "rh01-63be02fb",
+    "title": "Rotating Hazard Row",
+    "class_name": "Rh01",
+    "src_file": "rh01.py",
+    "tags": [
+      "static",
+      "movement",
+      "hazard"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "10\u00d710 grid. A lethal horizontal band advances one row every N steps; lose if you occupy that row when it advances.",
+    "tile_scale": 6
+  },
+  {
+    "id": "rk01-63be02fb",
+    "title": "Rook Courier",
+    "class_name": "Rk01",
+    "src_file": "rk01.py",
+    "tags": [
+      "static",
+      "movement",
+      "10-grid",
+      "chess"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "10\u00d710 grid. ACTION1\u20134 slide orthogonally (up/down/left/right) until blocked by a wall.",
+    "tile_scale": 6
+  },
+  {
+    "id": "rn01-v1",
+    "title": "Rope Anchors",
+    "class_name": "Rn01",
+    "src_file": "rn01.py",
+    "tags": [
+      "static",
+      "planning",
+      "click"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Click two orth-adjacent anchor posts (ACTION6) to place a walkable rope cell between them over water.",
+    "tile_scale": 5
+  },
+  {
+    "id": "rp01-63be02fb",
+    "title": "Relay Pulse",
+    "class_name": "Rp01",
+    "src_file": "rp01.py",
+    "tags": [
+      "static",
+      "puzzle",
+      "graph"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Place relay tiles with ACTION6; ACTION5 fires a pulse from the green source that spreads through relays. Each lamp must be orthogonally adjacent to a visited relay to light. Limited relays and fires per level.",
+    "tile_scale": 2
+  },
+  {
+    "id": "rp02-63be02fb",
+    "title": "Relay Pulse Depth",
+    "class_name": "Rp02",
+    "src_file": "rp02.py",
+    "tags": [
+      "static",
+      "graph",
+      "pulse"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Relay pulse with hop depth limit unless passing through amplifier relays (`max_pulse_depth`, `amp_relay` sprites).",
+    "tile_scale": 2
+  },
+  {
+    "id": "rp03-63be02fb",
+    "title": "Relay Pulse Depth (variant)",
+    "class_name": "Rp03",
+    "src_file": "rp03.py",
+    "tags": [
+      "static",
+      "graph",
+      "pulse"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Relay pulse with hop depth limit unless passing through amplifier relays (`max_pulse_depth`, `amp_relay` sprites).",
+    "tile_scale": 2
+  },
+  {
+    "id": "rp04-v1",
+    "title": "Relay Pulse",
+    "class_name": "Rp04",
+    "src_file": "rp04.py",
+    "tags": [
+      "graph",
+      "click"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "**ACTION6** toggles relays; **ACTION5** floods from the source through **ON** relays; reach every lamp.",
+    "tile_scale": 5
+  },
+  {
+    "id": "rr01-v1",
+    "title": "Ramp Rollout",
+    "class_name": "Rr01",
+    "src_file": "rr01.py",
+    "tags": [
+      "physics",
+      "click"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Blue ball moves one cell per **ACTION5** with a **persistent heading**; on a **magenta ramp** tile the heading turns **clockwise** before the step. **ACTION6** toggles a ramp on a free inner cell (not wall, ball, or exit). Reach the green exit.",
+    "tile_scale": 5
+  },
+  {
+    "id": "rs01-63be02fb",
+    "title": "Rule Switcher",
+    "class_name": "Rs01",
+    "src_file": "rs01.py",
+    "tags": [
+      "static",
+      "puzzle",
+      "rule-switching",
+      "cognitive-flexibility"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Collect colored targets. A signpost shows which color is currently SAFE. Wrong color = lose. After all colors have been safe, any remaining targets can be collected.",
+    "tile_scale": 8
+  },
+  {
+    "id": "rs02-63be02fb",
+    "title": "Rule Switcher Dual Safe",
+    "class_name": "Rs02",
+    "src_file": "rs02.py",
+    "tags": [
+      "static",
+      "rules",
+      "collection"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Collect targets matching either color of the active pair (`dual_pairs`); after all pairs cycle, any remaining target is collectible.",
+    "tile_scale": 8
+  },
+  {
+    "id": "rs03-63be02fb",
+    "title": "Forbidden Stripe Rules",
+    "class_name": "Rs03",
+    "src_file": "rs03.py",
+    "tags": [
+      "static",
+      "rules",
+      "collection"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Dual safe colors like rs02, plus a forbidden HUD color that is never collectible.",
+    "tile_scale": 8
+  },
+  {
+    "id": "rs04-v1",
+    "title": "XOR Safe Targets",
+    "class_name": "Rs04",
+    "src_file": "rs04.py",
+    "tags": [
+      "logic",
+      "click"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "**ACTION5** toggles phase bits **A/B**; only targets matching **SAFE = palette[A xor B]** can be removed with **ACTION6**.",
+    "tile_scale": 6
+  },
+  {
+    "id": "rv01-v1",
+    "title": "Rotating Sparks",
+    "class_name": "Rv01",
+    "src_file": "rv01.py",
+    "tags": [
+      "static",
+      "timing",
+      "hazard"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Collect yellow targets while red sparks drift together in a wind direction that cycles north\u2192east\u2192south\u2192west after every step.",
+    "tile_scale": 8
+  },
+  {
+    "id": "rz01-63be02fb",
+    "title": "Rush Grid",
+    "class_name": "Rz01",
+    "src_file": "rz01.py",
+    "tags": [
+      "static",
+      "push",
+      "car"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Push vertical 1\u00d72 cars (two linked blocks) toward a clear exit lane.",
+    "tile_scale": 5
+  },
+  {
+    "id": "sb01-63be02fb",
+    "title": "Sand Fall",
+    "class_name": "Sb01",
+    "src_file": "sb01.py",
+    "tags": [
+      "static",
+      "movement",
+      "physics"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "10\u00d710 grid. Sand piles fall after each move; being crushed loses.",
+    "tile_scale": 6
+  },
+  {
+    "id": "sc01-v1",
+    "title": "Scent Stealth",
+    "class_name": "Sc01",
+    "src_file": "sc01.py",
+    "tags": [
+      "static",
+      "stealth"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Guards face east; high scent on a tile while in their cone line-of-sight loses. Scent decays when you leave a trail.",
+    "tile_scale": 4
+  },
+  {
+    "id": "sf01-63be02fb",
+    "title": "Stencil Paint",
+    "class_name": "Sf01",
+    "src_file": "sf01.py",
+    "tags": [
+      "static",
+      "pattern",
+      "64-grid"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Move a 3\u00d73 stencil with ACTION1\u20134; ACTION5 paints yellow on every non-wall cell under the stencil. Cover all gray hint cells.",
+    "tile_scale": 1
+  },
+  {
+    "id": "sf04-v1",
+    "title": "Stencil Rotate Paint",
+    "class_name": "Sf04",
+    "src_file": "sf04.py",
+    "tags": [
+      "static",
+      "click",
+      "stencil"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "**ACTION5** rotates an L-shaped 3-cell stencil; **ACTION6** paints those cells (no player move). Cover all hints.",
+    "tile_scale": 4
+  },
+  {
+    "id": "sg01-63be02fb",
+    "title": "Signal Lock",
+    "class_name": "Sg01",
+    "src_file": "sg01.py",
+    "tags": [
+      "static",
+      "timing",
+      "skill"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Timing bar: cursor sweeps each step; ACTION5 in the green window scores; miss shrinks the window.",
+    "tile_scale": 8
+  },
+  {
+    "id": "sg04-v1",
+    "title": "Dual Arm Score",
+    "class_name": "Sg04",
+    "src_file": "sg04.py",
+    "tags": [
+      "timing",
+      "abstract"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "**ACTION5** alternates arms A/B and increments the active arm; reach both targets within the step budget.",
+    "tile_scale": 8
+  },
+  {
+    "id": "sk01-63be02fb",
+    "title": "Sokoban Push",
+    "class_name": "Sk01",
+    "src_file": "sk01.py",
+    "tags": [
+      "static",
+      "puzzle",
+      "sokoban",
+      "environmental"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Push blocks onto target pads. Green indicates a block on a target. Five levels with increasing wall blockers; grids 8\u00d78 or 12\u00d712 (16\u00d716 camera).",
+    "tile_scale": 8
+  },
+  {
+    "id": "sk02-63be02fb",
+    "title": "Sokoban Slide Push",
+    "class_name": "Sk02",
+    "src_file": "sk02.py",
+    "tags": [
+      "static",
+      "push",
+      "puzzle"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Sokoban with chain slide: after a successful push, if the cell beyond the crate is empty, the crate moves one more step.",
+    "tile_scale": 8
+  },
+  {
+    "id": "sk03-63be02fb",
+    "title": "Sokoban Mud Stop",
+    "class_name": "Sk03",
+    "src_file": "sk03.py",
+    "tags": [
+      "static",
+      "push",
+      "mud"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Slide-push sokoban where the extra slide stops on mud cells.",
+    "tile_scale": 8
+  },
+  {
+    "id": "sk04-v1",
+    "title": "Rope Pull",
+    "class_name": "Sk04",
+    "src_file": "sk04.py",
+    "tags": [
+      "push",
+      "click"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Fixed player; **ACTION6** on an adjacent crate **pulls** it one step toward you; cover pads.",
+    "tile_scale": 6
+  },
+  {
+    "id": "sl01-v1",
+    "title": "Slide Puzzle",
+    "class_name": "Sl01",
+    "src_file": "sl01.py",
+    "tags": [
+      "static",
+      "planning",
+      "permutation"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "8-puzzle: swap the hole with adjacent tiles until the board matches the goal layout.",
+    "tile_scale": 21
+  },
+  {
+    "id": "sn01-63be02fb",
+    "title": "Snake Collect",
+    "class_name": "Sn01",
+    "src_file": "sn01.py",
+    "tags": [
+      "static",
+      "movement",
+      "12-grid",
+      "snake"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "12\u00d712 snake: eat all yellow food, grow, avoid walls and self-collision.",
+    "tile_scale": 5
+  },
+  {
+    "id": "sp01-63be02fb",
+    "title": "Sandpile",
+    "class_name": "Sp01",
+    "src_file": "sp01.py",
+    "tags": [
+      "static",
+      "simulation",
+      "click"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "ACTION6 adds a grain; cells with \u22654 topple to neighbors. Win when the grid is stable and total grains equals `target_sum`.",
+    "tile_scale": 5
+  },
+  {
+    "id": "sp04-v1",
+    "title": "Sandpile Sinks",
+    "class_name": "Sp04",
+    "src_file": "sp04.py",
+    "tags": [
+      "simulation",
+      "click",
+      "sandpile-sinks"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Like **sp01**, but grains that topple into cyan **sink** cells are removed.",
+    "tile_scale": 5
+  },
+  {
+    "id": "sq01-63be02fb",
+    "title": "Sequencing",
+    "class_name": "Sq01",
+    "src_file": "sq01.py",
+    "tags": [
+      "sequencing",
+      "ordering",
+      "memory"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Click colored blocks in the correct order. The sequence bar stays visible at the top. Mistakes cost 1 life; you have 3 lives per level.",
+    "tile_scale": 5
+  },
+  {
+    "id": "sq02-63be02fb",
+    "title": "Sequencing Reveal",
+    "class_name": "Sq02",
+    "src_file": "sq02.py",
+    "tags": [
+      "static",
+      "click",
+      "ordering"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Like sequencing, but only the current expected color block is visible; later colors stay hidden until unlocked.",
+    "tile_scale": 5
+  },
+  {
+    "id": "sq03-63be02fb",
+    "title": "Dual Queue Sequencing",
+    "class_name": "Sq03",
+    "src_file": "sq03.py",
+    "tags": [
+      "static",
+      "sequencing",
+      "click"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Two color queues; click the block matching either head; wrong click resets both queues.",
+    "tile_scale": 5
+  },
+  {
+    "id": "sq04-v1",
+    "title": "Sequencing LIFO",
+    "class_name": "Sq04",
+    "src_file": "sq04.py",
+    "tags": [
+      "static",
+      "click",
+      "ordering"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Click colored blocks in stack order (last in the HUD queue first). Wrong order resets progress.",
+    "tile_scale": 5
+  },
+  {
+    "id": "sq05-v1",
+    "title": "Parity Sequence",
+    "class_name": "Sq05",
+    "src_file": "sq05.py",
+    "tags": [
+      "static",
+      "click",
+      "sequencing"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "FIFO order: tap the highlighted color twice in a row to lock each block; clear the full sequence.",
+    "tile_scale": 5
+  },
+  {
+    "id": "sr01-v1",
+    "title": "Aura Algebra",
+    "class_name": "Sr01",
+    "src_file": "sr01.py",
+    "tags": [
+      "static",
+      "logic"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Stepping colored zones toggles RGB bits of your aura; the exit unlocks only when aura matches (xor) the target triple.",
+    "tile_scale": 5
+  },
+  {
+    "id": "st01-63be02fb",
+    "title": "Sentry Sweep",
+    "class_name": "St01",
+    "src_file": "st01.py",
+    "tags": [
+      "static",
+      "stealth",
+      "guard"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Avoid a guard\u2019s forward cone; ACTION5 whistles so the guard steps one cell forward.",
+    "tile_scale": 4
+  },
+  {
+    "id": "sv01-63be02fb",
+    "title": "Survival: Hunger & Warmth",
+    "class_name": "Sv01",
+    "src_file": "sv01.py",
+    "tags": [
+      "static",
+      "action",
+      "survival",
+      "hunger"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Survive by managing hunger and warmth. Green food restores hunger; orange warm zones prevent warmth decay while you stand on them.",
+    "tile_scale": 8
+  },
+  {
+    "id": "sv02-63be02fb",
+    "title": "Survival Shelter",
+    "class_name": "Sv02",
+    "src_file": "sv02.py",
+    "tags": [
+      "static",
+      "survival",
+      "timing"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Like survival: hunger and warmth decay; magenta shelter zones pause warmth loss only. Survive 60 steps per level.",
+    "tile_scale": 8
+  },
+  {
+    "id": "sv03-63be02fb",
+    "title": "Dual Shelter Survival",
+    "class_name": "Sv03",
+    "src_file": "sv03.py",
+    "tags": [
+      "static",
+      "survival"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Separate warm vs food shelter zones; alternate shelter types on entry while surviving 60 steps.",
+    "tile_scale": 8
+  },
+  {
+    "id": "sw01-63be02fb",
+    "title": "Swap Partner",
+    "class_name": "Sw01",
+    "src_file": "sw01.py",
+    "tags": [
+      "static",
+      "movement",
+      "swap"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "10\u00d710 grid. ACTION5 swaps you with the magenta partner when orthogonally adjacent; reach the green goal.",
+    "tile_scale": 6
+  },
+  {
+    "id": "sy01-63be02fb",
+    "title": "Mirror Maker",
+    "class_name": "Sy01",
+    "src_file": "sy01.py",
+    "tags": [
+      "symmetry",
+      "reflection",
+      "spatial",
+      "puzzle"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Mirror the pattern from the left side onto the right side. Create a perfect reflection!",
+    "tile_scale": 5
+  },
+  {
+    "id": "sy02-63be02fb",
+    "title": "Staggered Mirror",
+    "class_name": "Sy02",
+    "src_file": "sy02.py",
+    "tags": [
+      "static",
+      "pattern",
+      "mirror"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Mirror Maker with half-row mirror offset (`mirror_stagger`); place blocks on the right to match the staggered reflection.",
+    "tile_scale": 5
+  },
+  {
+    "id": "sy03-63be02fb",
+    "title": "Staggered Mirror (variant)",
+    "class_name": "Sy03",
+    "src_file": "sy03.py",
+    "tags": [
+      "static",
+      "pattern",
+      "mirror"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Mirror Maker with half-row mirror offset (`mirror_stagger`); place blocks on the right to match the staggered reflection.",
+    "tile_scale": 5
+  },
+  {
+    "id": "sy04-v1",
+    "title": "Diagonal Mirror",
+    "class_name": "Sy04",
+    "src_file": "sy04.py",
+    "tags": [
+      "static",
+      "click",
+      "pattern"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Template dots on cells with i<j; place dots on x>y so each (j,i) matches (i,j) across y=x.",
+    "tile_scale": 5
+  },
+  {
+    "id": "tb01-63be02fb",
+    "title": "Bridge Builder",
+    "class_name": "Tb01",
+    "src_file": "tb01.py",
+    "tags": [
+      "static",
+      "puzzle",
+      "sub-goals",
+      "environmental",
+      "inventory"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Bridge cyan water between maroon islands to the green goal. Five levels add waypoints, gray reef blocks, and optional bridge/step budgets. Toggle bridges with ACTION6; swimming costs a life.",
+    "tile_scale": 2
+  },
+  {
+    "id": "tb02-63be02fb",
+    "title": "Bridge Builder Decay",
+    "class_name": "Tb02",
+    "src_file": "tb02.py",
+    "tags": [
+      "static",
+      "puzzle",
+      "environmental"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Like bridge builder, but bridges crumble when you leave the tile (set is cleared for that cell). Toggle bridges with ACTION6; swimming still costs a life.",
+    "tile_scale": 2
+  },
+  {
+    "id": "tb03-63be02fb",
+    "title": "Bridge Reef Growth",
+    "class_name": "Tb03",
+    "src_file": "tb03.py",
+    "tags": [
+      "static",
+      "bridge",
+      "dynamic-hazard"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Bridge decay plus periodic random rock spawns on open water (`reef_every` / authored pool in level data).",
+    "tile_scale": 2
+  },
+  {
+    "id": "tc01-63be02fb",
+    "title": "Conveyor Layer",
+    "class_name": "Tc01",
+    "src_file": "tc01.py",
+    "tags": [
+      "static",
+      "movement",
+      "field"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "After each move, the player is pushed one more step by the arrow at the destination cell (`arrows` in level data).",
+    "tile_scale": 4
+  },
+  {
+    "id": "tc04-v1",
+    "title": "Conveyor Flip",
+    "class_name": "Tc04",
+    "src_file": "tc04.py",
+    "tags": [
+      "simulation",
+      "click"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Packages follow arrow tiles; **ACTION5** moves all one step; **ACTION6** rotates the arrow under the click 90\u00b0 CW.",
+    "tile_scale": 6
+  },
+  {
+    "id": "tf01-v1",
+    "title": "Traffic Light",
+    "class_name": "Tf01",
+    "src_file": "tf01.py",
+    "tags": [
+      "static",
+      "timing"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Crossing tile (orange) may be entered only on green phase (cycles every 4 steps).",
+    "tile_scale": 4
+  },
+  {
+    "id": "tg01-63be02fb",
+    "title": "Tag Evasion",
+    "class_name": "Tg01",
+    "src_file": "tg01.py",
+    "tags": [
+      "static",
+      "chase",
+      "timing"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Chaser moves every other player step; reach the safe zone or survive until the step timer ends.",
+    "tile_scale": 5
+  },
+  {
+    "id": "tk01-v1",
+    "title": "Telekinetic Tug",
+    "class_name": "Tk01",
+    "src_file": "tk01.py",
+    "tags": [
+      "static",
+      "push"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "ACTION5 pulls the nearest crate one Manhattan step toward you if the first hop is clear.",
+    "tile_scale": 6
+  },
+  {
+    "id": "tm01-63be02fb",
+    "title": "Twin Meters",
+    "class_name": "Tm01",
+    "src_file": "tm01.py",
+    "tags": [
+      "static",
+      "movement",
+      "survival"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "10\u00d710 grid. Oxygen and heat decay each step; cyan and magenta pads refill; survive T steps to clear the level.",
+    "tile_scale": 6
+  },
+  {
+    "id": "tp01-63be02fb",
+    "title": "Teleporters",
+    "class_name": "Tp01",
+    "src_file": "tp01.py",
+    "tags": [
+      "static",
+      "puzzle",
+      "teleport"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Walk onto paired magenta portals to warp across the map; reach the goal.",
+    "tile_scale": 8
+  },
+  {
+    "id": "tp02-63be02fb",
+    "title": "Directed Teleporters",
+    "class_name": "Tp02",
+    "src_file": "tp02.py",
+    "tags": [
+      "static",
+      "puzzle",
+      "teleport"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "One-way magenta portals: only the from-tile sends you to the to-tile.",
+    "tile_scale": 8
+  },
+  {
+    "id": "tp03-63be02fb",
+    "title": "Single-Use Teleporters",
+    "class_name": "Tp03",
+    "src_file": "tp03.py",
+    "tags": [
+      "static",
+      "puzzle",
+      "teleport"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Portals vanish after you use a pair once; reach the goal.",
+    "tile_scale": 8
+  },
+  {
+    "id": "tr01-63be02fb",
+    "title": "Toxic Floor",
+    "class_name": "Tr01",
+    "src_file": "tr01.py",
+    "tags": [
+      "static",
+      "movement",
+      "10-grid",
+      "timer"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "10\u00d710 grid. Floors expire a number of world steps after first visit (ttl in level data); lose if you stand on expired tile.",
+    "tile_scale": 6
+  },
+  {
+    "id": "tt01-63be02fb",
+    "title": "Collection Game",
+    "class_name": "Tt01",
+    "src_file": "tt01.py",
+    "tags": [
+      "static",
+      "collection",
+      "pre-defined-levels"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Pre-defined collection game for ARCAGI-3 training. Checkpoint given on level completion.",
+    "tile_scale": 8
+  },
+  {
+    "id": "tt02-63be02fb",
+    "title": "Collection Patrol Hazards",
+    "class_name": "Tt02",
+    "src_file": "tt02.py",
+    "tags": [
+      "static",
+      "collection",
+      "dynamic-hazard"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Like collection, but red patrol hazards step along authored tracks each player move (`patrols` in level data).",
+    "tile_scale": 8
+  },
+  {
+    "id": "tt03-63be02fb",
+    "title": "Collection Spawn",
+    "class_name": "Tt03",
+    "src_file": "tt03.py",
+    "tags": [
+      "static",
+      "collection",
+      "dynamic-target"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Patrol collection; new yellow targets spawn every K steps until a cap (`spawn_every`, `target_cap` in level data).",
+    "tile_scale": 8
+  },
+  {
+    "id": "tw01-63be02fb",
+    "title": "Two-Touch Goal",
+    "class_name": "Tw01",
+    "src_file": "tw01.py",
+    "tags": [
+      "static",
+      "movement",
+      "ordering"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "10\u00d710 grid. Touch the orange waypoint before the green goal will advance the level.",
+    "tile_scale": 6
+  },
+  {
+    "id": "ul01-63be02fb",
+    "title": "Key & Door",
+    "class_name": "Ul01",
+    "src_file": "ul01.py",
+    "tags": [
+      "static",
+      "puzzle",
+      "key-door"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Pick up the key to unlock the door and advance to the next level.",
+    "tile_scale": 8
+  },
+  {
+    "id": "ul02-63be02fb",
+    "title": "Two-Key Unlock",
+    "class_name": "Ul02",
+    "src_file": "ul02.py",
+    "tags": [
+      "static",
+      "puzzle",
+      "keys"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Two keys and two doors; stepping on a door without its matching key loses.",
+    "tile_scale": 6
+  },
+  {
+    "id": "ul03-63be02fb",
+    "title": "Master Key",
+    "class_name": "Ul03",
+    "src_file": "ul03.py",
+    "tags": [
+      "static",
+      "puzzle",
+      "10-grid"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Collect both silver keys to reveal the gold master key; gold opens both doors.",
+    "tile_scale": 6
+  },
+  {
+    "id": "va01-63be02fb",
+    "title": "Visit All",
+    "class_name": "Va01",
+    "src_file": "va01.py",
+    "tags": [
+      "static",
+      "puzzle",
+      "coverage"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Walk on every floor cell at least once. Walls are not floor.",
+    "tile_scale": 16
+  },
+  {
+    "id": "va02-63be02fb",
+    "title": "Visit All Safe",
+    "class_name": "Va02",
+    "src_file": "va02.py",
+    "tags": [
+      "static",
+      "puzzle",
+      "coverage"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Cover every walkable non-hazard cell; hazards block movement.",
+    "tile_scale": 16
+  },
+  {
+    "id": "va03-63be02fb",
+    "title": "Ordered Waypoints",
+    "class_name": "Va03",
+    "src_file": "va03.py",
+    "tags": [
+      "static",
+      "puzzle",
+      "coverage"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Visit yellow waypoints in the fixed order given by the level (first to last).",
+    "tile_scale": 16
+  },
+  {
+    "id": "vc33-9851e02b",
+    "title": "VC33",
+    "class_name": "Vc33",
+    "src_file": "vc33.py",
+    "tags": [],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "tile_scale": 2
+  },
+  {
+    "id": "vi01-63be02fb",
+    "title": "Infection Run",
+    "class_name": "Vi01",
+    "src_file": "vi01.py",
+    "tags": [
+      "static",
+      "hazard",
+      "12-grid"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Plague spreads periodically; take the vaccine before walking infected cells; then reach the exit.",
+    "tile_scale": 5
+  },
+  {
+    "id": "vp01-63be02fb",
+    "title": "Void Path",
+    "class_name": "Vp01",
+    "src_file": "vp01.py",
+    "tags": [
+      "static",
+      "movement",
+      "10-grid",
+      "coverage"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "10\u00d710 grid. Each cell allows only one visit; stepping on an already-used cell loses.",
+    "tile_scale": 6
+  },
+  {
+    "id": "vt01-v1",
+    "title": "Vote Plates",
+    "class_name": "Vt01",
+    "src_file": "vt01.py",
+    "tags": [
+      "static",
+      "logic"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Gray plate sums crate weights (1/2/4 tags); opens when sum mod M matches target; then reach goal.",
+    "tile_scale": 5
+  },
+  {
+    "id": "wa01-63be02fb",
+    "title": "Warp Line",
+    "class_name": "Wa01",
+    "src_file": "wa01.py",
+    "tags": [
+      "static",
+      "movement",
+      "12-grid"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Directed warp bands shift you +2 along their axis when the destination is clear.",
+    "tile_scale": 5
+  },
+  {
+    "id": "wb01-v1",
+    "title": "Wall Belt",
+    "class_name": "Wb01",
+    "src_file": "wb01.py",
+    "tags": [
+      "static",
+      "timing"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "One row of wall segments shifts east each step (wrap); reach the goal.",
+    "tile_scale": 4
+  },
+  {
+    "id": "wg01-63be02fb",
+    "title": "Wind Gust",
+    "class_name": "Wg01",
+    "src_file": "wg01.py",
+    "tags": [
+      "static",
+      "movement",
+      "10-grid"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "10\u00d710 grid. Every K steps an east wind pushes you one cell when free.",
+    "tile_scale": 6
+  },
+  {
+    "id": "wk01-63be02fb",
+    "title": "Weak Floor",
+    "class_name": "Wk01",
+    "src_file": "wk01.py",
+    "tags": [
+      "static",
+      "puzzle",
+      "hazard"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Brown tiles collapse after you leave them; black holes are lethal.",
+    "tile_scale": 6
+  },
+  {
+    "id": "wl01-63be02fb",
+    "title": "Wall Craft",
+    "class_name": "Wl01",
+    "src_file": "wl01.py",
+    "tags": [
+      "static",
+      "puzzle",
+      "building"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Reach the green goal on a 32\u00d732 map. Maroon chasms are deadly gaps\u2014bridge them with ACTION6 clicks (limited budget). Red tiles are one-touch hazards. Every action costs steps.",
+    "tile_scale": 2
+  },
+  {
+    "id": "wm01-63be02fb",
+    "title": "Whack-a-Mole",
+    "class_name": "Wm01",
+    "src_file": "wm01.py",
+    "tags": [
+      "static",
+      "action",
+      "whack-a-mole"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Click moles before they escape! Meet checkpoint requirements to advance.",
+    "tile_scale": 2
+  },
+  {
+    "id": "wm02-63be02fb",
+    "title": "Lane Moles",
+    "class_name": "Wm02",
+    "src_file": "wm02.py",
+    "tags": [
+      "static",
+      "timing",
+      "click"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Whack-a-mole with lane spawns; clicking the wrong lane while a mole is up costs a life. Faster cadence than wm01.",
+    "tile_scale": 2
+  },
+  {
+    "id": "wm03-63be02fb",
+    "title": "Decoy Moles",
+    "class_name": "Wm03",
+    "src_file": "wm03.py",
+    "tags": [
+      "static",
+      "timing",
+      "32-grid"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Lane moles with occasional gray decoys in wrong lanes; whacking a decoy costs a life.",
+    "tile_scale": 2
+  },
+  {
+    "id": "wm04-v1",
+    "title": "Echo Whack",
+    "class_name": "Wm04",
+    "src_file": "wm04.py",
+    "tags": [
+      "timing",
+      "click"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "**ACTION6** hits the mole; wrong clicks add **penalty** randomization before the next spawn.",
+    "tile_scale": 8
+  },
+  {
+    "id": "wp01-63be02fb",
+    "title": "Weight Plate",
+    "class_name": "Wp01",
+    "src_file": "wp01.py",
+    "tags": [
+      "static",
+      "movement",
+      "logic"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "10\u00d710 grid. Sum orth-adjacent weight (player=1, crate=2) on the plate must reach W to unlock the goal tile.",
+    "tile_scale": 6
+  },
+  {
+    "id": "wr01-v1",
+    "title": "World Rotation",
+    "class_name": "Wr01",
+    "src_file": "wr01.py",
+    "tags": [
+      "static",
+      "planning",
+      "rotation"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Every N steps the level rotates 90\u00b0 CW; ACTION5 braces to skip rotation (limited budget). Reach the goal.",
+    "tile_scale": 5
+  },
+  {
+    "id": "zm01-63be02fb",
+    "title": "Flood Duel",
+    "class_name": "Zm01",
+    "src_file": "zm01.py",
+    "tags": [
+      "static",
+      "territory",
+      "click"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Two colors expand from seeds; ACTION5 switches active color; ACTION6 claims a cell adjacent to your region. Cover enough floor to win.",
+    "tile_scale": 4
+  },
+  {
+    "id": "zm04-v1",
+    "title": "Strain Spread",
+    "class_name": "Zm04",
+    "src_file": "zm04.py",
+    "tags": [
+      "simulation",
+      "click"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "**ACTION5** switches strain and spreads it orthogonally; **ACTION6** places a blocking cell; infect \u2265 **need** of the active strain.",
+    "tile_scale": 5
+  },
+  {
+    "id": "zq01-63be02fb",
+    "title": "Zone Timer",
+    "class_name": "Zq01",
+    "src_file": "zq01.py",
+    "tags": [
+      "static",
+      "puzzle",
+      "timing"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Red hazard tiles blink on and off on a fixed timer; plan moves through safe phases.",
+    "tile_scale": 8
+  },
+  {
+    "id": "zq02-63be02fb",
+    "title": "Dual Phase Hazards",
+    "class_name": "Zq02",
+    "src_file": "zq02.py",
+    "tags": [
+      "static",
+      "timing",
+      "hazard"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Two independent blinking hazard sets with separate period and offset.",
+    "tile_scale": 8
+  },
+  {
+    "id": "zq03-63be02fb",
+    "title": "Synced Dual Hazards",
+    "class_name": "Zq03",
+    "src_file": "zq03.py",
+    "tags": [
+      "static",
+      "hazard",
+      "timing"
+    ],
+    "default_fps": 20,
+    "category": "redbluepill",
+    "official": false,
+    "description": "Two hazard masks share one cycle length; exactly one beat per cycle has both fields safe.",
+    "tile_scale": 8
   }
 ]

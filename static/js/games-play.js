@@ -3,7 +3,7 @@
 // repo's human.js/human-game.js/human-input.js/human-render.js: pick a game,
 // play it now, no login, no recording, no leaderboard.
 
-import { ensureGameEngine, gameEngineReady, onEngineProgress, gameLoad, gameStep, gameReset, gameUndo, gameJumpLevel } from "./games-engine.js";
+import { ensureGameEngine, gameEngineReady, onEngineProgress, gameLoad, gameStep, gameReset, gameUndo, gameJumpLevel, gameSetTileMode, gameSetFilter } from "./games-engine.js";
 
 // Canonical ARC-3 board palette (values 0-15) -- identical to constants.py's
 // COLOR_MAP in the reference impl and to scripts/build_games_manifest.py's
@@ -15,11 +15,42 @@ const COLORS = [
 const ACTION_NAMES = { 0: "RESET", 1: "UP", 2: "DOWN", 3: "LEFT", 4: "RIGHT", 5: "ACTION5", 6: "CLICK", 7: "ACTION7" };
 const KEY_MAP = { w: 1, ArrowUp: 1, s: 2, ArrowDown: 2, a: 3, ArrowLeft: 3, d: 4, ArrowRight: 4, r: 0, z: 5, x: 7, c: 7 };
 
+// The catalog runs to ~300 games, so every section is paged and the whole
+// thing is filterable; the sidebar shows one page of the current game's
+// category at a time.
+const PAGE_SIZE = 30;
+const CATEGORIES = [
+  { key: "official", label: "Official", grid: "browseOfficial", pager: "pagerOfficial", count: "countOfficial" },
+  { key: "custom", label: "Custom", grid: "browseCustom", pager: "pagerCustom", count: "countCustom" },
+  { key: "redbluepill", label: "Red Blue Pill", grid: "browseRedblue", pager: "pagerRedblue", count: "countRedblue" },
+];
+
 let games = [];
 let currentGame = null;     // manifest entry
 let currentSource = null;   // cached .py text, so re-selecting a game skips the fetch
-let state = {};             // {grid, state, levels_completed, win_levels, available_actions}
+let state = {};             // {grid, state, levels_completed, win_levels, available_actions, tile_scale}
 let stepCount = 0;
+let query = "";
+const pageOf = { official: 0, custom: 0, redbluepill: 0 };
+let sidebarPage = 0;
+let tileMode = "solid";     // "solid" | "tiles" | "random" -- see games/arc_tiles.py
+let tileSeed = 1;
+
+// Mirrors frame_filters.py's FILTERS dict (docs/static/games/src/_shared/) -- labels
+// and param ranges are duplicated here the same way COLORS/PALETTE already are in
+// three other places in this codebase, so this isn't a new kind of drift risk.
+const FILTERS = [
+  { id: "none", label: "No filter" },
+  { id: "palette_shuffle", label: "Palette shuffle", seeded: true },
+  { id: "pixel_noise", label: "Pixel noise", seeded: true, param: "rate", min: 0, max: 0.5, step: 0.01, default: 0.05 },
+  { id: "color_merge", label: "Color merge", seeded: true, param: "n_groups", min: 2, max: 8, step: 1, default: 4 },
+  { id: "palette_cap", label: "Palette cap", seeded: true, param: "max_colors", min: 2, max: 12, step: 1, default: 6 },
+  { id: "block_pool", label: "Block pool", seeded: false, param: "factor", min: 2, max: 8, step: 1, default: 2 },
+  { id: "fog_mask", label: "Fog", seeded: true, param: "coverage", min: 0, max: 0.9, step: 0.05, default: 0.3 },
+];
+let filterId = "none";
+let filterParams = {};
+let filterSeed = 1;
 let processing = false;
 let liveMode = false;
 let liveInterval = null;
@@ -42,16 +73,20 @@ async function init() {
     $("browseOfficial").textContent = "Failed to load game catalog.";
     return;
   }
-  renderGrid($("browseOfficial"), games.filter((g) => g.official), selectGame);
-  renderGrid($("browseCustom"), games.filter((g) => !g.official), selectGame);
-  renderGrid($("sidebarOfficial"), games.filter((g) => g.official), selectGame, true);
-  renderGrid($("sidebarCustom"), games.filter((g) => !g.official), selectGame, true);
+  renderBrowse();
 
   $("backToBrowse").addEventListener("click", showBrowse);
   $("resetBtn").addEventListener("click", () => runAction(() => gameReset(), "(reset)"));
   $("undoBtn").addEventListener("click", doUndo);
   $("liveToggleBtn").addEventListener("click", toggleLive);
   $("liveFpsInput").addEventListener("input", (e) => { liveFps = +e.target.value; restartLiveTick(); });
+  $("gameSearch").addEventListener("input", (e) => {
+    query = e.target.value.trim().toLowerCase();
+    for (const c of CATEGORIES) pageOf[c.key] = 0;
+    renderBrowse();
+  });
+  setupTileBar();
+  setupFilterBar();
   setupCanvasInput();
   setupKeyboard();
 
@@ -59,19 +94,80 @@ async function init() {
   if (hashGame) selectGame(decodeURIComponent(hashGame));
 }
 
-function renderGrid(container, list, onClick, compact) {
+// ── Catalog ──────────────────────────────────────────────────────────────
+
+// `category` is the field to use; `official` is the pre-Red-Blue-Pill boolean,
+// kept so an older cached manifest still lands games in a sensible section.
+const categoryOf = (g) => g.category || (g.official ? "official" : "custom");
+
+function matchesQuery(g) {
+  if (!query) return true;
+  const hay = `${g.title} ${g.id} ${(g.tags || []).join(" ")}`.toLowerCase();
+  return hay.includes(query);
+}
+
+function renderCards(container, list, onClick, compact) {
   if (!container) return;
   container.innerHTML = "";
+  container.classList.toggle("empty", list.length === 0);
   for (const g of list) {
     const card = document.createElement("div");
     card.className = compact ? "game-card compact" : "game-card";
     card.dataset.gameId = g.id;
+    card.title = g.description ? `${g.title} — ${g.description}` : g.title;
     card.innerHTML = `
       <img src="./static/img/games/${g.id}.png" alt="" loading="lazy" onerror="this.style.visibility='hidden'">
       <div class="gc-title">${g.title}</div>${compact ? "" : `<div class="gc-id">${g.id}</div>`}`;
     card.addEventListener("click", () => onClick(g.id));
     container.appendChild(card);
   }
+}
+
+function renderPager(el, total, current, onGo) {
+  if (!el) return;
+  const pages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+  el.hidden = pages <= 1;
+  if (pages <= 1) return;
+  const from = current * PAGE_SIZE + 1;
+  const to = Math.min(total, (current + 1) * PAGE_SIZE);
+  el.innerHTML = "";
+  const prev = document.createElement("button");
+  prev.textContent = "‹ Prev";
+  prev.disabled = current === 0;
+  prev.addEventListener("click", () => onGo(current - 1));
+  const next = document.createElement("button");
+  next.textContent = "Next ›";
+  next.disabled = current >= pages - 1;
+  next.addEventListener("click", () => onGo(current + 1));
+  const label = document.createElement("span");
+  label.textContent = `${from}–${to} of ${total}  ·  page ${current + 1}/${pages}`;
+  el.append(prev, next, label);
+}
+
+function renderBrowse() {
+  for (const c of CATEGORIES) {
+    const list = games.filter((g) => categoryOf(g) === c.key && matchesQuery(g));
+    const pages = Math.max(1, Math.ceil(list.length / PAGE_SIZE));
+    if (pageOf[c.key] >= pages) pageOf[c.key] = pages - 1;
+    const p = pageOf[c.key];
+    renderCards($(c.grid), list.slice(p * PAGE_SIZE, (p + 1) * PAGE_SIZE), selectGame);
+    renderPager($(c.pager), list.length, p, (n) => { pageOf[c.key] = n; renderBrowse(); });
+    const el = $(c.count);
+    if (el) el.textContent = query ? `${list.length} of ${games.filter((g) => categoryOf(g) === c.key).length}` : `${list.length}`;
+  }
+  if (currentGame) highlightActive(currentGame.id);
+}
+
+function renderSidebar() {
+  if (!currentGame) return;
+  const cat = CATEGORIES.find((c) => c.key === categoryOf(currentGame)) || CATEGORIES[0];
+  const list = games.filter((g) => categoryOf(g) === cat.key);
+  const pages = Math.max(1, Math.ceil(list.length / PAGE_SIZE));
+  sidebarPage = Math.max(0, Math.min(sidebarPage, pages - 1));
+  $("sidebarHeading").textContent = cat.label;
+  renderCards($("sidebarGrid"), list.slice(sidebarPage * PAGE_SIZE, (sidebarPage + 1) * PAGE_SIZE), selectGame, true);
+  renderPager($("sidebarPager"), list.length, sidebarPage, (n) => { sidebarPage = n; renderSidebar(); });
+  highlightActive(currentGame.id);
 }
 
 function highlightActive(id) {
@@ -103,6 +199,11 @@ async function selectGame(id) {
   highlightActive(id);
 
   currentGame = entry;
+  // Open the sidebar on the page this game actually sits on.
+  const catList = games.filter((g) => categoryOf(g) === categoryOf(entry));
+  sidebarPage = Math.max(0, Math.floor(catList.findIndex((g) => g.id === entry.id) / PAGE_SIZE));
+  renderSidebar();
+
   $("gameTitle").textContent = entry.title;
   $("gameIdLabel").textContent = entry.id;
   $("gameStatus").textContent = "—";
@@ -136,7 +237,105 @@ async function selectGame(id) {
 
   render(state.grid);
   updateTopBar();
+  updateTileBar();
+  updateFilterBar();
   buildLevelStrip();
+}
+
+// ── Tile modes ───────────────────────────────────────────────────────────
+// The worker holds one global skin, so the chosen mode carries across games;
+// the bar just has to resync after each load.
+
+function setupTileBar() {
+  for (const btn of document.querySelectorAll("#tileBar [data-tile-mode]")) {
+    btn.addEventListener("click", () => applyTileMode(btn.dataset.tileMode));
+  }
+  $("reseedBtn").addEventListener("click", () => {
+    tileSeed = 1 + Math.floor(Math.random() * 1e6);
+    applyTileMode("random");
+  });
+}
+
+async function applyTileMode(mode) {
+  if (processing) return;
+  tileMode = mode;
+  updateTileBar();
+  if (!currentGame) return;
+  await runAction(() => gameSetTileMode(tileMode, tileSeed), "(skin)");
+}
+
+function updateTileBar() {
+  const scale = state.tile_scale || 1;
+  $("tileBar").hidden = !currentGame;
+  for (const btn of document.querySelectorAll("#tileBar [data-tile-mode]")) {
+    btn.classList.toggle("active", btn.dataset.tileMode === tileMode);
+  }
+  $("reseedBtn").hidden = tileMode !== "random";
+  $("tileSeedLabel").hidden = tileMode !== "random";
+  $("tileSeedLabel").textContent = `seed ${tileSeed}`;
+  // A 64x64 board is already at raster resolution: there is no room inside a
+  // cell to draw a motif, so only the colour reshuffle can apply.
+  $("tileNote").textContent = scale >= 2
+    ? `${scale}×${scale} px per cell`
+    : "64×64 board — no room for tile art; Randomized recolours only";
+}
+
+// ── Frame filters ────────────────────────────────────────────────────────
+// A second, independent view-layer transform (recolor/noise/merge/occlude) on
+// top of whatever the tile renderer produced -- see frame_filters.py. Same
+// "worker holds the global state, bar resyncs after load" pattern as tiles.
+
+function setupFilterBar() {
+  const select = $("filterSelect");
+  select.innerHTML = "";
+  for (const f of FILTERS) {
+    const opt = document.createElement("option");
+    opt.value = f.id;
+    opt.textContent = f.label;
+    select.appendChild(opt);
+  }
+  select.addEventListener("change", () => selectFilter(select.value));
+  $("filterStrength").addEventListener("input", (e) => {
+    const entry = FILTERS.find((f) => f.id === filterId);
+    if (!entry || !entry.param) return;
+    const raw = +e.target.value;
+    filterParams = { [entry.param]: entry.step < 1 ? raw : Math.round(raw) };
+    applyFilter();
+  });
+  $("filterRerollBtn").addEventListener("click", () => {
+    filterSeed = 1 + Math.floor(Math.random() * 1e6);
+    applyFilter();
+  });
+}
+
+function selectFilter(id) {
+  filterId = id;
+  const entry = FILTERS.find((f) => f.id === id);
+  filterParams = entry && entry.param ? { [entry.param]: entry.default } : {};
+  updateFilterBar();
+  applyFilter();
+}
+
+async function applyFilter() {
+  if (!currentGame) return;
+  await runAction(() => gameSetFilter(filterId, filterParams, filterSeed), "(filter)");
+}
+
+function updateFilterBar() {
+  $("filterBar").hidden = !currentGame;
+  $("filterSelect").value = filterId;
+  const entry = FILTERS.find((f) => f.id === filterId);
+  const hasParam = !!(entry && entry.param);
+  $("filterParamWrap").hidden = !hasParam;
+  if (hasParam) {
+    const input = $("filterStrength");
+    input.min = entry.min;
+    input.max = entry.max;
+    input.step = entry.step;
+    input.value = filterParams[entry.param] ?? entry.default;
+    $("filterParamLabel").textContent = entry.param;
+  }
+  $("filterRerollBtn").hidden = !(entry && entry.seeded);
 }
 
 // ── Actions / stepping ───────────────────────────────────────────────────
@@ -149,7 +348,7 @@ async function runAction(fn, label) {
     const next = await fn();
     if (next.error) { alert(next.error); return; }
     if (label === "(reset)" || label === "(jump)") stepCount = 0;
-    else if (label !== "(undo)") stepCount++;
+    else if (label !== "(undo)" && label !== "(skin)" && label !== "(filter)") stepCount++;
     await applyState(next);
   } finally {
     processing = false;
@@ -169,6 +368,7 @@ async function applyState(next) {
   state = next;
   render(state.grid);
   updateTopBar();
+  updateTileBar();  // camera (and so tile scale) can change on a level change
   checkEnd();
 }
 

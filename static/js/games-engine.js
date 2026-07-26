@@ -64,6 +64,48 @@ importlib.invalidate_caches()
 
 from arcengine import ARCBaseGame  # noqa: F401 (import-error check)
           \`);
+
+          // Drop the tile-render shim in as a real importable module and patch
+          // Camera.render once. Mode stays "solid" (= stock engine output)
+          // until the UI asks for otherwise.
+          postProgress('Installing tile renderer...', 90);
+          pyodide.globals.set('_tiles_source', msg.tiles_source);
+          pyodide.runPython(\`
+import site, importlib
+with open(site.getsitepackages()[0] + "/arc_tiles.py", "w") as _f:
+    _f.write(_tiles_source)
+importlib.invalidate_caches()
+import arc_tiles
+arc_tiles.install()
+
+def _tile_scale():
+    cam = _game_instance.camera
+    return min(64 // max(1, cam.width), 64 // max(1, cam.height))
+          \`);
+
+          // Frame filters (docs/static/games/src/_shared/frame_filters.py) are a
+          // second, independent view-layer transform stacked on top of whatever
+          // the tile renderer produced: recolor/noise/merge/occlude the emitted
+          // grid. Same fetch-once-exec-into-globals recipe as arc_tiles above.
+          postProgress('Installing frame filters...', 96);
+          pyodide.globals.set('_filters_source', msg.filters_source);
+          pyodide.runPython(\`
+exec(_filters_source)
+_filter_id = 'none'
+_filter_params = {}
+_filter_base_seed = 0
+_filter_counter = 0
+_last_raw_grid = None
+
+def _apply_filter(grid):
+    global _filter_counter, _last_raw_grid
+    _last_raw_grid = grid
+    if _filter_id == 'none' or _filter_id not in FILTERS:
+        return grid
+    _filter_counter += 1
+    _seed = _filter_base_seed * 1000003 + _filter_counter
+    return apply_filter(grid, _filter_id, _filter_params, seed=_seed)
+          \`);
           postProgress('Ready', 100);
           self.postMessage({type: 'ready', id: msg.id});
         } catch (err) {
@@ -97,7 +139,7 @@ _frame_data = _game_instance.perform_action(_reset_action, raw=True)
 
           const stateJson = pyodide.runPython(\`
 import json
-_frame = _frame_data.frame[-1].tolist() if _frame_data.frame else []
+_frame = _apply_filter(_frame_data.frame[-1].tolist()) if _frame_data.frame else []
 _avail = list(_frame_data.available_actions)
 json.dumps({
     "grid": _frame,
@@ -105,6 +147,7 @@ json.dumps({
     "levels_completed": _frame_data.levels_completed,
     "win_levels": _frame_data.win_levels,
     "available_actions": _avail,
+    "tile_scale": _tile_scale(),
 })
 \`);
           self.postMessage({type: 'game_loaded', id, state: JSON.parse(stateJson)});
@@ -135,6 +178,7 @@ _step = max(1, len(_all_frames) // 120)
 _frames_out = _all_frames[::_step]
 if _all_frames and _frames_out[-1] is not _all_frames[-1]:
     _frames_out.append(_all_frames[-1])
+_frames_out = [_apply_filter(f) for f in _frames_out]
 _frame = _frames_out[-1] if _frames_out else []
 _avail = list(_frame_data.available_actions)
 json.dumps({
@@ -144,6 +188,7 @@ json.dumps({
     "levels_completed": _frame_data.levels_completed,
     "win_levels": _frame_data.win_levels,
     "available_actions": _avail,
+    "tile_scale": _tile_scale(),
     "undo_depth": len(_undo_stack),
 })
 \`);
@@ -163,7 +208,7 @@ _undo_stack = []
 \`);
           const stateJson = pyodide.runPython(\`
 import json
-_frame = _frame_data.frame[-1].tolist() if _frame_data.frame else []
+_frame = _apply_filter(_frame_data.frame[-1].tolist()) if _frame_data.frame else []
 _avail = list(_frame_data.available_actions)
 json.dumps({
     "grid": _frame,
@@ -171,10 +216,42 @@ json.dumps({
     "levels_completed": _frame_data.levels_completed,
     "win_levels": _frame_data.win_levels,
     "available_actions": _avail,
+    "tile_scale": _tile_scale(),
     "undo_depth": 0,
 })
 \`);
           self.postMessage({type: 'reset_result', id: msg.id, state: JSON.parse(stateJson)});
+        } catch (err) {
+          self.postMessage({type: 'error', id: msg.id, error: err.message});
+        }
+        return;
+      }
+
+      if (msg.type === 'set_tile_mode') {
+        try {
+          const {mode, seed, id} = msg;
+          pyodide.globals.set('_tile_mode', mode);
+          pyodide.globals.set('_tile_seed', seed);
+          // Re-render the live board rather than replaying the action: the
+          // stored frames were rasterised under the previous skin.
+          pyodide.runPython(\`
+arc_tiles.set_mode(_tile_mode, int(_tile_seed))
+_frame = _game_instance.camera.render(_game_instance.current_level.get_sprites())
+\`);
+          const stateJson = pyodide.runPython(\`
+import json
+_avail = list(_frame_data.available_actions)
+json.dumps({
+    "grid": _apply_filter(_frame.tolist()),
+    "state": _frame_data.state.value if hasattr(_frame_data.state, "value") else str(_frame_data.state),
+    "levels_completed": _frame_data.levels_completed,
+    "win_levels": _frame_data.win_levels,
+    "available_actions": _avail,
+    "tile_scale": _tile_scale(),
+    "undo_depth": len(_undo_stack),
+})
+\`);
+          self.postMessage({type: 'set_tile_mode_result', id, state: JSON.parse(stateJson)});
         } catch (err) {
           self.postMessage({type: 'error', id: msg.id, error: err.message});
         }
@@ -196,7 +273,9 @@ elif _undo_stack:
 \`);
           const stateJson = pyodide.runPython(\`
 import json
-_frame = _frame_data.frame[-1].tolist() if _frame_data.frame else []
+# Re-render instead of reusing _frame_data.frame: if the skin changed since
+# this state was pushed, the stored raster is stale.
+_frame = _apply_filter(_game_instance.camera.render(_game_instance.current_level.get_sprites()).tolist())
 _avail = list(_frame_data.available_actions)
 json.dumps({
     "grid": _frame,
@@ -204,6 +283,7 @@ json.dumps({
     "levels_completed": _frame_data.levels_completed,
     "win_levels": _frame_data.win_levels,
     "available_actions": _avail,
+    "tile_scale": _tile_scale(),
     "undo_depth": len(_undo_stack),
 })
 \`);
@@ -231,15 +311,48 @@ _undo_stack = []
 import json
 _avail = list(_game_instance._available_actions)
 json.dumps({
-    "grid": _frame.tolist(),
+    "grid": _apply_filter(_frame.tolist()),
     "state": _game_instance._state.value if hasattr(_game_instance._state, "value") else str(_game_instance._state),
     "levels_completed": _game_instance._score,
     "win_levels": _game_instance._win_score,
     "available_actions": _avail,
+    "tile_scale": _tile_scale(),
     "undo_depth": 0,
 })
 \`);
           self.postMessage({type: 'jump_level_result', id, state: JSON.parse(stateJson)});
+        } catch (err) {
+          self.postMessage({type: 'error', id: msg.id, error: err.message});
+        }
+        return;
+      }
+
+      if (msg.type === 'set_filter') {
+        try {
+          const {filter_id, params, base_seed, id} = msg;
+          pyodide.globals.set('_filter_id', filter_id);
+          pyodide.globals.set('_filter_params', pyodide.toPy(params || {}));
+          pyodide.globals.set('_filter_base_seed', base_seed || 0);
+          // Re-render the CURRENT frame through the new filter -- no game action
+          // taken, no _undo_stack push. _last_raw_grid is set as a side effect of
+          // every prior _apply_filter call (see the init handler above), so it
+          // always holds whatever the last grid_emit site produced.
+          const stateJson = pyodide.runPython(\`
+import json
+_filter_params = dict(_filter_params)
+_frame = _apply_filter(_last_raw_grid) if _last_raw_grid is not None else []
+_avail = list(_frame_data.available_actions)
+json.dumps({
+    "grid": _frame,
+    "state": _frame_data.state.value if hasattr(_frame_data.state, "value") else str(_frame_data.state),
+    "levels_completed": _frame_data.levels_completed,
+    "win_levels": _frame_data.win_levels,
+    "available_actions": _avail,
+    "tile_scale": _tile_scale(),
+    "undo_depth": len(_undo_stack),
+})
+\`);
+          self.postMessage({type: 'filter_result', id, state: JSON.parse(stateJson)});
         } catch (err) {
           self.postMessage({type: 'error', id: msg.id, error: err.message});
         }
@@ -262,16 +375,22 @@ json.dumps({
     } else if (type === "error") {
       const cb = _enginePending.get(id);
       if (cb) { cb.reject(new Error(error)); _enginePending.delete(id); }
-    } else if (["game_loaded", "step_result", "reset_result", "undo_result", "jump_level_result"].includes(type)) {
+    } else if (["game_loaded", "step_result", "reset_result", "undo_result", "jump_level_result",
+                "set_tile_mode_result", "filter_result"].includes(type)) {
       const cb = _enginePending.get(id);
       if (cb) { cb.resolve(state); _enginePending.delete(id); }
     }
   };
   const initId = ++_engineCallId;
-  return new Promise((resolve, reject) => {
+  // Fetched here rather than inside the worker: the worker runs off a blob URL,
+  // so it has no useful base URL to resolve a same-origin path against.
+  return Promise.all([
+    fetch("./static/games/arc_tiles.py").then((r) => r.text()),
+    fetch("./static/games/src/_shared/frame_filters.py").then((r) => r.text()),
+  ]).then(([tilesSource, filtersSource]) => new Promise((resolve, reject) => {
     _enginePending.set(initId, { resolve, reject });
-    _engineWorker.postMessage({ type: "init", id: initId });
-  });
+    _engineWorker.postMessage({ type: "init", id: initId, tiles_source: tilesSource, filters_source: filtersSource });
+  }));
 }
 
 function _send(msg) {
@@ -309,3 +428,12 @@ export const gameStep = (action, data) => _send({ type: "step", action, data });
 export const gameReset = () => _send({ type: "reset" });
 export const gameUndo = (count) => _send({ type: "undo", count });
 export const gameJumpLevel = (level) => _send({ type: "jump_level", level });
+// mode: "solid" (stock engine output) | "tiles" (fixed motifs) | "random"
+// (motifs + palette reshuffled from `seed`). See docs/static/games/arc_tiles.py.
+export const gameSetTileMode = (mode, seed) => _send({ type: "set_tile_mode", mode, seed });
+// filterId: a key from frame_filters.py's FILTERS dict ("none", "palette_shuffle",
+// "pixel_noise", "color_merge", "palette_cap", "block_pool", "fog_mask"). Re-renders
+// the current frame immediately (no game action taken) and persists for future
+// steps/resets. See docs/static/games/src/_shared/frame_filters.py.
+export const gameSetFilter = (filterId, params, baseSeed) =>
+  _send({ type: "set_filter", filter_id: filterId, params, base_seed: baseSeed });

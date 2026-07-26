@@ -25,9 +25,26 @@
   h1 { font-size: 20px; margin: 0 0 4px; }
   .sub { opacity: .7; margin: 0; font-size: 13px; }
   h2.section { max-width: 1200px; margin: 26px auto 10px; font-size: 12px; text-transform: uppercase;
-               letter-spacing: .07em; color: var(--text-dim); }
+               letter-spacing: .07em; color: var(--text-dim); display: flex; align-items: baseline; gap: 8px; }
+  h2.section .count { text-transform: none; letter-spacing: 0; opacity: .6; font-weight: 400; }
+  h2.section a.src { text-transform: none; letter-spacing: 0; font-weight: 400; opacity: .55;
+                     color: inherit; margin-left: auto; font-size: 11px; }
+  h2.section a.src:hover { opacity: 1; }
   .grid { max-width: 1200px; margin: 0 auto; display: grid;
           grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 10px; }
+  .grid.empty::after { content: "No games match this filter."; opacity: .55; font-size: 12.5px; }
+
+  .searchbar { max-width: 1200px; margin: 0 auto 18px; }
+  .searchbar input { width: 100%; max-width: 340px; font: inherit; padding: 7px 10px;
+                     border-radius: 7px; border: 1px solid var(--wash-line);
+                     background: var(--wash); color: inherit; }
+
+  .pager { max-width: 1200px; margin: 12px auto 0; display: flex; align-items: center; gap: 8px;
+           font-size: 12px; color: var(--text-dim); }
+  .pager button { font: inherit; padding: 3px 10px; }
+  .pager button:disabled { opacity: .4; cursor: default; }
+  .sidebar .pager { margin: 8px 0 0; font-size: 11px; }
+  .sidebar .pager button { padding: 2px 7px; }
 
   .game-card { cursor: pointer; border: 1px solid var(--wash-line); border-radius: 8px; padding: 8px;
                background: var(--wash); text-align: center; transition: background .1s, border-color .1s; }
@@ -84,6 +101,18 @@
   .controls { width: 100%; max-width: 560px; display: flex; gap: 8px; align-items: center;
               flex-wrap: wrap; margin-bottom: 8px; }
   .controls .fps { display: flex; align-items: center; gap: 6px; font-size: 11.5px; color: var(--text-dim); }
+
+  .tilebar { width: 100%; max-width: 560px; display: flex; gap: 6px; align-items: center;
+             flex-wrap: wrap; margin-bottom: 10px; font-size: 11.5px; color: var(--text-dim); }
+  .tilebar .seg { display: flex; gap: 0; }
+  .tilebar .seg button { font: inherit; padding: 4px 11px; border-radius: 0; margin-left: -1px; }
+  .tilebar .seg button:first-child { border-radius: 6px 0 0 6px; margin-left: 0; }
+  .tilebar .seg button:last-child { border-radius: 0 6px 6px 0; }
+  .tilebar .seg button.active { background: var(--accent-wash); border-color: var(--accent);
+                                color: var(--text, inherit); font-weight: 600; }
+  .tilebar .seed { font-variant-numeric: tabular-nums; opacity: .75; }
+  .tilebar .note { opacity: .6; }
+  .tilebar .paramwrap { display: flex; align-items: center; gap: 6px; }
   .action-hint { width: 100%; max-width: 560px; font-size: 11.5px; color: var(--text-dim); margin-bottom: 10px; }
 
   #levelStrip { width: 100%; max-width: 560px; display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 4px; }
@@ -102,23 +131,32 @@
 <div id="browseView">
   <div class="head">
     <h1>Play ARC-AGI-3</h1>
-    <p class="sub">The 25 official ARC Prize Foundation games, plus custom games built in-house.
-    Click one to play — it runs entirely in your browser (Python, via Pyodide/WASM), nothing is sent
-    to a server.</p>
+    <p class="sub">The 25 official ARC Prize Foundation games, custom games built in-house, and the
+    Red Blue Pill community catalog. Click one to play — it runs entirely in your browser (Python,
+    via Pyodide/WASM), nothing is sent to a server.</p>
   </div>
-  <h2 class="section">ARC Prize Foundation — official games</h2>
+  <div class="searchbar">
+    <input type="search" id="gameSearch" placeholder="Filter games by name, id or tag…" autocomplete="off">
+  </div>
+  <h2 class="section">ARC Prize Foundation — official games <span class="count" id="countOfficial"></span></h2>
   <div class="grid" id="browseOfficial"></div>
-  <h2 class="section">Custom games</h2>
+  <div class="pager" id="pagerOfficial" hidden></div>
+  <h2 class="section">Custom games <span class="count" id="countCustom"></span></h2>
   <div class="grid" id="browseCustom"></div>
+  <div class="pager" id="pagerCustom" hidden></div>
+  <h2 class="section">Red Blue Pill <span class="count" id="countRedblue"></span>
+    <a class="src" href="https://github.com/theredbluepill/arc-interactive" target="_blank"
+       rel="noopener">github.com/theredbluepill/arc-interactive ↗</a></h2>
+  <div class="grid" id="browseRedblue"></div>
+  <div class="pager" id="pagerRedblue" hidden></div>
 </div>
 
 <div id="playView" hidden>
   <div class="sidebar">
     <a class="back-link" id="backToBrowse">&larr; All games</a>
-    <h2 class="section">Official</h2>
-    <div class="grid" id="sidebarOfficial"></div>
-    <h2 class="section">Custom</h2>
-    <div class="grid" id="sidebarCustom"></div>
+    <h2 class="section" id="sidebarHeading">Games</h2>
+    <div class="grid" id="sidebarGrid"></div>
+    <div class="pager" id="sidebarPager" hidden></div>
   </div>
   <div class="stage">
     <div class="stage-head">
@@ -143,6 +181,26 @@
       <button id="undoBtn" disabled>Undo</button>
       <button id="liveToggleBtn" hidden>Live mode</button>
       <span class="fps" id="liveFpsWrap" hidden>fps <input type="range" id="liveFpsInput" min="2" max="30" value="10"></span>
+    </div>
+    <div class="tilebar" id="tileBar" hidden>
+      <span>Tiles</span>
+      <span class="seg">
+        <button data-tile-mode="solid" class="active" title="Stock engine output — flat blocks">Normal</button>
+        <button data-tile-mode="tiles" title="Each cell drawn as a tile, same colours every time">Tiles</button>
+        <button data-tile-mode="random" title="Tile motifs and colours reshuffled per seed">Randomized</button>
+      </span>
+      <button id="reseedBtn" hidden>↻ Reseed</button>
+      <span class="seed" id="tileSeedLabel" hidden></span>
+      <span class="note" id="tileNote"></span>
+    </div>
+    <div class="tilebar" id="filterBar" hidden>
+      <span>Filter</span>
+      <select id="filterSelect"></select>
+      <span class="paramwrap" id="filterParamWrap" hidden>
+        <label id="filterParamLabel"></label>
+        <input type="range" id="filterStrength">
+      </span>
+      <button id="filterRerollBtn" hidden>↻ New seed</button>
     </div>
     <p class="action-hint" id="actionHint"></p>
   </div>
